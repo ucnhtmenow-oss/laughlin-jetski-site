@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 
@@ -23,14 +22,16 @@ const walkthroughPhotos = [
         src: "/jetski/main-building.jpg",
         alt: "Main rental building",
         title: "Main building",
-        description: "Entrance location.",
+        description:
+            "Entrance location.",
         label: "Step 1",
     },
     {
         src: "/jetski/through-casino.jpg",
         alt: "Path through the casino area",
         title: "Go through the casino",
-        description: "Proceed straight to the rear of the casino.",
+        description:
+            "Proceed straight to the rear of the casino.",
         label: "Step 2",
     },
     {
@@ -45,7 +46,8 @@ const walkthroughPhotos = [
         src: "/jetski/through-door.jpg",
         alt: "Doorway leading toward the dock path",
         title: "Door leading to stairway",
-        description: "River-walk EXIT door.",
+        description:
+            "River-walk EXIT door.",
         label: "Step 4",
     },
     {
@@ -60,7 +62,8 @@ const walkthroughPhotos = [
         src: "/jetski/door-after-stairs.jpg",
         alt: "Door after the stairs on the way to the dock",
         title: "Door at stair landing",
-        description: "EXIT door to dock/landing area.",
+        description:
+            "EXIT door to dock/landing area.",
         label: "Step 6",
     },
     {
@@ -83,14 +86,16 @@ const walkthroughPhotos = [
         src: "/jetski/towards-rental-booth.jpg",
         alt: "Approaching the rental booth",
         title: "Towards the rental booth",
-        description: "YOU'VE MADE IT! NOW LETS RIDE!",
+        description:
+            "YOU'VE MADE IT! NOW LETS RIDE!",
         label: "Step 9",
     },
     {
         src: "/jetski/end-rental-booth.jpg",
         alt: "Final rental booth destination",
         title: "Rental booth",
-        description: "THIS MAN ALWAYS HAS A SMILE ON HIS FACE!",
+        description:
+            "THIS MAN ALWAYS HAS A SMILE ON HIS FACE!",
         label: "END",
     },
 ];
@@ -100,29 +105,26 @@ const walkthroughSteps = [
         title: "Arrive at the property",
         text: "Start with the overview and entry photos so customers know exactly where the walkthrough begins.",
         imageSrc: "/jetski/arrive-at-property.jpg",
-        imageAlt: "Arrival guidance image",
+        imageAlt: "Dock view guidance image 1",
         badge: "1",
     },
     {
         title: "Follow the route step by step",
         text: "Use the building, hallway, doorway, stairs, and dock-turn photos to guide people through the route without confusion.",
         imageSrc: "/jetski/follow-route.jpg",
-        imageAlt: "Route guidance image",
+        imageAlt: "Dock view guidance image 2",
         badge: "2",
     },
     {
         title: "Finish at the booth",
         text: "The last photos should make it painfully obvious where customers are supposed to stop and check in.",
         imageSrc: "/jetski/booth-ending.jpg",
-        imageAlt: "Booth ending guidance image",
+        imageAlt: "Landing area near the booth",
         badge: "3",
     },
 ];
 
 function App() {
-    const [likes, setLikes] = useState(128);
-    const [shares, setShares] = useState(37);
-
     return (
         <div className="site-shell">
             <style>{`
@@ -160,221 +162,89 @@ function App() {
                     object-fit: cover;
                 }
 
-                .gallery-composite {
-                    display: flex;
-                    flex-direction: column;
-                    min-height: 520px;
-                    height: 520px;
-                    border-radius: 28px;
-                    background: linear-gradient(180deg, rgba(18, 10, 43, 0.95), rgba(8, 5, 23, 0.98));
-                    border: 1px solid rgba(108, 77, 183, 0.24);
-                    box-shadow:
-                        0 18px 44px rgba(0, 0, 0, 0.28),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+                .website-maker-section {
+                    padding-top: 0;
                 }
 
-                .gallery-main-photo {
-                    width: 100%;
-                    height: 240px;
-                    object-fit: cover;
-                    flex-shrink: 0;
-                }
-
-                .gallery-customer-fill {
+                .website-maker-card {
+                    width: min(1180px, 100%);
+                    margin: 0 auto;
                     display: grid;
-                    grid-template-columns: 150px 1fr;
-                    gap: 14px;
-                    align-items: stretch;
-                    padding: 16px;
-                    min-height: 0;
-                    flex: 1;
-                    background: linear-gradient(180deg, rgba(12, 7, 30, 0.85), rgba(7, 5, 18, 0.98));
+                    grid-template-columns: 1.15fr auto;
+                    gap: 18px;
+                    align-items: center;
+                    padding: 18px 22px;
+                    border-radius: 22px;
+                    border: 1px solid rgba(108, 77, 183, 0.18);
+                    background: linear-gradient(180deg, rgba(16, 9, 36, 0.88), rgba(10, 5, 24, 0.96));
+                    box-shadow:
+                        0 14px 34px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.03);
                 }
 
-                .gallery-customer-fill img {
-                    width: 100%;
-                    height: 100%;
-                    min-height: 170px;
-                    object-fit: cover;
-                    border-radius: 16px;
+                .website-maker-copy {
+                    min-width: 0;
                 }
 
-                .gallery-customer-copy {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: 10px;
-                }
-
-                .gallery-customer-tag {
+                .website-maker-tag {
                     display: inline-flex;
-                    width: fit-content;
                     align-items: center;
                     justify-content: center;
-                    padding: 7px 10px;
+                    padding: 6px 10px;
+                    margin-bottom: 10px;
                     border-radius: 999px;
                     font-size: 0.72rem;
                     font-weight: 800;
                     letter-spacing: 0.05em;
                     text-transform: uppercase;
-                    color: #efe5ff;
-                    background: rgba(72, 45, 143, 0.44);
-                    border: 1px solid rgba(137, 108, 212, 0.24);
+                    color: rgba(231, 222, 255, 0.9);
+                    background: rgba(72, 45, 143, 0.34);
+                    border: 1px solid rgba(137, 108, 212, 0.18);
                 }
 
-                .gallery-customer-copy h3 {
-                    margin: 0;
+                .website-maker-title {
+                    margin: 0 0 6px;
                     color: #ffffff;
                     font-size: 1rem;
+                    font-weight: 800;
                     line-height: 1.2;
                 }
 
-                .gallery-customer-copy p {
+                .website-maker-text {
                     margin: 0;
-                    color: rgba(230, 223, 251, 0.8);
-                    font-size: 0.94rem;
+                    color: rgba(227, 220, 250, 0.72);
+                    font-size: 0.92rem;
                     line-height: 1.7;
+                    max-width: 780px;
                 }
 
-                .page-social-grid {
-                    display: grid;
-                    grid-template-columns: 0.92fr 1.08fr;
-                    gap: 22px;
-                    align-items: stretch;
-                }
-
-                .page-counter-card,
-                .page-ad-card {
-                    overflow: hidden;
-                    border-radius: 28px;
-                    border: 1px solid rgba(108, 77, 183, 0.24);
-                    background: linear-gradient(180deg, rgba(18, 10, 43, 0.95), rgba(8, 5, 23, 0.98));
-                    box-shadow:
-                        0 22px 60px rgba(0, 0, 0, 0.24),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-                }
-
-                .page-counter-inner,
-                .page-ad-inner {
-                    padding: 24px;
-                }
-
-                .page-bottom-tag {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 7px 10px;
-                    margin-bottom: 14px;
-                    border-radius: 999px;
-                    font-size: 0.72rem;
-                    font-weight: 800;
-                    letter-spacing: 0.06em;
-                    text-transform: uppercase;
-                    color: #efe5ff;
-                    background: rgba(72, 45, 143, 0.44);
-                    border: 1px solid rgba(137, 108, 212, 0.24);
-                }
-
-                .page-counter-inner h3,
-                .page-ad-inner h3 {
-                    margin: 0 0 10px;
-                    color: #ffffff;
-                    font-size: 1.2rem;
-                }
-
-                .page-counter-inner p,
-                .page-ad-inner p {
-                    margin: 0 0 18px;
-                    color: rgba(230, 223, 251, 0.8);
-                    font-size: 0.96rem;
-                    line-height: 1.75;
-                }
-
-                .page-counter-stats {
-                    display: grid;
-                    grid-template-columns: repeat(3, minmax(0, 1fr));
-                    gap: 12px;
-                    margin-bottom: 18px;
-                }
-
-                .page-counter-stat {
-                    padding: 16px;
-                    border-radius: 18px;
-                    border: 1px solid rgba(108, 77, 183, 0.2);
-                    background: rgba(255, 255, 255, 0.03);
-                    text-align: center;
-                }
-
-                .page-counter-stat strong {
-                    display: block;
-                    color: #ffffff;
-                    font-size: 1.2rem;
-                    margin-bottom: 6px;
-                }
-
-                .page-counter-stat span {
-                    color: rgba(230, 223, 251, 0.74);
-                    font-size: 0.85rem;
-                }
-
-                .page-counter-actions {
+                .website-maker-actions {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 12px;
+                    gap: 10px;
+                    justify-content: flex-end;
                 }
 
-                .page-counter-button {
+                .website-maker-button {
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
-                    min-width: 140px;
-                    padding: 12px 16px;
+                    min-width: 148px;
+                    padding: 11px 14px;
                     border-radius: 14px;
-                    border: 1px solid rgba(121, 92, 198, 0.28);
-                    background: rgba(57, 32, 117, 0.3);
+                    border: 1px solid rgba(121, 92, 198, 0.22);
+                    background: rgba(57, 32, 117, 0.26);
                     color: #ffffff;
-                    font-size: 0.92rem;
-                    font-weight: 800;
-                    cursor: pointer;
-                }
-
-                .page-ad-visual {
-                    min-height: 190px;
-                    display: grid;
-                    place-items: center;
-                    text-align: center;
-                    padding: 18px;
-                    border-radius: 20px;
-                    background:
-                        radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 35%),
-                        linear-gradient(135deg, rgba(95, 64, 173, 0.9), rgba(31, 18, 73, 1));
-                    border: 1px solid rgba(167, 141, 235, 0.18);
-                    color: #ffffff;
-                    font-weight: 800;
-                    font-size: clamp(1.35rem, 2vw, 1.95rem);
-                    line-height: 1.15;
-                }
-
-                .page-ad-actions {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 12px;
-                    margin-top: 16px;
-                }
-
-                .page-ad-button {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    min-width: 150px;
-                    padding: 12px 16px;
-                    border-radius: 14px;
-                    border: 1px solid rgba(121, 92, 198, 0.28);
-                    background: rgba(57, 32, 117, 0.3);
-                    color: #ffffff;
-                    font-size: 0.92rem;
-                    font-weight: 800;
                     text-decoration: none;
+                    font-size: 0.88rem;
+                    font-weight: 800;
+                    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+                }
+
+                .website-maker-button:hover {
+                    transform: translateY(-1px);
+                    background: rgba(75, 45, 148, 0.34);
+                    border-color: rgba(149, 120, 226, 0.3);
                 }
 
                 @media (max-width: 980px) {
@@ -385,40 +255,25 @@ function App() {
                         min-height: 300px;
                     }
 
-                    .gallery-composite {
-                        min-height: unset;
-                        height: auto;
-                    }
-
-                    .gallery-customer-fill {
+                    .website-maker-card {
                         grid-template-columns: 1fr;
                     }
 
-                    .page-social-grid {
-                        grid-template-columns: 1fr;
+                    .website-maker-actions {
+                        justify-content: flex-start;
                     }
                 }
 
                 @media (max-width: 640px) {
-                    .gallery-main-photo {
-                        height: 220px;
+                    .website-maker-card {
+                        padding: 16px;
                     }
 
-                    .gallery-customer-fill img {
-                        min-height: 200px;
-                    }
-
-                    .page-counter-stats {
-                        grid-template-columns: 1fr;
-                    }
-
-                    .page-counter-actions,
-                    .page-ad-actions {
+                    .website-maker-actions {
                         flex-direction: column;
                     }
 
-                    .page-counter-button,
-                    .page-ad-button {
+                    .website-maker-button {
                         width: 100%;
                     }
                 }
@@ -547,48 +402,12 @@ function App() {
                             <img src="/jetski/hero-ski-beach.jpg" alt="Jet ski by the beach" />
                         </div>
 
-                        <div className="gallery-item gallery-composite">
-                            <img
-                                className="gallery-main-photo"
-                                src="/jetski/jetski-lineup2.jpg"
-                                alt="Jet ski lineup"
-                            />
-                            <div className="gallery-customer-fill">
-                                <img
-                                    src="/jetski/happy-customer.jpg"
-                                    alt="Happy customer enjoying the rental"
-                                />
-                                <div className="gallery-customer-copy">
-                                    <span className="gallery-customer-tag">Customer photo</span>
-                                    <h3>Real riders. Real water time.</h3>
-                                    <p>
-                                        This fills the dead space under the ski shot with an actual
-                                        customer moment instead of leaving a giant empty block.
-                                    </p>
-                                </div>
-                            </div>
+                        <div className="gallery-item">
+                            <img src="/jetski/jetski-lineup2.jpg" alt="Jet ski lineup" />
                         </div>
 
-                        <div className="gallery-item gallery-composite">
-                            <img
-                                className="gallery-main-photo"
-                                src="/jetski/jetski-lineup2.png"
-                                alt="Jet ski lineup close-up"
-                            />
-                            <div className="gallery-customer-fill">
-                                <img
-                                    src="/jetski/couple-ride.jpg"
-                                    alt="Couple riding a jet ski"
-                                />
-                                <div className="gallery-customer-copy">
-                                    <span className="gallery-customer-tag">Customer photo</span>
-                                    <h3>Show the fun, not just the lineup.</h3>
-                                    <p>
-                                        Same deal here. Now the second tall card actually sells the
-                                        experience instead of looking half-finished.
-                                    </p>
-                                </div>
-                            </div>
+                        <div className="gallery-item">
+                            <img src="/jetski/jetski-lineup2.png" alt="Jet ski lineup close-up" />
                         </div>
 
                         <div className="gallery-item gallery-wide">
@@ -600,11 +419,11 @@ function App() {
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/arrive-at-property.jpg" alt="Arrival photo at the property" />
+                            <img src="/jetski/happy-customer.jpg" alt="Happy customer on jet ski" />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/booth-ending.jpg" alt="Rental booth ending photo" />
+                            <img src="/jetski/couple-ride.jpg" alt="Couple riding jet ski" />
                         </div>
 
                         <div className="gallery-item gallery-wide">
@@ -657,7 +476,7 @@ function App() {
                     </div>
                 </section>
 
-                <section className="section" id="contact">
+                <section className="section">
                     <div className="contact-card">
                         <div className="contact-copy">
                             <span className="section-kicker">Book now</span>
@@ -689,73 +508,25 @@ function App() {
                     </div>
                 </section>
 
-                <section className="section">
-                    <div className="page-social-grid">
-                        <article className="page-counter-card">
-                            <div className="page-counter-inner">
-                                <span className="page-bottom-tag">Like + Share</span>
-                                <h3>Let people boost the page</h3>
-                                <p>
-                                    Gives the bottom of the page something useful to do besides just
-                                    stopping like it ran out of ideas.
-                                </p>
+                <section className="section website-maker-section">
+                    <div className="website-maker-card">
+                        <div className="website-maker-copy">
+                            <span className="website-maker-tag">Built by Gearhead 3D Fab</span>
+                            <h3 className="website-maker-title">Need a clean site for your own business?</h3>
+                            <p className="website-maker-text">
+                                We also build low-drama business sites, landing pages, photo galleries,
+                                walkthrough pages, and simple promo layouts like this one.
+                            </p>
+                        </div>
 
-                                <div className="page-counter-stats">
-                                    <div className="page-counter-stat">
-                                        <strong>1.9K</strong>
-                                        <span>Views</span>
-                                    </div>
-                                    <div className="page-counter-stat">
-                                        <strong>{likes}</strong>
-                                        <span>Likes</span>
-                                    </div>
-                                    <div className="page-counter-stat">
-                                        <strong>{shares}</strong>
-                                        <span>Shares</span>
-                                    </div>
-                                </div>
-
-                                <div className="page-counter-actions">
-                                    <button
-                                        type="button"
-                                        className="page-counter-button"
-                                        onClick={() => setLikes((value) => value + 1)}
-                                    >
-                                        Like this page
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="page-counter-button"
-                                        onClick={() => setShares((value) => value + 1)}
-                                    >
-                                        Share this page
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article className="page-ad-card">
-                            <div className="page-ad-inner">
-                                <span className="page-bottom-tag">Advertisement</span>
-                                <div className="page-ad-visual">
-                                    Bottom Page Ad Space
-                                </div>
-                                <h3>Give sponsors a premium footer placement</h3>
-                                <p>
-                                    This is your bottom ad slot for a hotel, event, river business,
-                                    promo, or whatever local sponsor wants a clean spot on the page.
-                                </p>
-
-                                <div className="page-ad-actions">
-                                    <a href="#contact" className="page-ad-button">
-                                        Book This Ad Slot
-                                    </a>
-                                    <a href="#walkthrough" className="page-ad-button">
-                                        Back to Walkthrough
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
+                        <div className="website-maker-actions">
+                            <a
+                                href="mailto:support@gearhead3dfab.com?subject=Website%20Build%20Inquiry"
+                                className="website-maker-button"
+                            >
+                                Ask About a Site
+                            </a>
+                        </div>
                     </div>
                 </section>
             </main>

@@ -11,8 +11,8 @@ type WalkthroughPhoto = {
 type WalkthroughStep = {
   title: string;
   text: string;
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  imageAlt?: string;
   badge?: string;
 };
 
@@ -594,11 +594,13 @@ export default function WalkthroughSection({
           <div className="walkthrough-steps-top">
             {steps.map((step, index) => (
               <article key={`${step.title}-${index}`} className="walkthrough-step-card">
-                <img
-                  className="walkthrough-step-image"
-                  src={step.imageSrc}
-                  alt={step.imageAlt}
-                />
+                {step.imageSrc ? (
+                  <img
+                    className="walkthrough-step-image"
+                    src={step.imageSrc}
+                    alt={step.imageAlt ?? step.title}
+                  />
+                ) : null}
                 <div className="walkthrough-step-body">
                   <div className="walkthrough-step-index">
                     {step.badge ?? index + 1}
