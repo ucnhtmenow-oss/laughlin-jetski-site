@@ -103,21 +103,21 @@ const walkthroughPhotos = [
 const walkthroughSteps = [
     {
         title: "Arrive at the property",
-        text: "Start with the overview and entry photos so customers know exactly where the walkthrough begins.",
+        text: "Can't you feel the excitement?",
         imageSrc: "/jetski/arrive-at-property.jpg",
         imageAlt: "Dock view guidance image 1",
         badge: "1",
     },
     {
         title: "Follow the route step by step",
-        text: "Use the building, hallway, doorway, stairs, and dock-turn photos to guide people through the route without confusion.",
+        text: "Step by step instructions to guide you to your destination.",
         imageSrc: "/jetski/follow-route.jpg",
         imageAlt: "Dock view guidance image 2",
         badge: "2",
     },
     {
         title: "Finish at the booth",
-        text: "The last photos should make it painfully obvious where customers are supposed to stop and check in.",
+        text: "The fun begins!",
         imageSrc: "/jetski/booth-ending.jpg",
         imageAlt: "Landing area near the booth",
         badge: "3",
@@ -438,7 +438,7 @@ function App() {
                         <h2>Find us fast</h2>
                         <p>
                             Get to the river without the usual phone call that starts with
-                            “uhh where are you guys at?”
+                            “umm, where are you guys at?”
                         </p>
                     </div>
 
