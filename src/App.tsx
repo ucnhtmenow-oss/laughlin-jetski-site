@@ -1,5 +1,6 @@
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
+import VisitorCount from "./components/VisitorCount";
 
 const walkthroughPhotos = [
     {
@@ -532,7 +533,12 @@ function App() {
             </main>
 
             <footer className="site-footer">
-                © Laughlin Jet Ski Rentals • 1950 Casino Dr, Laughlin, NV 89029
+                <div className="site-footer-line">
+                    © Laughlin Jet Ski Rentals • 1950 Casino Dr, Laughlin, NV 89029
+                </div>
+                <div className="site-footer-line">
+                    <VisitorCount />
+                </div>
             </footer>
         </div>
     );
