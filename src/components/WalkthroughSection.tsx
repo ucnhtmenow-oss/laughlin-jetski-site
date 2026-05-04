@@ -636,8 +636,7 @@ export default function WalkthroughSection({
                 </div>
 
                 <p className="walkthrough-card-note">
-                  Use this clip to show the real dock approach, where guests should
-                  stop, and how they get from parking to the skis.
+                  
                 </p>
               </div>
             </article>
@@ -651,9 +650,7 @@ export default function WalkthroughSection({
                 <div className="walkthrough-ad-copy">
                   <h4>Put your brand right under the walkthrough</h4>
                   <p>
-                    This slot is perfect for a local sponsor, hotel partner, river
-                    business, or promo graphic. Swap the placeholder with a real
-                    ad image whenever you’re ready.
+                    T
                   </p>
                   <div className="walkthrough-ad-buttons">
                     <a href="#contact" className="walkthrough-ad-button">
