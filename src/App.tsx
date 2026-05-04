@@ -404,7 +404,7 @@ function App() {
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/river_view1.jpg" alt="Jet ski lineup" />
+                            <img src="/jetski/river-view1.jpg" alt="Jet ski lineup" />
                         </div>
 
                         <div className="gallery-item">
@@ -416,7 +416,7 @@ function App() {
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/happy_customer.jpg" alt="Aquarius dock area" />
+                            <img src="/jetski/happy-customer.jpg" alt="Aquarius dock area" />
                         </div>
 
                         <div className="gallery-item">
@@ -439,7 +439,7 @@ function App() {
                         <h2>Find us fast</h2>
                         <p>
                             Get to the river without the usual phone call that starts with
-                            “umm, where are you guys at?”
+                            “Umm, where are you guys at?”
                         </p>
                     </div>
 
