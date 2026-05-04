@@ -362,7 +362,7 @@ export default function JetSkiRentalPage() {
                 Show customers exactly where to go before they ever leave home.
                 This layout gives you a strong hero section, a clean walkthrough,
                 and clear dock directions so fewer people call asking where the
-                hell they’re supposed to be.
+                heck they’re supposed to be.
               </p>
 
               <div className="jetski-actions">

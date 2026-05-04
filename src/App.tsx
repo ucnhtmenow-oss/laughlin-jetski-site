@@ -400,11 +400,11 @@ function App() {
 
                     <div className="gallery-grid">
                         <div className="gallery-item gallery-tall">
-                            <img src="/jetski/hero-ski-beach.jpg" alt="Jet ski by the beach" />
+                            <img src="/jetski/river-view.jpg" alt="Jet ski by the beach" />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/jetski-lineup2.jpg" alt="Jet ski lineup" />
+                            <img src="/jetski/river_view1.jpg" alt="Jet ski lineup" />
                         </div>
 
                         <div className="gallery-item">
@@ -412,11 +412,11 @@ function App() {
                         </div>
 
                         <div className="gallery-item gallery-wide">
-                            <img src="/jetski/dock-view.jpg" alt="Dock and river view" />
+                            <img src="/jetski/landing-area1.jpg" alt="Dock and river view" />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/dock-aquarius.jpg" alt="Aquarius dock area" />
+                            <img src="/jetski/landing-area.jpg" alt="Aquarius dock area" />
                         </div>
 
                         <div className="gallery-item">

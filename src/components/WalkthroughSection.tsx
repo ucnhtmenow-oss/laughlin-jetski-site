@@ -652,7 +652,7 @@ export default function WalkthroughSection({
                 <div className="walkthrough-ad-copy">
                   <h4>Put your brand right under the walkthrough</h4>
                   <p>
-                    T
+                    
                   </p>
                   <div className="walkthrough-ad-buttons">
                     <a href="#contact" className="walkthrough-ad-button">
