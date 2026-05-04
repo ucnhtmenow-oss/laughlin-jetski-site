@@ -394,7 +394,7 @@ function App() {
                         <span className="section-kicker">Gallery</span>
                         <h2>Customer Photos</h2>
                         <p>
-                            Real skis, real riders, real river views. No fake stock-photo garbage.
+                            Real skis, real riders, real river views.
                         </p>
                     </div>
 
@@ -416,11 +416,11 @@ function App() {
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/landing-area.jpg" alt="Aquarius dock area" />
+                            <img src="/jetski/happy_customer.jpg" alt="Aquarius dock area" />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/happy-customer.jpg" alt="Happy customer on jet ski" />
+                            <img src="/jetski/customers.jpg" alt="Happy customer on jet ski" />
                         </div>
 
                         <div className="gallery-item">
