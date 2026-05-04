@@ -371,13 +371,15 @@ export default function WalkthroughSection({
                     min-height: 420px;
                 }
 
+                /* 🔒 LOCKED: centered image system for walkthrough arrows */
                 .tour-main img {
                     display: block;
                     width: 100%;
                     height: 420px;
-                    object-fit: cover;
-                    background: #10081f;
-                }
+
+                    /* keep full image visible */
+     
+}
 
                 .tour-empty {
                     min-height: 420px;
