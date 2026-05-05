@@ -1,3 +1,4 @@
+// src/App.tsx
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
@@ -300,13 +301,38 @@ function App() {
 
                 .safety-video-box {
                     min-height: 240px;
-                    display: grid;
-                    place-items: center;
-                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                    justify-content: center;
+                    gap: 14px;
+                    padding: 16px;
                     background:
                         linear-gradient(135deg, rgba(13, 8, 31, 0.65), rgba(45, 22, 77, 0.88)),
                         url("/jetski/walkthrough-poster.jpg") center/cover no-repeat;
                     overflow: hidden;
+                }
+
+                .safety-video-wrap {
+                    width: 100%;
+                    aspect-ratio: 16 / 9;
+                    border-radius: 18px;
+                    overflow: hidden;
+                    border: 1px solid rgba(255, 255, 255, 0.14);
+                    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.26);
+                    background: rgba(9, 5, 24, 0.75);
+                }
+
+                .safety-video-wrap iframe {
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                    display: block;
+                }
+
+                .safety-video-actions {
+                    display: flex;
+                    justify-content: center;
                 }
 
                 .safety-play {
@@ -487,11 +513,11 @@ function App() {
                 <div className="site-nav-links">
                     <a href="#home">Home</a>
                     <a href="#rentals">Rentals</a>
+                    <a href="#pricing">Pricing</a>
                     <a href="#gallery">Gallery</a>
                     <a href="#location">Directions</a>
                     <a href="#safety">Safety</a>
-                    <a href="#contact">Contact</a>
-                    <a href={`tel:${phoneNumber}`} className="site-nav-cta">
+                    <a href="#book" className="site-nav-cta">
                         Book Now
                     </a>
                 </div>
@@ -521,9 +547,10 @@ function App() {
                             <h1>Laughlin Jet Ski Rentals</h1>
 
                             <p className="hero-copy">
-                                Rent jet skis in Laughlin, NV near the Colorado River. Real jet skis,
-                                real river fun, easy directions, and a direct booking line so you can
-                                get on the water without the usual confusion.
+                                Looking for jet ski rentals in Laughlin NV on the Colorado River?
+                                Laughlin Jet Ski Rentals keeps it simple with real skis, easy
+                                directions, and a direct booking line so you can get on the water
+                                without the usual confusion.
                             </p>
 
                             <div className="hero-actions">
@@ -602,6 +629,39 @@ function App() {
                                 jet ski rental fast.
                             </p>
                         </div>
+                    </div>
+                </section>
+
+                <section className="section" id="pricing">
+                    <div className="section-heading">
+                        <span className="section-kicker">Pricing</span>
+                        <h2>Rentals priced for river time (gas included).</h2>
+                        <p>
+                            Call to book your rental. Walk-ins welcome when availability allows, but
+                            calling ahead is the fastest way to lock in jet ski rentals in Laughlin NV.
+                        </p>
+                    </div>
+
+                    <div className="pricing-grid">
+                        <article className="pricing-card">
+                            <span className="pricing-badge">1 Hour</span>
+                            <h3>1 Hour Rental</h3>
+                            <div className="price">$129</div>
+                            <p>Gas included. Perfect for a quick Colorado River ride.</p>
+                            <a href={`tel:${phoneNumber}`} className="card-btn">
+                                Call to Book
+                            </a>
+                        </article>
+
+                        <article className="pricing-card">
+                            <span className="pricing-badge">2 Hours</span>
+                            <h3>2 Hour Rental</h3>
+                            <div className="price">$229</div>
+                            <p>Gas included. Best value for more river time.</p>
+                            <a href={`tel:${phoneNumber}`} className="card-btn">
+                                Call to Book
+                            </a>
+                        </article>
                     </div>
                 </section>
 
@@ -761,10 +821,10 @@ function App() {
                 <section className="section" id="safety">
                     <div className="section-heading">
                         <span className="section-kicker">Safety</span>
-                        <h2>Watch the safety video before you ride.</h2>
+                        <h2>Watch the Safety Video Before You Ride</h2>
                         <p>
-                            The best river day starts with knowing the basics. Watch the safety video,
-                            listen to instructions, and ride smart.
+                            Review the basic rules before getting on the Colorado River. Watch the
+                            safety video, follow the instructions, and ask questions before your rental.
                         </p>
                     </div>
 
@@ -779,10 +839,6 @@ function App() {
                             </div>
 
                             <div className="hero-actions">
-                                <a href="/jetski/walkthrough-video.mp4" className="primary-btn">
-                                    Watch Safety Video
-                                </a>
-
                                 <a href={`tel:${phoneNumber}`} className="secondary-btn">
                                     Ask a Question
                                 </a>
@@ -790,9 +846,92 @@ function App() {
                         </article>
 
                         <article className="safety-card safety-video-box">
-                            <a href="/jetski/walkthrough-video.mp4" className="safety-play">
-                                ▶
-                            </a>
+                            <div className="safety-video-wrap">
+                                <iframe
+                                    src="https://www.youtube.com/embed/P8P-LZKPIVM?start=1"
+                                    title="Laughlin Jet Ski Rentals safety video"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                />
+                            </div>
+
+                            <div className="safety-video-actions">
+                                <a href={`tel:${phoneNumber}`} className="primary-btn">
+                                    Call Now
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section className="section" id="book">
+                    <div className="section-heading">
+                        <span className="section-kicker">Book</span>
+                        <h2>Request a date and time, then call to confirm.</h2>
+                        <p>
+                            Choose your preferred date and time, then call to confirm availability.
+                            Online checkout is coming soon.
+                        </p>
+                    </div>
+
+                    <div className="booking-grid">
+                        <article className="booking-card">
+                            <h3>Booking request</h3>
+                            <p>
+                                This request form helps you pick a target time. To confirm and reserve
+                                your spot on the Colorado River, call {displayPhone}.
+                            </p>
+                        </article>
+
+                        <article className="booking-card">
+                            <form className="booking-form" onSubmit={(event) => event.preventDefault()}>
+                                <div className="booking-field">
+                                    <label htmlFor="booking-date">Date</label>
+                                    <input id="booking-date" name="date" type="date" />
+                                </div>
+
+                                <div className="booking-field">
+                                    <label htmlFor="booking-time">Time</label>
+                                    <input id="booking-time" name="time" type="time" />
+                                </div>
+
+                                <div className="booking-field booking-span-2">
+                                    <label htmlFor="booking-length">Rental length</label>
+                                    <select id="booking-length" name="length" defaultValue="1-hour">
+                                        <option value="1-hour">1 Hour - $129</option>
+                                        <option value="2-hour">2 Hours - $229</option>
+                                    </select>
+                                </div>
+
+                                <div className="booking-field">
+                                    <label htmlFor="booking-name">Name</label>
+                                    <input
+                                        id="booking-name"
+                                        name="name"
+                                        type="text"
+                                        autoComplete="name"
+                                        placeholder="Your name"
+                                    />
+                                </div>
+
+                                <div className="booking-field">
+                                    <label htmlFor="booking-phone">Phone</label>
+                                    <input
+                                        id="booking-phone"
+                                        name="phone"
+                                        type="tel"
+                                        autoComplete="tel"
+                                        placeholder="(702) 000-0000"
+                                    />
+                                </div>
+
+                                <div className="booking-actions booking-span-2">
+                                    <a href={`tel:${phoneNumber}`} className="primary-btn booking-call-btn">
+                                        Call to Confirm Booking
+                                    </a>
+                                </div>
+                            </form>
                         </article>
                     </div>
                 </section>

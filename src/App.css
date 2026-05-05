@@ -1,3 +1,4 @@
+/* src/App.css */
 * {
   box-sizing: border-box;
 }
@@ -352,6 +353,7 @@ img {
 .map-embed-card,
 .directions-card,
 .contact-card,
+.booking-card,
 .walkthrough-card,
 .info-card,
 .river-day-card,
@@ -579,7 +581,7 @@ img {
 ========================= */
 
 .pricing-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .pricing-card {
@@ -641,6 +643,76 @@ img {
 
 .card-btn:hover {
   transform: translateY(-2px);
+}
+
+/* =========================
+   BOOKING
+========================= */
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 18px;
+}
+
+.booking-card {
+  padding: 24px;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.booking-field label {
+  color: rgba(231, 222, 255, 0.9);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.booking-field input,
+.booking-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  outline: none;
+}
+
+.booking-field input::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.booking-field input:focus,
+.booking-field select:focus {
+  border-color: rgba(255, 204, 47, 0.55);
+  box-shadow: 0 0 0 4px rgba(255, 92, 169, 0.16);
+}
+
+.booking-span-2 {
+  grid-column: span 2;
+}
+
+.booking-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+
+.booking-call-btn {
+  width: 100%;
 }
 
 /* =========================
@@ -797,6 +869,7 @@ img {
   .feature-grid,
   .pricing-grid,
   .hero-stats,
+  .booking-grid,
   .map-grid,
   .gallery-grid,
   .walkthrough-grid,
@@ -872,6 +945,7 @@ img {
   .feature-card,
   .directions-card,
   .contact-card,
+  .booking-card,
   .map-embed-card,
   .stat-card,
   .walkthrough-card,
@@ -879,6 +953,14 @@ img {
   .river-day-card,
   .safety-card {
     border-radius: 20px;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-span-2 {
+    grid-column: span 1;
   }
 
   .gallery-item,
