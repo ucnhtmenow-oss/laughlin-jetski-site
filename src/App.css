@@ -19,7 +19,7 @@ body {
     "Segoe UI",
     sans-serif;
 }
-ac
+
 a {
   color: inherit;
   text-decoration: none;
@@ -34,13 +34,95 @@ img {
   min-height: 100vh;
 }
 
+/* =========================
+   TOP NAV
+========================= */
+
+.site-nav {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: min(1180px, calc(100% - 28px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 12px 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(12, 7, 25, 0.78);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(16px);
+}
+
+.site-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: #ffffff;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.site-nav-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.site-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 0;
+}
+
+.site-nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(245, 236, 255, 0.82);
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.site-nav-links a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.site-nav-links .site-nav-cta {
+  color: #2a0f3a;
+  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  box-shadow: 0 10px 24px rgba(255, 92, 169, 0.2);
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
   position: relative;
   min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 96px 24px 72px;
+  padding: 112px 24px 72px;
   overflow: hidden;
   background:
     linear-gradient(to bottom, rgba(8, 6, 18, 0.2), rgba(8, 6, 18, 0.88)),
@@ -218,6 +300,10 @@ img {
   color: rgba(255, 242, 248, 0.96);
 }
 
+/* =========================
+   MAIN SECTIONS
+========================= */
+
 .main-content {
   width: 100%;
   max-width: 1240px;
@@ -266,20 +352,29 @@ img {
 .map-embed-card,
 .directions-card,
 .contact-card,
-.walkthrough-card {
+.walkthrough-card,
+.info-card,
+.river-day-card,
+.safety-card {
   background: rgba(30, 18, 50, 0.9);
   border: 1px solid rgba(255, 126, 202, 0.16);
   border-radius: 24px;
   box-shadow: 0 18px 38px rgba(6, 3, 12, 0.32);
 }
 
-.feature-card {
+.feature-card,
+.info-card,
+.river-day-card,
+.safety-card {
   padding: 20px;
 }
 
 .feature-card h3,
 .directions-card h3,
-.walkthrough-copy h3 {
+.walkthrough-copy h3,
+.info-card h3,
+.river-day-card h3,
+.safety-card h3 {
   margin: 0 0 12px;
   color: #ffd65b;
   font-size: 1.2rem;
@@ -287,11 +382,91 @@ img {
 
 .feature-card p,
 .directions-card p,
-.walkthrough-copy p {
+.walkthrough-copy p,
+.info-card p,
+.river-day-card p,
+.safety-card p {
   margin: 0;
   color: rgba(240, 231, 255, 0.84);
   line-height: 1.7;
 }
+
+/* =========================
+   RENTAL / RIVER DAY / SAFETY
+========================= */
+
+.rental-info-grid,
+.river-day-grid,
+.safety-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.rental-info-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.river-day-grid {
+  grid-template-columns: 1.1fr 1fr 1fr;
+}
+
+.safety-grid {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.river-weather-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #2b0f40;
+  background: linear-gradient(135deg, #ffd65b, #ff5db1);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.safety-card-large {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(135deg, rgba(255, 204, 47, 0.12), rgba(255, 76, 160, 0.1)),
+    rgba(30, 18, 50, 0.92);
+}
+
+.safety-video-box {
+  min-height: 240px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(13, 8, 31, 0.65), rgba(45, 22, 77, 0.88)),
+    url("/jetski/walkthrough-poster.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+.safety-play {
+  width: 74px;
+  height: 74px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  color: #2a0f3a;
+  font-size: 1.8rem;
+  font-weight: 900;
+  box-shadow: 0 18px 38px rgba(255, 76, 160, 0.26);
+}
+
+/* =========================
+   WALKTHROUGH
+========================= */
 
 .walkthrough-grid {
   display: grid;
@@ -330,35 +505,51 @@ img {
   text-transform: uppercase;
 }
 
+/* =========================
+   GALLERY
+========================= */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  align-items: stretch;
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
-  background: rgba(30, 18, 50, 0.9);
-  border: 1px solid rgba(255, 126, 202, 0.16);
-  border-radius: 24px;
-  box-shadow: 0 18px 38px rgba(6, 3, 12, 0.32);
+  min-height: 280px;
+  height: 280px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(19, 9, 42, 0.94), rgba(10, 5, 24, 0.98));
+  border: 1px solid rgba(108, 77, 183, 0.26);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.gallery-item img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
+.gallery-item.gallery-tall {
+  min-height: 520px;
+  height: 520px;
 }
 
-.gallery-wide {
+.gallery-item.gallery-wide {
+  min-height: 280px;
+  height: 280px;
   grid-column: span 2;
 }
 
-.gallery-tall img {
+.gallery-item img {
+  display: block;
+  width: 100%;
   height: 100%;
-  min-height: 498px;
+  object-fit: cover;
 }
+
+/* =========================
+   MAP / DIRECTIONS
+========================= */
 
 .map-grid {
   display: grid;
@@ -382,6 +573,10 @@ img {
 .directions-card {
   padding: 20px;
 }
+
+/* =========================
+   PRICING
+========================= */
 
 .pricing-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -448,6 +643,10 @@ img {
   transform: translateY(-2px);
 }
 
+/* =========================
+   CONTACT
+========================= */
+
 .contact-card {
   display: flex;
   justify-content: space-between;
@@ -473,6 +672,102 @@ img {
   line-height: 1.8;
 }
 
+/* =========================
+   GEARHEAD WEB BUILD CTA
+========================= */
+
+.website-maker-section {
+  padding-top: 0;
+}
+
+.website-maker-card {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(108, 77, 183, 0.18);
+  background: linear-gradient(180deg, rgba(16, 9, 36, 0.88), rgba(10, 5, 24, 0.96));
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.website-maker-copy {
+  min-width: 0;
+}
+
+.website-maker-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(231, 222, 255, 0.9);
+  background: rgba(72, 45, 143, 0.34);
+  border: 1px solid rgba(137, 108, 212, 0.18);
+}
+
+.website-maker-title {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.website-maker-text {
+  margin: 0;
+  color: rgba(227, 220, 250, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-width: 780px;
+}
+
+.website-maker-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.website-maker-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 148px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(121, 92, 198, 0.22);
+  background: rgba(57, 32, 117, 0.26);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 800;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.website-maker-button:hover {
+  transform: translateY(-1px);
+  background: rgba(75, 45, 148, 0.34);
+  border-color: rgba(149, 120, 226, 0.3);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 .site-footer {
   text-align: center;
   padding: 30px;
@@ -492,6 +787,10 @@ img {
   color: rgba(200, 180, 230, 0.62);
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 1080px) {
 
   .hero-brand,
@@ -501,19 +800,55 @@ img {
   .map-grid,
   .gallery-grid,
   .walkthrough-grid,
-  .contact-card {
+  .contact-card,
+  .rental-info-grid,
+  .river-day-grid,
+  .safety-grid {
     grid-template-columns: 1fr;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .gallery-wide,
-  .walkthrough-wide {
+  .walkthrough-wide,
+  .gallery-item.gallery-wide {
     grid-column: span 1;
   }
 
-  .gallery-tall img {
-    min-height: 240px;
+  .gallery-item,
+  .gallery-item.gallery-wide,
+  .gallery-item.gallery-tall {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .website-maker-card {
+    grid-template-columns: 1fr;
+  }
+
+  .website-maker-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 980px) {
+  .site-nav {
+    position: sticky;
+    top: 10px;
+    left: auto;
+    transform: none;
+    width: calc(100% - 20px);
+    margin: 10px auto -4px;
+    border-radius: 22px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 }
 
@@ -539,13 +874,20 @@ img {
   .contact-card,
   .map-embed-card,
   .stat-card,
-  .walkthrough-card {
+  .walkthrough-card,
+  .info-card,
+  .river-day-card,
+  .safety-card {
     border-radius: 20px;
   }
 
+  .gallery-item,
+  .gallery-item.gallery-wide,
+  .gallery-item.gallery-tall,
   .gallery-item img,
   .walkthrough-card img {
     height: 220px;
+    min-height: 220px;
   }
 
   .map-embed,
@@ -558,5 +900,27 @@ img {
     bottom: 14px;
     min-height: 50px;
     padding: 12px 18px;
+  }
+
+  .site-nav-brand {
+    font-size: 0.92rem;
+  }
+
+  .site-nav-links a {
+    min-height: 36px;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .website-maker-card {
+    padding: 16px;
+  }
+
+  .website-maker-actions {
+    flex-direction: column;
+  }
+
+  .website-maker-button {
+    width: 100%;
   }
 }
