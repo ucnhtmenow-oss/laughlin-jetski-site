@@ -2,18 +2,23 @@ import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
 
+const phoneNumber = "17026247149";
+const displayPhone = "(702) 624-7149";
+const address = "1950 Casino Dr, Laughlin, NV 89029";
+const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
+
 const walkthroughPhotos = [
     {
         src: "/jetski/walkthrough-main.jpg",
-        alt: "Main walkthrough overview",
+        alt: "Main walkthrough overview for Laughlin Jet Ski Rentals",
         title: "Main Entrance",
         description:
-            "Entrance is just South of the chevron gas station in conjoining lots. Look for the Regency Casino sign.",
+            "Entrance is just south of the Chevron gas station in the conjoining lots. Look for the Regency Casino sign.",
         label: "Entrance",
     },
     {
         src: "/jetski/walkthrough-start.jpg",
-        alt: "Walkthrough starting point",
+        alt: "Walkthrough starting point near the casino entrance",
         title: "Walkthrough start",
         description:
             "Regency Casino entrance. Enter here to get to the rental booth.",
@@ -21,55 +26,49 @@ const walkthroughPhotos = [
     },
     {
         src: "/jetski/main-building.jpg",
-        alt: "Main rental building",
+        alt: "Main building entrance for Laughlin Jet Ski Rentals walkthrough",
         title: "Main building",
-        description:
-            "Entrance location.",
+        description: "Entrance location.",
         label: "Step 1",
     },
     {
         src: "/jetski/through-casino.jpg",
-        alt: "Path through the casino area",
+        alt: "Path through the casino area toward the river",
         title: "Go through the casino",
-        description:
-            "Proceed straight to the rear of the casino.",
+        description: "Proceed straight to the rear of the casino.",
         label: "Step 2",
     },
     {
         src: "/jetski/hang-left.jpg",
-        alt: "Turn left on the path",
+        alt: "Turn left on the path toward the dock",
         title: "Hang a left",
-        description:
-            "Follow the path and hang a slight left to the EXIT door.",
+        description: "Follow the path and hang a slight left to the EXIT door.",
         label: "Step 3",
     },
     {
         src: "/jetski/through-door.jpg",
         alt: "Doorway leading toward the dock path",
         title: "Door leading to stairway",
-        description:
-            "River-walk EXIT door.",
+        description: "River-walk EXIT door.",
         label: "Step 4",
     },
     {
         src: "/jetski/down-stairs.jpg",
         alt: "Stairs leading down toward the dock",
         title: "Head down the stairs",
-        description:
-            "Enjoy the art work as you proceed down the flight of stairs.",
+        description: "Enjoy the artwork as you proceed down the flight of stairs.",
         label: "Step 5",
     },
     {
         src: "/jetski/door-after-stairs.jpg",
         alt: "Door after the stairs on the way to the dock",
         title: "Door at stair landing",
-        description:
-            "EXIT door to dock/landing area.",
+        description: "EXIT door to dock/landing area.",
         label: "Step 6",
     },
     {
         src: "/jetski/right-once-on-dock.jpg",
-        alt: "Right turn once on the dock",
+        alt: "Right turn once on the dock toward Laughlin Jet Ski Rentals",
         title: "Right once on the dock",
         description:
             "Hang a right once you exit the door at the bottom of the stairs.",
@@ -77,26 +76,23 @@ const walkthroughPhotos = [
     },
     {
         src: "/jetski/head-towards-booth.jpg",
-        alt: "Walk toward the rental booth",
+        alt: "Walk toward the rental booth at the dock",
         title: "Head toward the booth",
-        description:
-            "ALMOST THERE! Now head straight towards the rental booth.",
+        description: "Almost there. Now head straight toward the rental booth.",
         label: "Step 8",
     },
     {
         src: "/jetski/towards-rental-booth.jpg",
-        alt: "Approaching the rental booth",
+        alt: "Approaching the Laughlin Jet Ski Rentals booth",
         title: "Towards the rental booth",
-        description:
-            "YOU'VE MADE IT! NOW LETS RIDE!",
+        description: "You've made it. Now let's ride.",
         label: "Step 9",
     },
     {
         src: "/jetski/end-rental-booth.jpg",
-        alt: "Final rental booth destination",
+        alt: "Final rental booth destination for Laughlin Jet Ski Rentals",
         title: "Rental booth",
-        description:
-            "THIS MAN ALWAYS HAS A SMILE ON HIS FACE!",
+        description: "This is the final check-in spot before you ride.",
         label: "END",
     },
 ];
@@ -104,23 +100,23 @@ const walkthroughPhotos = [
 const walkthroughSteps = [
     {
         title: "Arrive at the property",
-        text: "Can't you feel the excitement?",
+        text: "Pull in, park, and get ready for the water.",
         imageSrc: "/jetski/arrive-at-property.jpg",
-        imageAlt: "Dock view guidance image 1",
+        imageAlt: "Arrival area for Laughlin Jet Ski Rentals",
         badge: "1",
     },
     {
         title: "Follow the route step by step",
-        text: "Step by step instructions to guide you to your destination.",
+        text: "Use the walkthrough photos to get from the entrance to the dock without guessing.",
         imageSrc: "/jetski/follow-route.jpg",
-        imageAlt: "Dock view guidance image 2",
+        imageAlt: "Step by step route to the Laughlin Jet Ski Rentals dock",
         badge: "2",
     },
     {
         title: "Finish at the booth",
-        text: "The fun begins!",
+        text: "Check in at the rental booth and get ready to ride.",
         imageSrc: "/jetski/booth-ending.jpg",
-        imageAlt: "Landing area near the booth",
+        imageAlt: "Rental booth near the dock in Laughlin Nevada",
         badge: "3",
     },
 ];
@@ -129,6 +125,77 @@ function App() {
     return (
         <div className="site-shell">
             <style>{`
+                .site-nav {
+                    position: fixed;
+                    top: 14px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 1000;
+                    width: min(1180px, calc(100% - 28px));
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 18px;
+                    padding: 10px 12px 10px 16px;
+                    border-radius: 999px;
+                    border: 1px solid rgba(255, 255, 255, 0.16);
+                    background: rgba(12, 7, 25, 0.78);
+                    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+                    backdrop-filter: blur(16px);
+                }
+
+                .site-nav-brand {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    min-width: 0;
+                    color: #ffffff;
+                    font-weight: 900;
+                    letter-spacing: -0.02em;
+                    white-space: nowrap;
+                }
+
+                .site-nav-mark {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 999px;
+                    object-fit: cover;
+                    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+                }
+
+                .site-nav-links {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 4px;
+                    min-width: 0;
+                }
+
+                .site-nav-links a {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 38px;
+                    padding: 8px 12px;
+                    border-radius: 999px;
+                    color: rgba(245, 236, 255, 0.82);
+                    font-size: 0.82rem;
+                    font-weight: 800;
+                    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+                }
+
+                .site-nav-links a:hover {
+                    color: #ffffff;
+                    background: rgba(255, 255, 255, 0.1);
+                    transform: translateY(-1px);
+                }
+
+                .site-nav-links .site-nav-cta {
+                    color: #2a0f3a;
+                    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+                    box-shadow: 0 10px 24px rgba(255, 92, 169, 0.2);
+                }
+
                 .gallery-grid {
                     align-items: stretch;
                 }
@@ -161,6 +228,98 @@ function App() {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                }
+
+                .rental-info-grid,
+                .river-day-grid,
+                .safety-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 18px;
+                }
+
+                .river-day-grid {
+                    grid-template-columns: 1.1fr 1fr 1fr;
+                }
+
+                .safety-grid {
+                    grid-template-columns: 1.2fr 0.8fr;
+                }
+
+                .info-card,
+                .river-day-card,
+                .safety-card {
+                    background: rgba(30, 18, 50, 0.9);
+                    border: 1px solid rgba(255, 126, 202, 0.16);
+                    border-radius: 24px;
+                    box-shadow: 0 18px 38px rgba(6, 3, 12, 0.32);
+                    padding: 20px;
+                }
+
+                .info-card h3,
+                .river-day-card h3,
+                .safety-card h3 {
+                    margin: 0 0 10px;
+                    color: #ffd65b;
+                    font-size: 1.16rem;
+                }
+
+                .info-card p,
+                .river-day-card p,
+                .safety-card p {
+                    margin: 0;
+                    color: rgba(240, 231, 255, 0.84);
+                    line-height: 1.72;
+                }
+
+                .river-weather-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    margin-bottom: 12px;
+                    padding: 8px 12px;
+                    border-radius: 999px;
+                    color: #2b0f40;
+                    background: linear-gradient(135deg, #ffd65b, #ff5db1);
+                    font-size: 0.8rem;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                }
+
+                .safety-card-large {
+                    min-height: 240px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    background:
+                        linear-gradient(135deg, rgba(255, 204, 47, 0.12), rgba(255, 76, 160, 0.1)),
+                        rgba(30, 18, 50, 0.92);
+                }
+
+                .safety-video-box {
+                    min-height: 240px;
+                    display: grid;
+                    place-items: center;
+                    text-align: center;
+                    background:
+                        linear-gradient(135deg, rgba(13, 8, 31, 0.65), rgba(45, 22, 77, 0.88)),
+                        url("/jetski/walkthrough-poster.jpg") center/cover no-repeat;
+                    overflow: hidden;
+                }
+
+                .safety-play {
+                    width: 74px;
+                    height: 74px;
+                    display: grid;
+                    place-items: center;
+                    border-radius: 999px;
+                    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+                    color: #2a0f3a;
+                    font-size: 1.8rem;
+                    font-weight: 900;
+                    box-shadow: 0 18px 38px rgba(255, 76, 160, 0.26);
                 }
 
                 .website-maker-section {
@@ -249,11 +408,36 @@ function App() {
                 }
 
                 @media (max-width: 980px) {
+                    .site-nav {
+                        position: sticky;
+                        top: 10px;
+                        transform: none;
+                        left: auto;
+                        width: calc(100% - 20px);
+                        margin: 10px auto -4px;
+                        border-radius: 22px;
+                        align-items: flex-start;
+                        flex-direction: column;
+                    }
+
+                    .site-nav-links {
+                        width: 100%;
+                        justify-content: flex-start;
+                        overflow-x: auto;
+                        padding-bottom: 2px;
+                    }
+
                     .gallery-item,
                     .gallery-item.gallery-wide,
                     .gallery-item.gallery-tall {
                         height: 300px;
                         min-height: 300px;
+                    }
+
+                    .rental-info-grid,
+                    .river-day-grid,
+                    .safety-grid {
+                        grid-template-columns: 1fr;
                     }
 
                     .website-maker-card {
@@ -266,6 +450,16 @@ function App() {
                 }
 
                 @media (max-width: 640px) {
+                    .site-nav-brand {
+                        font-size: 0.92rem;
+                    }
+
+                    .site-nav-links a {
+                        min-height: 36px;
+                        padding: 8px 10px;
+                        font-size: 0.78rem;
+                    }
+
                     .website-maker-card {
                         padding: 16px;
                     }
@@ -280,11 +474,34 @@ function App() {
                 }
             `}</style>
 
-            <a href="tel:17026247149" className="floating-call-btn">
+            <nav className="site-nav" aria-label="Main navigation">
+                <a href="#home" className="site-nav-brand">
+                    <img
+                        src="/laughlin-logo.png"
+                        alt="Laughlin Jet Ski Rentals logo"
+                        className="site-nav-mark"
+                    />
+                    <span>Laughlin Jet Ski Rentals</span>
+                </a>
+
+                <div className="site-nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#rentals">Rentals</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#location">Directions</a>
+                    <a href="#safety">Safety</a>
+                    <a href="#contact">Contact</a>
+                    <a href={`tel:${phoneNumber}`} className="site-nav-cta">
+                        Book Now
+                    </a>
+                </div>
+            </nav>
+
+            <a href={`tel:${phoneNumber}`} className="floating-call-btn">
                 Call Now
             </a>
 
-            <section className="hero">
+            <section className="hero" id="home">
                 <div className="hero-overlay" />
                 <div className="hero-content">
                     <div className="hero-brand">
@@ -297,22 +514,29 @@ function App() {
                         </div>
 
                         <div className="hero-text">
-                            <span className="eyebrow">Laughlin River • Open Daily • 9AM–5PM</span>
+                            <span className="eyebrow">
+                                Laughlin River • Open Daily • 9AM–5PM
+                            </span>
 
                             <h1>Laughlin Jet Ski Rentals</h1>
 
                             <p className="hero-copy">
-                                Real jet skis. Real river fun. Pull up, check in, and get on the
-                                water without the usual confusion.
+                                Rent jet skis in Laughlin, NV near the Colorado River. Real jet skis,
+                                real river fun, easy directions, and a direct booking line so you can
+                                get on the water without the usual confusion.
                             </p>
 
                             <div className="hero-actions">
-                                <a href="tel:17026247149" className="primary-btn">
-                                    Call to Book
+                                <a href={`tel:${phoneNumber}`} className="primary-btn">
+                                    Book Now
+                                </a>
+
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn">
+                                    Call {displayPhone}
                                 </a>
 
                                 <a
-                                    href="https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029"
+                                    href={mapsUrl}
                                     target="_blank"
                                     rel="noreferrer"
                                     className="secondary-btn"
@@ -323,7 +547,7 @@ function App() {
 
                             <div className="hero-stats">
                                 <div className="stat-card">
-                                    <span className="stat-number">(702) 624-7149</span>
+                                    <span className="stat-number">{displayPhone}</span>
                                     <span className="stat-label">Direct booking line</span>
                                 </div>
 
@@ -343,13 +567,14 @@ function App() {
             </section>
 
             <main className="main-content">
-                <section className="section">
+                <section className="section" id="rentals">
                     <div className="section-heading">
                         <span className="section-kicker">Why people ride with us</span>
                         <h2>Fast booking. Real location. Straight to the water.</h2>
                         <p>
-                            Real rental, real photos, and real directions that actually help
-                            you get here.
+                            Laughlin Jet Ski Rentals gives riders a simple way to call, get
+                            directions, find the dock, and start their Colorado River day without
+                            chasing confusing instructions.
                         </p>
                     </div>
 
@@ -357,26 +582,63 @@ function App() {
                         <div className="feature-card">
                             <h3>Easy to find</h3>
                             <p>
-                                Located at 1950 Casino Dr in Laughlin with direct river access and
-                                a simple arrival path.
+                                Located at {address} with direct river access and a photo walkthrough
+                                that shows you where to go.
                             </p>
                         </div>
 
                         <div className="feature-card">
                             <h3>Open daily</h3>
                             <p>
-                                Monday through Sunday from 9AM to 5PM, because people like fun
-                                businesses to actually be open.
+                                Monday through Sunday from 9AM to 5PM, because a river day should
+                                not start with guessing if anyone is open.
                             </p>
                         </div>
 
                         <div className="feature-card">
                             <h3>Call and ride</h3>
                             <p>
-                                Skip the confusion. Call direct, ask questions, and reserve your
-                                ride fast.
+                                Tap the direct booking line, ask your questions, and reserve your
+                                jet ski rental fast.
                             </p>
                         </div>
+                    </div>
+                </section>
+
+                <section className="section">
+                    <div className="section-heading">
+                        <span className="section-kicker">Rental info</span>
+                        <h2>Everything riders look for first.</h2>
+                        <p>
+                            Clear hours, direct contact, and location info up front. No treasure map,
+                            no mystery marina quest.
+                        </p>
+                    </div>
+
+                    <div className="rental-info-grid">
+                        <article className="info-card">
+                            <h3>Call to book</h3>
+                            <p>
+                                Call {displayPhone} to check availability, ask about current rental
+                                options, and plan your ride.
+                            </p>
+                        </article>
+
+                        <article className="info-card">
+                            <h3>Walk-ins welcome</h3>
+                            <p>
+                                Visiting Laughlin for the day? Call or stop by during open hours and
+                                we will help you get pointed toward the water.
+                            </p>
+                        </article>
+
+                        <article className="info-card">
+                            <h3>Colorado River riding</h3>
+                            <p>
+                                Ride near Laughlin, Nevada with river views, easy access, and a rental
+                                location built around getting you moving quickly.
+                            </p>
+                        </article>
                     </div>
                 </section>
 
@@ -389,57 +651,159 @@ function App() {
                     steps={walkthroughSteps}
                 />
 
-                <section className="section">
+                <section className="section" id="gallery">
                     <div className="section-heading">
                         <span className="section-kicker">Gallery</span>
                         <h2>Customer Photos</h2>
                         <p>
-                            Real skis, real riders, real river views.
+                            Real skis, real riders, real river views from Laughlin Jet Ski Rentals.
                         </p>
                     </div>
 
                     <div className="gallery-grid">
                         <div className="gallery-item gallery-tall">
-                            <img src="/jetski/river-view.jpg" alt="Jet ski by the beach" />
+                            <img
+                                src="/jetski/river-view.jpg"
+                                alt="Colorado River view near Laughlin Jet Ski Rentals"
+                            />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/river-view1.jpg" alt="Jet ski lineup" />
+                            <img
+                                src="/jetski/river-view1.jpg"
+                                alt="Jet ski lineup at Laughlin Jet Ski Rentals"
+                            />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/jetski-lineup2.png" alt="Jet ski lineup close-up" />
+                            <img
+                                src="/jetski/jetski-lineup2.png"
+                                alt="Close-up of jet skis ready to rent in Laughlin Nevada"
+                            />
                         </div>
 
                         <div className="gallery-item gallery-wide">
-                            <img src="/jetski/landing-area1.jpg" alt="Dock and river view" />
+                            <img
+                                src="/jetski/landing-area1.jpg"
+                                alt="Dock and river view near Laughlin Jet Ski Rentals"
+                            />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/happy-customer.jpg" alt="Aquarius dock area" />
+                            <img
+                                src="/jetski/happy-customer.jpg"
+                                alt="Aquarius dock area near Laughlin jet ski rentals"
+                            />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/customers.jpg" alt="Happy customer on jet ski" />
+                            <img
+                                src="/jetski/customers.jpg"
+                                alt="Happy customer on a jet ski in Laughlin NV"
+                            />
                         </div>
 
                         <div className="gallery-item">
-                            <img src="/jetski/couple-ride.jpg" alt="Couple riding jet ski" />
+                            <img
+                                src="/jetski/couple-ride.jpg"
+                                alt="Couple riding a jet ski on the Colorado River"
+                            />
                         </div>
 
                         <div className="gallery-item gallery-wide">
-                            <img src="/jetski/laughlinjetski2.png" alt="Laughlin Jet Ski image" />
+                            <img
+                                src="/jetski/laughlinjetski2.png"
+                                alt="Laughlin Jet Ski Rentals river image"
+                            />
                         </div>
                     </div>
                 </section>
 
                 <section className="section">
                     <div className="section-heading">
+                        <span className="section-kicker">River day info</span>
+                        <h2>Check your ride day before you pull up.</h2>
+                        <p>
+                            Laughlin is built for sun, water, and fast plans. Before you head out,
+                            check the day, bring what you need, and call ahead if you want the smoothest
+                            launch.
+                        </p>
+                    </div>
+
+                    <div className="river-day-grid">
+                        <article className="river-day-card">
+                            <span className="river-weather-pill">Laughlin weather</span>
+                            <h3>Sunny days move fast</h3>
+                            <p>
+                                Weather can change the feel of a river day, so check current Laughlin
+                                conditions before arriving and plan for sun, water, and wind.
+                            </p>
+                        </article>
+
+                        <article className="river-day-card">
+                            <h3>What to bring</h3>
+                            <p>
+                                Bring sunscreen, towels, ID, water-friendly clothing, and anything
+                                you need for a hot day near the Colorado River.
+                            </p>
+                        </article>
+
+                        <article className="river-day-card">
+                            <h3>Best first move</h3>
+                            <p>
+                                Call {displayPhone} before heading over so you can confirm details and
+                                avoid guessing when you arrive.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <section className="section" id="safety">
+                    <div className="section-heading">
+                        <span className="section-kicker">Safety</span>
+                        <h2>Watch the safety video before you ride.</h2>
+                        <p>
+                            The best river day starts with knowing the basics. Watch the safety video,
+                            listen to instructions, and ride smart.
+                        </p>
+                    </div>
+
+                    <div className="safety-grid">
+                        <article className="safety-card safety-card-large">
+                            <div>
+                                <h3>Know before you go</h3>
+                                <p>
+                                    Before getting on the water, review the safety basics, follow rental
+                                    instructions, and ask questions if anything is unclear.
+                                </p>
+                            </div>
+
+                            <div className="hero-actions">
+                                <a href="/jetski/walkthrough-video.mp4" className="primary-btn">
+                                    Watch Safety Video
+                                </a>
+
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn">
+                                    Ask a Question
+                                </a>
+                            </div>
+                        </article>
+
+                        <article className="safety-card safety-video-box">
+                            <a href="/jetski/walkthrough-video.mp4" className="safety-play">
+                                ▶
+                            </a>
+                        </article>
+                    </div>
+                </section>
+
+                <section className="section" id="location">
+                    <div className="section-heading">
                         <span className="section-kicker">Location</span>
                         <h2>Find us fast</h2>
                         <p>
-                            Get to the river without the usual phone call that starts with
-                            “Umm, where are you guys at?”
+                            Get to the river without the usual phone call that starts with,
+                            “umm, where are you guys at?”
                         </p>
                     </div>
 
@@ -461,7 +825,7 @@ function App() {
 
                             <div className="directions-actions">
                                 <a
-                                    href="https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029"
+                                    href={mapsUrl}
                                     target="_blank"
                                     rel="noreferrer"
                                     className="primary-btn"
@@ -469,7 +833,7 @@ function App() {
                                     Open in Maps
                                 </a>
 
-                                <a href="tel:17026247149" className="secondary-btn">
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn">
                                     Call for Help
                                 </a>
                             </div>
@@ -477,7 +841,7 @@ function App() {
                     </div>
                 </section>
 
-                <section className="section">
+                <section className="section" id="contact">
                     <div className="contact-card">
                         <div className="contact-copy">
                             <span className="section-kicker">Book now</span>
@@ -486,19 +850,19 @@ function App() {
                                 Call now, lock in your ride, and get on the water.
                             </p>
                             <p>
-                                <strong>(702) 624-7149</strong>
+                                <strong>{displayPhone}</strong>
                                 <br />
-                                1950 Casino Dr, Laughlin, NV 89029
+                                {address}
                             </p>
                         </div>
 
                         <div className="contact-actions">
-                            <a href="tel:17026247149" className="primary-btn">
-                                Call (702) 624-7149
+                            <a href={`tel:${phoneNumber}`} className="primary-btn">
+                                Call {displayPhone}
                             </a>
 
                             <a
-                                href="https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029"
+                                href={mapsUrl}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="secondary-btn"
@@ -513,7 +877,9 @@ function App() {
                     <div className="website-maker-card">
                         <div className="website-maker-copy">
                             <span className="website-maker-tag">Built by Gearhead 3D Fab</span>
-                            <h3 className="website-maker-title">Need a clean site for your own business?</h3>
+                            <h3 className="website-maker-title">
+                                Need a clean site for your own business?
+                            </h3>
                             <p className="website-maker-text">
                                 We also build low-drama business sites, landing pages, photo galleries,
                                 walkthrough pages, and simple promo layouts like this one.
@@ -534,7 +900,7 @@ function App() {
 
             <footer className="site-footer">
                 <div className="site-footer-line">
-                    © Laughlin Jet Ski Rentals • 1950 Casino Dr, Laughlin, NV 89029
+                    © Laughlin Jet Ski Rentals • {address}
                 </div>
                 <div className="site-footer-line">
                     <VisitorCount />
