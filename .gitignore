@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 .vercel
+
+dist/
+public/Walkthrough.mp4
+public/images/walkthrough.mp4
+*.mp4
+!public/jetski/walkthrough.mp4

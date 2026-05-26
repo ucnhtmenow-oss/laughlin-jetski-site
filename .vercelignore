@@ -1,0 +1,9 @@
+﻿node_modules
+dist
+*.zip
+*.psd
+*.ai
+*.blend
+*.stl
+public/images/walkthrough.mp4
+public/jetski/VID_20260406_192453.mp4
