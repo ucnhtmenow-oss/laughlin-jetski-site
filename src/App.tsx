@@ -2,7 +2,6 @@
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
-
 const phoneNumber = "17026247149";
 const displayPhone = "(702) 624-7149";
 const address = "1950 Casino Dr, Laughlin, NV 89029";
