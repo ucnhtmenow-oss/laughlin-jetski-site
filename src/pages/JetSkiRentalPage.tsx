@@ -417,7 +417,7 @@ export default function JetSkiRentalPage() {
         </section>
 
         <WalkthroughSection
-          videoUrl="/jetski/walkthrough-video.mp4"
+          videoUrl="/jetski/walkthrough.mp4"
           videoPoster="/jetski/walkthrough-poster.jpg"
           photos={walkthroughPhotos}
           steps={walkthroughSteps}

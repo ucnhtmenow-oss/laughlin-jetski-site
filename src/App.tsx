@@ -705,7 +705,7 @@ function App() {
                 <WalkthroughSection
                     title="Walk to the dock without getting lost"
                     subtitle="Watch the route, then tap through the full photo path from the main entrance all the way to the rental booth."
-                    videoUrl="/jetski/walkthrough-video.mp4"
+                    videoUrl="/jetski/walkthrough.mp4"
                     videoPoster="/jetski/walkthrough-poster.jpg"
                     photos={walkthroughPhotos}
                     steps={walkthroughSteps}
