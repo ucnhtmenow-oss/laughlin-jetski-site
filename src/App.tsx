@@ -1044,8 +1044,12 @@ function App() {
                     <VisitorCount />
                 </div>
             </footer>
-        </div>
+            <Analytics />
+        </div>
     );
 }
 
 export default App;
+
+
+
