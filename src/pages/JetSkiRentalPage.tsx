@@ -353,7 +353,7 @@ export default function JetSkiRentalPage() {
         <section className="jetski-hero">
           <div className="jetski-hero-inner">
             <div className="jetski-hero-copy">
-              <div className="jetski-kicker">Laughlin river rentals</div>
+              <div className="jetski-kicker">Laughlin jetski rentals</div>
               <h1 className="jetski-title">
                 Jet ski rentals
                 <span>made easy to find</span>

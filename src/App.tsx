@@ -540,7 +540,7 @@ function App() {
 
                         <div className="hero-text">
                             <span className="eyebrow">
-                                Laughlin River • Open Daily • 9AM–5PM
+                                River Hours • Open Daily • 9AM–5PM
                             </span>
 
                             <h1>Laughlin Jet Ski Rentals</h1>
