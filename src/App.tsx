@@ -2,6 +2,7 @@
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
+
 const phoneNumber = "17026247149";
 const displayPhone = "(702) 624-7149";
 const address = "1950 Casino Dr, Laughlin, NV 89029";
@@ -272,6 +273,78 @@ function App() {
                     line-height: 1.72;
                 }
 
+                .fareharbor-ready-card {
+                    overflow: hidden;
+                    border-radius: 28px;
+                    border: 1px solid rgba(255, 204, 47, 0.22);
+                    background:
+                        radial-gradient(circle at top left, rgba(255, 204, 47, 0.16), transparent 34%),
+                        radial-gradient(circle at bottom right, rgba(255, 76, 160, 0.16), transparent 34%),
+                        rgba(30, 18, 50, 0.94);
+                    box-shadow: 0 22px 48px rgba(6, 3, 12, 0.34);
+                }
+
+                .fareharbor-notice {
+                    padding: 24px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                }
+
+                .fareharbor-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                    padding: 8px 12px;
+                    border-radius: 999px;
+                    color: #2b0f40;
+                    background: linear-gradient(135deg, #ffd65b, #ff5db1);
+                    font-size: 0.78rem;
+                    font-weight: 900;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                }
+
+                .fareharbor-notice h3,
+                .fareharbor-placeholder h3 {
+                    margin: 0 0 10px;
+                    color: #ffffff;
+                    font-size: 1.35rem;
+                }
+
+                .fareharbor-notice p,
+                .fareharbor-placeholder p {
+                    margin: 0 0 16px;
+                    color: rgba(240, 231, 255, 0.84);
+                    line-height: 1.72;
+                }
+
+                .fareharbor-placeholder {
+                    padding: 24px;
+                    min-height: 260px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border: 1px dashed rgba(255, 255, 255, 0.2);
+                    margin: 18px;
+                    border-radius: 22px;
+                    background:
+                        linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+                    text-align: center;
+                }
+
+                .fareharbor-placeholder-note {
+                    display: inline-flex;
+                    align-self: center;
+                    justify-content: center;
+                    width: fit-content;
+                    padding: 8px 12px;
+                    border-radius: 999px;
+                    color: rgba(255, 255, 255, 0.84);
+                    background: rgba(255, 255, 255, 0.08);
+                    font-size: 0.82rem;
+                    font-weight: 800;
+                }
+
                 .river-weather-pill {
                     display: inline-flex;
                     align-items: center;
@@ -332,19 +405,6 @@ function App() {
                 .safety-video-actions {
                     display: flex;
                     justify-content: center;
-                }
-
-                .safety-play {
-                    width: 74px;
-                    height: 74px;
-                    display: grid;
-                    place-items: center;
-                    border-radius: 999px;
-                    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-                    color: #2a0f3a;
-                    font-size: 1.8rem;
-                    font-weight: 900;
-                    box-shadow: 0 18px 38px rgba(255, 76, 160, 0.26);
                 }
 
                 .website-maker-section {
@@ -485,6 +545,16 @@ function App() {
                         font-size: 0.78rem;
                     }
 
+                    .fareharbor-notice,
+                    .fareharbor-placeholder {
+                        padding: 18px;
+                    }
+
+                    .fareharbor-placeholder {
+                        margin: 14px;
+                        min-height: 220px;
+                    }
+
                     .website-maker-card {
                         padding: 16px;
                     }
@@ -553,8 +623,8 @@ function App() {
                             </p>
 
                             <div className="hero-actions">
-                                <a href={`tel:${phoneNumber}`} className="primary-btn">
-                                    Book Now
+                                <a href="#book" className="primary-btn">
+                                    Book Online / Call
                                 </a>
 
                                 <a href={`tel:${phoneNumber}`} className="secondary-btn">
@@ -647,8 +717,8 @@ function App() {
                             <h3>1 Hour Rental</h3>
                             <div className="price">$129</div>
                             <p>Gas included. Perfect for a quick Colorado River ride.</p>
-                            <a href={`tel:${phoneNumber}`} className="card-btn">
-                                Call to Book
+                            <a href="#book" className="card-btn">
+                                Reserve This Rental
                             </a>
                         </article>
 
@@ -657,10 +727,67 @@ function App() {
                             <h3>2 Hour Rental</h3>
                             <div className="price">$229</div>
                             <p>Gas included. Best value for more river time.</p>
-                            <a href={`tel:${phoneNumber}`} className="card-btn">
-                                Call to Book
+                            <a href="#book" className="card-btn">
+                                Reserve This Rental
                             </a>
                         </article>
+                    </div>
+                </section>
+
+                <section className="section" id="book">
+                    <div className="section-heading">
+                        <span className="section-kicker">FareHarbor booking</span>
+                        <h2>Online booking is being reconnected.</h2>
+                        <p>
+                            Our online reservation system is coming back. Until the FareHarbor
+                            calendar is fully reconnected, call directly to reserve your jet ski rental.
+                        </p>
+                    </div>
+
+                    <div className="fareharbor-ready-card">
+                        <div className="fareharbor-notice">
+                            <span className="fareharbor-pill">Booking system update</span>
+                            <h3>FareHarbor reservations are coming back soon.</h3>
+                            <p>
+                                Laughlin Jet Ski Rentals previously used FareHarbor for online
+                                reservations. We are reconnecting that booking portal now. For today,
+                                the fastest way to lock in your ride is to call the direct booking line.
+                            </p>
+
+                            <div className="hero-actions">
+                                <a href={`tel:${phoneNumber}`} className="primary-btn">
+                                    Call {displayPhone}
+                                </a>
+
+                                <a href="#pricing" className="secondary-btn">
+                                    View Rental Prices
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className="fareharbor-placeholder">
+                            <h3>Future Online Booking Portal</h3>
+                            <p>
+                                The FareHarbor booking calendar will appear here once the old account
+                                link, company shortname, or embed code is available.
+                            </p>
+
+                            <span className="fareharbor-placeholder-note">
+                                Online checkout placeholder
+                            </span>
+
+                            {/*
+                                FAREHARBOR EMBED GOES HERE.
+
+                                When the FareHarbor code is available, replace this placeholder
+                                area with the official FareHarbor button, calendar, or iframe embed.
+
+                                Needed from FareHarbor:
+                                - company shortname,
+                                - direct booking URL,
+                                - or dashboard embed code from Book Buttons & Embeds.
+                            */}
+                        </div>
                     </div>
                 </section>
 
@@ -860,77 +987,6 @@ function App() {
                                     Call Now
                                 </a>
                             </div>
-                        </article>
-                    </div>
-                </section>
-
-                <section className="section" id="book">
-                    <div className="section-heading">
-                        <span className="section-kicker">Book</span>
-                        <h2>Request a date and time, then call to confirm.</h2>
-                        <p>
-                            Choose your preferred date and time, then call to confirm availability.
-                            Online checkout is coming soon.
-                        </p>
-                    </div>
-
-                    <div className="booking-grid">
-                        <article className="booking-card">
-                            <h3>Booking request</h3>
-                            <p>
-                                This request form helps you pick a target time. To confirm and reserve
-                                your spot on the Colorado River, call {displayPhone}.
-                            </p>
-                        </article>
-
-                        <article className="booking-card">
-                            <form className="booking-form" onSubmit={(event) => event.preventDefault()}>
-                                <div className="booking-field">
-                                    <label htmlFor="booking-date">Date</label>
-                                    <input id="booking-date" name="date" type="date" />
-                                </div>
-
-                                <div className="booking-field">
-                                    <label htmlFor="booking-time">Time</label>
-                                    <input id="booking-time" name="time" type="time" />
-                                </div>
-
-                                <div className="booking-field booking-span-2">
-                                    <label htmlFor="booking-length">Rental length</label>
-                                    <select id="booking-length" name="length" defaultValue="1-hour">
-                                        <option value="1-hour">1 Hour - $129</option>
-                                        <option value="2-hour">2 Hours - $229</option>
-                                    </select>
-                                </div>
-
-                                <div className="booking-field">
-                                    <label htmlFor="booking-name">Name</label>
-                                    <input
-                                        id="booking-name"
-                                        name="name"
-                                        type="text"
-                                        autoComplete="name"
-                                        placeholder="Your name"
-                                    />
-                                </div>
-
-                                <div className="booking-field">
-                                    <label htmlFor="booking-phone">Phone</label>
-                                    <input
-                                        id="booking-phone"
-                                        name="phone"
-                                        type="tel"
-                                        autoComplete="tel"
-                                        placeholder="(702) 000-0000"
-                                    />
-                                </div>
-
-                                <div className="booking-actions booking-span-2">
-                                    <a href={`tel:${phoneNumber}`} className="primary-btn booking-call-btn">
-                                        Call to Confirm Booking
-                                    </a>
-                                </div>
-                            </form>
                         </article>
                     </div>
                 </section>
