@@ -1,13 +1,18 @@
-FareHarbor Revert ZIP
+Laughlin Jet Ski FareHarbor pink/orange booking section
 
-Copy these files into your project root:
-
+Files:
 - src/App.tsx
 - src/App.css
+- public/jetski/jetski-harbor.jpg
 
-This reverts the broken FareHarbor live test and restores the clean FareHarbor-ready placeholder with phone fallback.
+Changes:
+- Uses the uploaded jet ski harbor image
+- Removes duplicate Book Your Ride heading
+- Matches the dark purple + orange/pink color scheme
+- Keeps FareHarbor iframe live
+- Keeps phone fallback
+- Mobile stacks safely
 
-Run from the project folder:
-
+After replacing files:
 npm run build
 npm run dev

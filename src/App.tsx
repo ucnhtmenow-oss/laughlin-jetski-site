@@ -1,4 +1,5 @@
 // src/App.tsx
+import { useEffect } from "react";
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
@@ -7,6 +8,8 @@ const phoneNumber = "17026247149";
 const displayPhone = "(702) 624-7149";
 const address = "1950 Casino Dr, Laughlin, NV 89029";
 const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
+const fareHarborShortname = "laughlinjetskirental";
+const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
 
 const walkthroughPhotos = [
     {
@@ -123,6 +126,19 @@ const walkthroughSteps = [
 ];
 
 function App() {
+    useEffect(() => {
+        const scriptId = "fareharbor-lightframe-script";
+
+        if (document.getElementById(scriptId)) return;
+
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.src = "https://fareharbor.com/embeds/api/v1/?autolightframe=yes";
+        script.async = true;
+
+        document.body.appendChild(script);
+    }, []);
+
     return (
         <div className="site-shell">
             <style>{`
@@ -273,76 +289,158 @@ function App() {
                     line-height: 1.72;
                 }
 
-                .fareharbor-ready-card {
-                    overflow: hidden;
-                    border-radius: 28px;
-                    border: 1px solid rgba(255, 204, 47, 0.22);
+                .fareharbor-section-wrap {
+                    margin: 0 calc(50% - 50vw);
+                    padding: 58px max(24px, calc((100vw - 1180px) / 2)) 42px;
                     background:
-                        radial-gradient(circle at top left, rgba(255, 204, 47, 0.16), transparent 34%),
-                        radial-gradient(circle at bottom right, rgba(255, 76, 160, 0.16), transparent 34%),
-                        rgba(30, 18, 50, 0.94);
-                    box-shadow: 0 22px 48px rgba(6, 3, 12, 0.34);
-                }
-
-                .fareharbor-notice {
-                    padding: 24px;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                }
-
-                .fareharbor-pill {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-bottom: 12px;
-                    padding: 8px 12px;
-                    border-radius: 999px;
-                    color: #2b0f40;
-                    background: linear-gradient(135deg, #ffd65b, #ff5db1);
-                    font-size: 0.78rem;
-                    font-weight: 900;
-                    letter-spacing: 0.08em;
-                    text-transform: uppercase;
-                }
-
-                .fareharbor-notice h3,
-                .fareharbor-placeholder h3 {
-                    margin: 0 0 10px;
+                        radial-gradient(circle at 18% 10%, rgba(255, 204, 47, 0.18), transparent 28%),
+                        radial-gradient(circle at 84% 16%, rgba(255, 76, 160, 0.18), transparent 30%),
+                        linear-gradient(135deg, #120b1f 0%, #241532 46%, #0b0714 100%);
                     color: #ffffff;
-                    font-size: 1.35rem;
                 }
 
-                .fareharbor-notice p,
-                .fareharbor-placeholder p {
-                    margin: 0 0 16px;
-                    color: rgba(240, 231, 255, 0.84);
-                    line-height: 1.72;
+                .fareharbor-ready-card {
+                    width: min(1180px, 100%);
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: 0.36fr 0.64fr;
+                    gap: 30px;
+                    align-items: stretch;
+                    padding: 26px;
+                    border-radius: 28px;
+                    border: 1px solid rgba(255, 126, 202, 0.24);
+                    background:
+                        radial-gradient(circle at top left, rgba(255, 204, 47, 0.13), transparent 34%),
+                        radial-gradient(circle at bottom right, rgba(255, 76, 160, 0.15), transparent 34%),
+                        rgba(30, 18, 50, 0.92);
+                    box-shadow:
+                        0 24px 60px rgba(0, 0, 0, 0.38),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.06);
                 }
 
-                .fareharbor-placeholder {
-                    padding: 24px;
-                    min-height: 260px;
+                .fareharbor-book-copy {
+                    position: relative;
+                    overflow: hidden;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    border: 1px dashed rgba(255, 255, 255, 0.2);
-                    margin: 18px;
-                    border-radius: 22px;
-                    background:
-                        linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
-                    text-align: center;
+                    min-height: 500px;
+                    padding: 4px 0;
+                    color: #ffffff;
                 }
 
-                .fareharbor-placeholder-note {
+                .fareharbor-jetski-image {
+                    width: 100%;
+                    height: 180px;
+                    margin-bottom: 22px;
+                    border-radius: 22px;
+                    object-fit: cover;
+                    object-position: center;
+                    border: 1px solid rgba(255, 255, 255, 0.14);
+                    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+                }
+
+                .fareharbor-book-copy .section-kicker {
                     display: inline-flex;
-                    align-self: center;
-                    justify-content: center;
                     width: fit-content;
-                    padding: 8px 12px;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 0 18px;
+                    padding: 10px 14px;
                     border-radius: 999px;
-                    color: rgba(255, 255, 255, 0.84);
-                    background: rgba(255, 255, 255, 0.08);
-                    font-size: 0.82rem;
-                    font-weight: 800;
+                    color: #120b1f;
+                    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+                    font-size: 0.76rem;
+                    font-weight: 900;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                }
+
+                .fareharbor-book-copy h3 {
+                    margin: 0;
+                    color: #ffffff;
+                    font-size: clamp(2rem, 4vw, 2.8rem);
+                    line-height: 1.02;
+                    letter-spacing: -0.05em;
+                    text-transform: uppercase;
+                    font-style: italic;
+                    font-weight: 900;
+                    text-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+                }
+
+                .fareharbor-accent-line {
+                    width: 82px;
+                    height: 4px;
+                    margin: 14px 0 24px;
+                    border-radius: 999px;
+                    background: linear-gradient(90deg, #ffcc2f, #ff4ca0);
+                    box-shadow: 0 0 18px rgba(255, 76, 160, 0.24);
+                }
+
+                .fareharbor-book-copy p {
+                    margin: 0;
+                    max-width: 390px;
+                    color: rgba(245, 236, 255, 0.86);
+                    font-size: 1.03rem;
+                    line-height: 1.75;
+                }
+
+                .fareharbor-actions {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 12px;
+                    width: min(270px, 100%);
+                    margin-top: 28px;
+                }
+
+                .fareharbor-actions .primary-btn {
+                    min-height: 52px;
+                    border-radius: 999px;
+                    color: #2a0f3a;
+                    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+                    box-shadow: 0 14px 28px rgba(255, 76, 160, 0.28);
+                    text-transform: uppercase;
+                }
+
+                .fareharbor-actions .secondary-btn {
+                    min-height: 52px;
+                    border-radius: 999px;
+                    color: #ffffff;
+                    background: rgba(255, 255, 255, 0.075);
+                    border: 1px solid rgba(255, 255, 255, 0.26);
+                }
+
+                .fareharbor-call-note {
+                    margin-top: 28px;
+                    padding-top: 22px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.14);
+                    color: rgba(245, 236, 255, 0.84);
+                    line-height: 1.7;
+                }
+
+                .fareharbor-call-note strong {
+                    display: block;
+                    margin-top: 6px;
+                    color: #ffcc2f;
+                    font-size: 1.18rem;
+                }
+
+                .fareharbor-frame-wrap {
+                    overflow: hidden;
+                    border-radius: 20px;
+                    background: #ffffff;
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+                    min-height: 520px;
+                }
+
+                .fareharbor-frame {
+                    display: block;
+                    width: 100%;
+                    min-height: 640px;
+                    border: 0;
+                    background: #ffffff;
                 }
 
                 .river-weather-pill {
@@ -545,14 +643,38 @@ function App() {
                         font-size: 0.78rem;
                     }
 
-                    .fareharbor-notice,
-                    .fareharbor-placeholder {
-                        padding: 18px;
+                    .fareharbor-section-wrap {
+                        margin: 0 -18px;
+                        padding: 34px 18px 28px;
                     }
 
-                    .fareharbor-placeholder {
-                        margin: 14px;
-                        min-height: 220px;
+                    .fareharbor-ready-card {
+                        grid-template-columns: 1fr;
+                        gap: 22px;
+                        padding: 18px;
+                        border-radius: 22px;
+                    }
+
+                    .fareharbor-book-copy {
+                        min-height: auto;
+                        padding: 0;
+                    }
+
+                    .fareharbor-jetski-image {
+                        height: 145px;
+                        border-radius: 18px;
+                    }
+
+                    .fareharbor-actions {
+                        width: 100%;
+                    }
+
+                    .fareharbor-frame-wrap {
+                        min-height: 560px;
+                    }
+
+                    .fareharbor-frame {
+                        min-height: 620px;
                     }
 
                     .website-maker-card {
@@ -734,59 +856,52 @@ function App() {
                     </div>
                 </section>
 
-                <section className="section" id="book">
-                    <div className="section-heading">
-                        <span className="section-kicker">FareHarbor booking</span>
-                        <h2>Online booking is being reconnected.</h2>
-                        <p>
-                            Our online reservation system is coming back. Until the FareHarbor
-                            calendar is fully reconnected, call directly to reserve your jet ski rental.
-                        </p>
-                    </div>
-
+                <section className="section fareharbor-section-wrap" id="book">
                     <div className="fareharbor-ready-card">
-                        <div className="fareharbor-notice">
-                            <span className="fareharbor-pill">Booking system update</span>
-                            <h3>FareHarbor reservations are coming back soon.</h3>
+                        <div className="fareharbor-book-copy">
+                            <img
+                                src="/jetski/jetski-harbor.jpg"
+                                alt="Jet skis lined up at the water"
+                                className="fareharbor-jetski-image"
+                            />
+
+                            <span className="section-kicker">Powered by FareHarbor</span>
+                            <h3>Book Your Ride</h3>
+                            <div className="fareharbor-accent-line" />
+
                             <p>
-                                Laughlin Jet Ski Rentals previously used FareHarbor for online
-                                reservations. We are reconnecting that booking portal now. For today,
-                                the fastest way to lock in your ride is to call the direct booking line.
+                                Reserve your jet ski online through our secure booking system.
+                                Select your date, choose your ride, and we’ll see you on the river.
                             </p>
 
-                            <div className="hero-actions">
-                                <a href={`tel:${phoneNumber}`} className="primary-btn">
-                                    Call {displayPhone}
+                            <div className="fareharbor-actions">
+                                <a
+                                    href={fareHarborBookingUrl}
+                                    className="primary-btn"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    Book Now
                                 </a>
 
-                                <a href="#pricing" className="secondary-btn">
-                                    View Rental Prices
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn">
+                                    Call {displayPhone}
                                 </a>
+                            </div>
+
+                            <div className="fareharbor-call-note">
+                                Have questions? Call us anytime.
+                                <strong>{displayPhone}</strong>
                             </div>
                         </div>
 
-                        <div className="fareharbor-placeholder">
-                            <h3>Future Online Booking Portal</h3>
-                            <p>
-                                The FareHarbor booking calendar will appear here once the old account
-                                link, company shortname, or embed code is available.
-                            </p>
-
-                            <span className="fareharbor-placeholder-note">
-                                Online checkout placeholder
-                            </span>
-
-                            {/*
-                                FAREHARBOR EMBED GOES HERE.
-
-                                When the FareHarbor code is available, replace this placeholder
-                                area with the official FareHarbor button, calendar, or iframe embed.
-
-                                Needed from FareHarbor:
-                                - company shortname,
-                                - direct booking URL,
-                                - or dashboard embed code from Book Buttons & Embeds.
-                            */}
+                        <div className="fareharbor-frame-wrap">
+                            <iframe
+                                title="Laughlin Jet Ski Rentals FareHarbor Booking"
+                                src={fareHarborBookingUrl}
+                                loading="lazy"
+                                className="fareharbor-frame"
+                            />
                         </div>
                     </div>
                 </section>
