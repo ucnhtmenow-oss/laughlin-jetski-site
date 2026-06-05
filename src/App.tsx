@@ -1,5 +1,6 @@
 // src/App.tsx
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
@@ -1215,6 +1216,7 @@ function App() {
                     <VisitorCount />
                 </div>
             </footer>
+            <Analytics />
         </div>
     );
 }
