@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import WalkthroughSection from "../components/WalkthroughSection";
 
 const PHONE = "(702) 624-7149";
@@ -63,6 +64,19 @@ const walkthroughSteps = [
 ];
 
 export default function JetSkiRentalPage() {
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      'script[src="https://elfsightcdn.com/platform.js"]'
+    );
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <>
       <style>{`
@@ -70,12 +84,12 @@ export default function JetSkiRentalPage() {
           min-height: 100vh;
           color: #f4fbff;
           background:
-            radial-gradient(circle at 20% 20%, rgba(83,223,240,.22), transparent 30%),
-            radial-gradient(circle at 80% 30%, rgba(45,212,191,.18), transparent 32%),
-            radial-gradient(circle at 50% 80%, rgba(59,130,246,.22), transparent 36%),
-            linear-gradient(135deg, rgba(255,255,255,.045) 25%, transparent 25%) 0 0/44px 44px,
-            linear-gradient(225deg, rgba(255,255,255,.035) 25%, transparent 25%) 0 0/44px 44px,
-            linear-gradient(180deg, #04141c 0%, #0b2630 25%, #0f3441 50%, #0b2630 75%, #04141c 100%);
+            radial-gradient(circle at 18% 18%, rgba(83, 223, 240, 0.35), transparent 28%),
+            radial-gradient(circle at 82% 22%, rgba(45, 212, 191, 0.28), transparent 30%),
+            radial-gradient(circle at 50% 78%, rgba(59, 130, 246, 0.32), transparent 38%),
+            linear-gradient(135deg, rgba(255,255,255,0.06) 25%, transparent 25%) 0 0 / 46px 46px,
+            linear-gradient(225deg, rgba(255,255,255,0.04) 25%, transparent 25%) 0 0 / 46px 46px,
+            linear-gradient(180deg, #03151d 0%, #063344 35%, #07506a 55%, #062d3d 80%, #031018 100%);
           background-attachment: fixed;
           position: relative;
           overflow: hidden;
@@ -86,14 +100,14 @@ export default function JetSkiRentalPage() {
           position: fixed;
           inset: 0;
           pointer-events: none;
-          opacity: 0.14;
+          opacity: 0.22;
           z-index: 0;
-          background-image:
-            radial-gradient(circle at 25% 25%, rgba(255,255,255,.55) 0, transparent 2px),
-            radial-gradient(circle at 75% 35%, rgba(255,255,255,.4) 0, transparent 2px),
-            radial-gradient(circle at 40% 70%, rgba(255,255,255,.35) 0, transparent 2px),
-            radial-gradient(circle at 85% 80%, rgba(255,255,255,.5) 0, transparent 2px);
-          background-size: 220px 220px;
+          background:
+            radial-gradient(circle at 20% 30%, rgba(255,255,255,0.55) 0, transparent 2px),
+            radial-gradient(circle at 75% 20%, rgba(255,255,255,0.4) 0, transparent 2px),
+            radial-gradient(circle at 45% 70%, rgba(255,255,255,0.35) 0, transparent 2px),
+            radial-gradient(circle at 85% 82%, rgba(255,255,255,0.45) 0, transparent 2px);
+          background-size: 180px 180px;
         }
 
         .jetski-page::after {
@@ -101,10 +115,13 @@ export default function JetSkiRentalPage() {
           position: fixed;
           inset: -20%;
           pointer-events: none;
-          opacity: 0.18;
+          opacity: 0.22;
           z-index: 0;
-          background:
-            repeating-radial-gradient(ellipse at center, rgba(147,243,255,.22) 0 1px, transparent 2px 18px);
+          background: repeating-radial-gradient(
+            ellipse at center,
+            rgba(147,243,255,0.28) 0 1px,
+            transparent 2px 20px
+          );
           transform: rotate(-8deg);
         }
 
@@ -162,7 +179,7 @@ export default function JetSkiRentalPage() {
           position: absolute;
           inset: 0;
           background:
-            linear-gradient(180deg, rgba(6,12,16,.18), rgba(6,12,16,.55)),
+            linear-gradient(180deg, rgba(6,12,16,.12), rgba(6,12,16,.45)),
             url("/jetski/hero-ski-beach.jpg") center / cover no-repeat;
           opacity: .34;
         }
@@ -190,8 +207,8 @@ export default function JetSkiRentalPage() {
           letter-spacing: .08em;
           text-transform: uppercase;
           color: #93f3ff;
-          border: 1px solid rgba(147,243,255,.2);
-          background: rgba(255,255,255,.06);
+          border: 1px solid rgba(147,243,255,.28);
+          background: rgba(255,255,255,.08);
           margin-bottom: 18px;
         }
 
@@ -213,7 +230,7 @@ export default function JetSkiRentalPage() {
           max-width: 660px;
           font-size: 1.06rem;
           line-height: 1.85;
-          color: rgba(227,241,247,.84);
+          color: rgba(227,241,247,.9);
         }
 
         .actions {
@@ -242,14 +259,14 @@ export default function JetSkiRentalPage() {
 
         .secondary {
           color: #effaff;
-          border: 1px solid rgba(255,255,255,.12);
-          background: rgba(255,255,255,.05);
+          border: 1px solid rgba(255,255,255,.16);
+          background: rgba(255,255,255,.08);
         }
 
         .info {
           display: grid;
           gap: 8px;
-          color: rgba(236,247,252,.9);
+          color: rgba(236,247,252,.92);
           line-height: 1.6;
         }
 
@@ -260,10 +277,11 @@ export default function JetSkiRentalPage() {
         .card {
           overflow: hidden;
           border-radius: 30px;
-          border: 1px solid rgba(255,255,255,.1);
-          background: rgba(4,18,24,.72);
+          border: 1px solid rgba(255,255,255,.12);
+          background: rgba(4,18,24,.76);
           backdrop-filter: blur(14px);
           padding: 22px;
+          box-shadow: 0 22px 70px rgba(0,0,0,.24);
         }
 
         .hero-img {
@@ -307,7 +325,7 @@ export default function JetSkiRentalPage() {
 
         .included-list li,
         .card p {
-          color: rgba(221,237,244,.82);
+          color: rgba(221,237,244,.86);
           line-height: 1.75;
         }
 
@@ -317,6 +335,11 @@ export default function JetSkiRentalPage() {
           border: 0;
           border-radius: 22px;
           background: #ffffff;
+        }
+
+        .reviews-box {
+          min-height: 220px;
+          padding-top: 12px;
         }
 
         .map-grid {
@@ -472,10 +495,12 @@ export default function JetSkiRentalPage() {
               <h2>See What Riders Are Saying</h2>
               <p>Real reviews from Google, Yelp, and other review platforms.</p>
 
-              <div
-                className="elfsight-app-61dbbd95-df4c-4212-8c9b-4e709f75a45d"
-                data-elfsight-app-lazy
-              ></div>
+              <div className="reviews-box">
+                <div
+                  className="elfsight-app-61dbbd95-df4c-4212-8c9b-4e709f75a45d"
+                  data-elfsight-app-lazy
+                ></div>
+              </div>
             </article>
           </div>
         </section>

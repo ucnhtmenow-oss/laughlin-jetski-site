@@ -1,4 +1,3 @@
-/* src/App.css */
 * {
   box-sizing: border-box;
 }
@@ -10,15 +9,9 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: linear-gradient(180deg, #0f0b1a 0%, #181126 40%, #1e1430 100%);
+  background: url("/water-pic.png") center center / cover fixed no-repeat;
   color: #f5ecff;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 a {
@@ -33,11 +26,9 @@ img {
 
 .site-shell {
   min-height: 100vh;
+  color: #ffffff;
+  background: rgba(0, 20, 30, 0.18);
 }
-
-/* =========================
-   TOP NAV
-========================= */
 
 .site-nav {
   position: fixed;
@@ -52,9 +43,9 @@ img {
   gap: 18px;
   padding: 10px 12px 10px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(12, 7, 25, 0.78);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(0, 20, 30, .72);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .26);
   backdrop-filter: blur(16px);
 }
 
@@ -62,10 +53,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-width: 0;
   color: #ffffff;
   font-weight: 900;
-  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
@@ -74,7 +63,6 @@ img {
   height: 30px;
   border-radius: 999px;
   object-fit: cover;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .site-nav-links {
@@ -82,7 +70,6 @@ img {
   align-items: center;
   justify-content: flex-end;
   gap: 4px;
-  min-width: 0;
 }
 
 .site-nav-links a {
@@ -92,30 +79,15 @@ img {
   min-height: 38px;
   padding: 8px 12px;
   border-radius: 999px;
-  color: rgba(245, 236, 255, 0.82);
+  color: rgba(245, 236, 255, 0.9);
   font-size: 0.82rem;
   font-weight: 800;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.site-nav-links a:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
 }
 
 .site-nav-links .site-nav-cta {
   color: #2a0f3a;
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-  box-shadow: 0 10px 24px rgba(255, 92, 169, 0.2);
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero {
   position: relative;
@@ -126,26 +98,14 @@ img {
   padding: 112px 24px 72px;
   overflow: hidden;
   background:
-    linear-gradient(to bottom, rgba(8, 6, 18, 0.2), rgba(8, 6, 18, 0.88)),
-    url("/jetski/hero-ski-beach.jpg") center/cover no-repeat;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255, 80, 180, 0.24), transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(80, 130, 255, 0.22), transparent 40%);
-  pointer-events: none;
+    linear-gradient(to bottom, rgba(0, 25, 35, 0.2), rgba(0, 10, 20, 0.55)),
+    url("/water-pic.png") center center / cover no-repeat;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.06), transparent 26%),
-    linear-gradient(to top, rgba(33, 14, 52, 0.4), rgba(33, 14, 52, 0.08));
+  background: rgba(0, 20, 30, 0.18);
   pointer-events: none;
 }
 
@@ -167,11 +127,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  backdrop-filter: none;
 }
 
 .hero-logo {
@@ -179,21 +134,16 @@ img {
   max-width: 320px;
   height: auto;
   object-fit: contain;
-  border-radius: 0;
-  filter: drop-shadow(0 16px 34px rgba(0, 0, 0, 0.28));
-}
-
-.hero-text {
-  min-width: 0;
+  filter: drop-shadow(0 16px 34px rgba(0, 0, 0, .28));
 }
 
 .eyebrow,
 .section-kicker {
   display: inline-block;
   color: #ffe06d;
-  font-size: 0.8rem;
+  font-size: .8rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: .15em;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -201,20 +151,18 @@ img {
 .hero h1 {
   margin: 10px 0;
   font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 0.95;
+  line-height: .95;
   color: #ffffff;
-  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
 }
 
 .hero-copy {
   max-width: 620px;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, .92);
   font-size: 1.08rem;
   line-height: 1.7;
 }
 
 .hero-actions,
-.contact-actions,
 .directions-actions {
   display: flex;
   flex-wrap: wrap;
@@ -224,8 +172,7 @@ img {
 
 .primary-btn,
 .secondary-btn,
-.card-btn,
-.floating-call-btn {
+.card-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -233,43 +180,29 @@ img {
   padding: 14px 22px;
   border-radius: 999px;
   font-weight: 800;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease,
-    border-color 0.18s ease;
 }
 
 .primary-btn {
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
   color: #2a0f3a;
-  box-shadow: 0 16px 34px rgba(255, 92, 169, 0.22);
-}
-
-.primary-btn:hover,
-.floating-call-btn:hover {
-  transform: translateY(-2px);
 }
 
 .secondary-btn {
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, .38);
+  background: rgba(255, 255, 255, .08);
   color: #ffffff;
 }
 
-.secondary-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.floating-call-btn {
+.floating-book-btn {
   position: fixed;
   right: 18px;
   bottom: 18px;
-  z-index: 999;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  z-index: 9999;
+  padding: 14px 20px;
+  border-radius: 999px;
   color: #2a0f3a;
-  box-shadow: 0 18px 38px rgba(255, 76, 160, 0.35);
+  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  font-weight: 900;
 }
 
 .hero-stats {
@@ -279,31 +212,38 @@ img {
   margin-top: 40px;
 }
 
-.stat-card {
+.stat-card,
+.feature-card,
+.pricing-card,
+.map-embed-card,
+.directions-card,
+.reviews-card,
+.fareharbor-ready-card {
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 24px;
+  background: rgba(0, 22, 32, 0.72);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, .28);
+}
+
+.stat-card,
+.feature-card,
+.pricing-card,
+.directions-card {
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 14px 30px rgba(20, 8, 32, 0.18);
 }
 
 .stat-number {
   display: block;
   font-size: 1.3rem;
   font-weight: 900;
-  color: #ffffff;
 }
 
 .stat-label {
   display: block;
   margin-top: 6px;
-  color: rgba(255, 242, 248, 0.96);
+  color: rgba(255, 255, 255, .86);
 }
-
-/* =========================
-   MAIN SECTIONS
-========================= */
 
 .main-content {
   width: 100%;
@@ -311,9 +251,7 @@ img {
   margin: 0 auto;
   margin-top: -80px;
   padding: 100px 24px 80px;
-  background:
-    linear-gradient(180deg, rgba(15, 11, 26, 0) 0%, rgba(15, 11, 26, 1) 120px),
-    linear-gradient(180deg, #0f0b1a 0%, #181126 100%);
+  background: transparent;
 }
 
 .section {
@@ -332,226 +270,97 @@ img {
   line-height: 1.06;
 }
 
-.section-heading p {
-  margin-top: 16px;
-  color: rgba(230, 210, 255, 0.8);
-  line-height: 1.75;
-}
-
-.feature-grid,
-.pricing-grid {
-  display: grid;
-  gap: 20px;
-}
-
-.feature-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.feature-card,
-.pricing-card,
-.map-embed-card,
-.directions-card,
-.contact-card,
-.booking-card,
-.walkthrough-card,
-.info-card,
-.river-day-card,
-.safety-card {
-  background: rgba(30, 18, 50, 0.9);
-  border: 1px solid rgba(255, 126, 202, 0.16);
-  border-radius: 24px;
-  box-shadow: 0 18px 38px rgba(6, 3, 12, 0.32);
-}
-
-.feature-card,
-.info-card,
-.river-day-card,
-.safety-card {
-  padding: 20px;
-}
-
-.feature-card h3,
-.directions-card h3,
-.walkthrough-copy h3,
-.info-card h3,
-.river-day-card h3,
-.safety-card h3 {
-  margin: 0 0 12px;
-  color: #ffd65b;
-  font-size: 1.2rem;
-}
-
+.section-heading p,
 .feature-card p,
-.directions-card p,
-.walkthrough-copy p,
-.info-card p,
-.river-day-card p,
-.safety-card p {
-  margin: 0;
-  color: rgba(240, 231, 255, 0.84);
+.pricing-card p,
+.directions-card p {
+  color: rgba(240, 248, 255, .86);
   line-height: 1.7;
 }
 
-/* =========================
-   RENTAL / RIVER DAY / SAFETY
-========================= */
-
-.rental-info-grid,
-.river-day-grid,
-.safety-grid {
+.feature-grid {
   display: grid;
-  gap: 18px;
-}
-
-.rental-info-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.river-day-grid {
-  grid-template-columns: 1.1fr 1fr 1fr;
-}
-
-.safety-grid {
-  grid-template-columns: 1.2fr 0.8fr;
-}
-
-.river-weather-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 12px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  color: #2b0f40;
-  background: linear-gradient(135deg, #ffd65b, #ff5db1);
-  font-size: 0.8rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.safety-card-large {
-  min-height: 240px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background:
-    linear-gradient(135deg, rgba(255, 204, 47, 0.12), rgba(255, 76, 160, 0.1)),
-    rgba(30, 18, 50, 0.92);
-}
-
-.safety-video-box {
-  min-height: 240px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background:
-    linear-gradient(135deg, rgba(13, 8, 31, 0.65), rgba(45, 22, 77, 0.88)),
-    url("/jetski/walkthrough-poster.jpg") center/cover no-repeat;
-  overflow: hidden;
-}
-
-.safety-play {
-  width: 74px;
-  height: 74px;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-  color: #2a0f3a;
-  font-size: 1.8rem;
-  font-weight: 900;
-  box-shadow: 0 18px 38px rgba(255, 76, 160, 0.26);
-}
-
-/* =========================
-   WALKTHROUGH
-========================= */
-
-.walkthrough-grid {
+.pricing-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
-.walkthrough-card {
-  overflow: hidden;
+.feature-card h3,
+.pricing-card h3,
+.directions-card h3 {
+  color: #ffd65b;
 }
 
-.walkthrough-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-}
-
-.walkthrough-copy {
-  padding: 18px;
-}
-
-.walkthrough-wide {
-  grid-column: span 2;
-}
-
-.walk-step-badge {
+.pricing-badge {
   display: inline-flex;
-  margin-bottom: 10px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ff5db1, #ffcc2f);
-  color: #2b0f40;
-  font-size: 0.74rem;
+  background: linear-gradient(135deg, #00c2ff, #00ffa3);
+  color: #05202a;
+  font-size: .78rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* =========================
-   GALLERY
-========================= */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  align-items: stretch;
+.price {
+  font-size: 2.55rem;
+  font-weight: 900;
+  color: #93f3ff;
 }
 
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  min-height: 280px;
-  height: 280px;
-  border-radius: 28px;
-  background: linear-gradient(180deg, rgba(19, 9, 42, 0.94), rgba(10, 5, 24, 0.98));
-  border: 1px solid rgba(108, 77, 183, 0.26);
-  box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.gallery-item.gallery-tall {
-  min-height: 520px;
-  height: 520px;
-}
-
-.gallery-item.gallery-wide {
-  min-height: 280px;
-  height: 280px;
-  grid-column: span 2;
-}
-
-.gallery-item img {
-  display: block;
+.card-btn {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .22);
 }
 
-/* =========================
-   MAP / DIRECTIONS
-========================= */
+.reviews-section-wrap {
+  margin: 0 calc(50% - 50vw);
+  padding: 58px max(24px, calc((100vw - 1180px) / 2));
+  background: rgba(0, 20, 32, 0.24);
+}
+
+.reviews-card {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 26px;
+}
+
+.reviews-widget-wrap {
+  min-height: 240px;
+  margin-top: 20px;
+}
+
+.fareharbor-ready-card {
+  display: grid;
+  grid-template-columns: .36fr .64fr;
+  gap: 30px;
+  padding: 26px;
+}
+
+.fareharbor-jetski-image {
+  border-radius: 22px;
+  margin-bottom: 22px;
+}
+
+.fareharbor-frame-wrap {
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  min-height: 520px;
+}
+
+.fareharbor-frame {
+  width: 100%;
+  min-height: 640px;
+  border: 0;
+  background: #ffffff;
+}
 
 .map-grid {
   display: grid;
@@ -569,299 +378,13 @@ img {
   height: 100%;
   min-height: 400px;
   border: 0;
-  display: block;
 }
-
-.directions-card {
-  padding: 20px;
-}
-
-/* =========================
-   PRICING
-========================= */
-
-.pricing-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.pricing-card {
-  position: relative;
-  padding: 24px;
-}
-
-.featured-pricing {
-  border-color: rgba(255, 120, 184, 0.34);
-  background: linear-gradient(180deg, rgba(64, 29, 92, 0.96), rgba(34, 18, 55, 0.94));
-}
-
-.pricing-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 30px;
-  padding: 0 12px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #6d38f4, #ff4ba3);
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.featured-badge {
-  background: linear-gradient(135deg, #ffd53f, #ff9f2f);
-  color: #4b1d67;
-}
-
-.pricing-card h3 {
-  margin: 18px 0 12px;
-  color: #ffffff;
-  font-size: 1.45rem;
-}
-
-.price {
-  font-size: 2.55rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  margin-bottom: 14px;
-  color: #ff5db1;
-}
-
-.pricing-card p {
-  margin: 0 0 18px;
-  color: rgba(240, 231, 255, 0.84);
-  line-height: 1.7;
-}
-
-.card-btn {
-  width: 100%;
-  background: linear-gradient(135deg, rgba(255, 214, 61, 0.22), rgba(255, 122, 172, 0.16));
-  border: 1px solid rgba(255, 118, 171, 0.24);
-  color: #ffe8ff;
-}
-
-.card-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* =========================
-   BOOKING
-========================= */
-
-.booking-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 18px;
-}
-
-.booking-card {
-  padding: 24px;
-}
-
-.booking-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 0;
-}
-
-.booking-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.booking-field label {
-  color: rgba(231, 222, 255, 0.9);
-  font-size: 0.86rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
-
-.booking-field input,
-.booking-field select {
-  width: 100%;
-  min-height: 48px;
-  padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.92);
-  outline: none;
-}
-
-.booking-field input::placeholder {
-  color: rgba(255, 255, 255, 0.48);
-}
-
-.booking-field input:focus,
-.booking-field select:focus {
-  border-color: rgba(255, 204, 47, 0.55);
-  box-shadow: 0 0 0 4px rgba(255, 92, 169, 0.16);
-}
-
-.booking-span-2 {
-  grid-column: span 2;
-}
-
-.booking-actions {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 6px;
-}
-
-.booking-call-btn {
-  width: 100%;
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 24px;
-}
-
-.contact-copy {
-  max-width: 680px;
-}
-
-.contact-copy h2 {
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.05;
-}
-
-.contact-copy p {
-  margin-top: 14px;
-  color: rgba(240, 231, 255, 0.84);
-  line-height: 1.8;
-}
-
-/* =========================
-   GEARHEAD WEB BUILD CTA
-========================= */
-
-.website-maker-section {
-  padding-top: 0;
-}
-
-.website-maker-card {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.15fr auto;
-  gap: 18px;
-  align-items: center;
-  padding: 18px 22px;
-  border-radius: 22px;
-  border: 1px solid rgba(108, 77, 183, 0.18);
-  background: linear-gradient(180deg, rgba(16, 9, 36, 0.88), rgba(10, 5, 24, 0.96));
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.website-maker-copy {
-  min-width: 0;
-}
-
-.website-maker-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 10px;
-  margin-bottom: 10px;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(231, 222, 255, 0.9);
-  background: rgba(72, 45, 143, 0.34);
-  border: 1px solid rgba(137, 108, 212, 0.18);
-}
-
-.website-maker-title {
-  margin: 0 0 6px;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.website-maker-text {
-  margin: 0;
-  color: rgba(227, 220, 250, 0.72);
-  font-size: 0.92rem;
-  line-height: 1.7;
-  max-width: 780px;
-}
-
-.website-maker-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-end;
-}
-
-.website-maker-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 148px;
-  padding: 11px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(121, 92, 198, 0.22);
-  background: rgba(57, 32, 117, 0.26);
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 800;
-  transition:
-    transform 0.18s ease,
-    background 0.18s ease,
-    border-color 0.18s ease;
-}
-
-.website-maker-button:hover {
-  transform: translateY(-1px);
-  background: rgba(75, 45, 148, 0.34);
-  border-color: rgba(149, 120, 226, 0.3);
-}
-
-/* =========================
-   FOOTER
-========================= */
 
 .site-footer {
   text-align: center;
   padding: 30px;
-  color: rgba(200, 180, 230, 0.7);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
+  color: rgba(255, 255, 255, .72);
 }
-
-.site-footer-line {
-  line-height: 1.6;
-}
-
-.visitor-count {
-  font-size: 0.9rem;
-  color: rgba(200, 180, 230, 0.62);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 1080px) {
 
@@ -869,38 +392,9 @@ img {
   .feature-grid,
   .pricing-grid,
   .hero-stats,
-  .booking-grid,
   .map-grid,
-  .gallery-grid,
-  .walkthrough-grid,
-  .contact-card,
-  .rental-info-grid,
-  .river-day-grid,
-  .safety-grid {
+  .fareharbor-ready-card {
     grid-template-columns: 1fr;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .gallery-wide,
-  .walkthrough-wide,
-  .gallery-item.gallery-wide {
-    grid-column: span 1;
-  }
-
-  .gallery-item,
-  .gallery-item.gallery-wide,
-  .gallery-item.gallery-tall {
-    height: 300px;
-    min-height: 300px;
-  }
-
-  .website-maker-card {
-    grid-template-columns: 1fr;
-  }
-
-  .website-maker-actions {
-    justify-content: flex-start;
   }
 }
 
@@ -921,7 +415,6 @@ img {
     width: 100%;
     justify-content: flex-start;
     overflow-x: auto;
-    padding-bottom: 2px;
   }
 }
 
@@ -939,70 +432,5 @@ img {
 
   .hero-logo {
     max-width: 240px;
-  }
-
-  .gallery-item,
-  .feature-card,
-  .directions-card,
-  .contact-card,
-  .booking-card,
-  .map-embed-card,
-  .stat-card,
-  .walkthrough-card,
-  .info-card,
-  .river-day-card,
-  .safety-card {
-    border-radius: 20px;
-  }
-
-  .booking-form {
-    grid-template-columns: 1fr;
-  }
-
-  .booking-span-2 {
-    grid-column: span 1;
-  }
-
-  .gallery-item,
-  .gallery-item.gallery-wide,
-  .gallery-item.gallery-tall,
-  .gallery-item img,
-  .walkthrough-card img {
-    height: 220px;
-    min-height: 220px;
-  }
-
-  .map-embed,
-  .map-embed-card {
-    min-height: 320px;
-  }
-
-  .floating-call-btn {
-    right: 14px;
-    bottom: 14px;
-    min-height: 50px;
-    padding: 12px 18px;
-  }
-
-  .site-nav-brand {
-    font-size: 0.92rem;
-  }
-
-  .site-nav-links a {
-    min-height: 36px;
-    padding: 8px 10px;
-    font-size: 0.78rem;
-  }
-
-  .website-maker-card {
-    padding: 16px;
-  }
-
-  .website-maker-actions {
-    flex-direction: column;
-  }
-
-  .website-maker-button {
-    width: 100%;
   }
 }
