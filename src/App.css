@@ -4,12 +4,13 @@
 
 html {
   scroll-behavior: smooth;
+  background: #0f0b1a;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background: url("/water-pic.png") center center / cover fixed no-repeat;
+  background: #0f0b1a;
   color: #f5ecff;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -27,7 +28,7 @@ img {
 .site-shell {
   min-height: 100vh;
   color: #ffffff;
-  background: rgba(0, 20, 30, 0.18);
+  background: #0f0b1a;
 }
 
 .site-nav {
@@ -44,8 +45,8 @@ img {
   padding: 10px 12px 10px 16px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, .16);
-  background: rgba(0, 20, 30, .72);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, .26);
+  background: rgba(12, 7, 25, .82);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .32);
   backdrop-filter: blur(16px);
 }
 
@@ -79,8 +80,8 @@ img {
   min-height: 38px;
   padding: 8px 12px;
   border-radius: 999px;
-  color: rgba(245, 236, 255, 0.9);
-  font-size: 0.82rem;
+  color: rgba(245, 236, 255, .9);
+  font-size: .82rem;
   font-weight: 800;
 }
 
@@ -98,14 +99,14 @@ img {
   padding: 112px 24px 72px;
   overflow: hidden;
   background:
-    linear-gradient(to bottom, rgba(0, 25, 35, 0.2), rgba(0, 10, 20, 0.55)),
-    url("/water-pic.png") center center / cover no-repeat;
+    linear-gradient(to bottom, rgba(8, 6, 18, .18), rgba(8, 6, 18, .88)),
+    url("/jetski/hero-ski-beach.jpg") center / cover no-repeat;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 20, 30, 0.18);
+  background: rgba(33, 14, 52, .12);
   pointer-events: none;
 }
 
@@ -219,11 +220,11 @@ img {
 .directions-card,
 .reviews-card,
 .fareharbor-ready-card {
-  border: 1px solid rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 126, 202, .22);
   border-radius: 24px;
-  background: rgba(0, 22, 32, 0.72);
+  background: rgba(30, 18, 50, .92);
   backdrop-filter: blur(12px);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, .28);
+  box-shadow: 0 18px 38px rgba(6, 3, 12, .34);
 }
 
 .stat-card,
@@ -242,16 +243,17 @@ img {
 .stat-label {
   display: block;
   margin-top: 6px;
-  color: rgba(255, 255, 255, .86);
+  color: rgba(255, 242, 248, .9);
 }
 
 .main-content {
   width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  margin-top: -80px;
-  padding: 100px 24px 80px;
-  background: transparent;
+  max-width: none;
+  margin: 0;
+  padding: 100px max(24px, calc((100vw - 1240px) / 2)) 80px;
+  background:
+    linear-gradient(rgba(15, 11, 26, .72), rgba(24, 17, 38, .88)),
+    url("/water-pic.png") center center / cover fixed no-repeat;
 }
 
 .section {
@@ -274,7 +276,7 @@ img {
 .feature-card p,
 .pricing-card p,
 .directions-card p {
-  color: rgba(240, 248, 255, .86);
+  color: rgba(240, 231, 255, .86);
   line-height: 1.7;
 }
 
@@ -300,8 +302,8 @@ img {
   display: inline-flex;
   padding: 8px 12px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #00c2ff, #00ffa3);
-  color: #05202a;
+  background: linear-gradient(135deg, #ffd65b, #ff4ca0);
+  color: #2a0f3a;
   font-size: .78rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -310,19 +312,20 @@ img {
 .price {
   font-size: 2.55rem;
   font-weight: 900;
-  color: #93f3ff;
+  color: #ff5db1;
 }
 
 .card-btn {
   width: 100%;
-  background: rgba(255, 255, 255, .1);
-  border: 1px solid rgba(255, 255, 255, .22);
+  background: linear-gradient(135deg, rgba(255, 214, 61, .2), rgba(255, 76, 160, .16));
+  border: 1px solid rgba(255, 126, 202, .26);
+  color: #ffe8ff;
 }
 
 .reviews-section-wrap {
   margin: 0 calc(50% - 50vw);
   padding: 58px max(24px, calc((100vw - 1180px) / 2));
-  background: rgba(0, 20, 32, 0.24);
+  background: rgba(15, 11, 26, .32);
 }
 
 .reviews-card {
@@ -384,6 +387,9 @@ img {
   text-align: center;
   padding: 30px;
   color: rgba(255, 255, 255, .72);
+  background:
+    linear-gradient(rgba(15, 11, 26, .78), rgba(24, 17, 38, .9)),
+    url("/water-pic.png") center center / cover fixed no-repeat;
 }
 
 @media (max-width: 1080px) {
@@ -426,7 +432,6 @@ img {
   }
 
   .main-content {
-    margin-top: -50px;
     padding: 70px 18px 90px;
   }
 

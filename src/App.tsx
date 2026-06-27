@@ -63,9 +63,7 @@ function App() {
                     <a href="#rentals">Rentals</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#reviews">Reviews</a>
-                    <a href="#gallery">Gallery</a>
                     <a href="#location">Directions</a>
-                    <a href="#safety">Safety</a>
                     <a href="#book" className="site-nav-cta">Book Now</a>
                 </div>
             </nav>
