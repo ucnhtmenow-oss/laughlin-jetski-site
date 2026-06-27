@@ -9,7 +9,7 @@ const address = "1950 Casino Dr, Laughlin, NV 89029";
 const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
 const fareHarborShortname = "laughlinjetskirental";
 const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
-const safetyVideoUrl = "https://www.youtube.com/embed/Y3d0KVs3i_U";
+
 
 const walkthroughPhotos = [
     { src: "/jetski/walkthrough-main.jpg", alt: "Main walkthrough overview for Laughlin Jet Ski Rentals", title: "Main Entrance", description: "Entrance is just south of the Chevron gas station in the conjoining lots. Look for the Regency Casino sign.", label: "Entrance" },
