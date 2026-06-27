@@ -9,6 +9,7 @@ const address = "1950 Casino Dr, Laughlin, NV 89029";
 const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
 const fareHarborShortname = "laughlinjetskirental";
 const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
+const safetyVideoUrl = "https://www.youtube.com/embed/Y3d0KVs3i_U";
 
 const walkthroughPhotos = [
     { src: "/jetski/walkthrough-main.jpg", alt: "Main walkthrough overview for Laughlin Jet Ski Rentals", title: "Main Entrance", description: "Entrance is just south of the Chevron gas station in the conjoining lots. Look for the Regency Casino sign.", label: "Entrance" },
@@ -60,6 +61,7 @@ function App() {
 
                 <div className="site-nav-links">
                     <a href="#home">Home</a>
+                    <a href="#safety">Safety</a>
                     <a href="#rentals">Rentals</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#reviews">Reviews</a>
@@ -114,6 +116,35 @@ function App() {
             </section>
 
             <main className="main-content">
+                <section className="section safety-section" id="safety">
+                    <div className="safety-card">
+                        <div className="safety-copy">
+                            <span className="section-kicker">Safety Video</span>
+                            <h2>Watch before you ride</h2>
+                            <p>
+                                Please watch the safety video before your rental so check-in is smoother,
+                                faster, and nobody has to learn river safety the hard way like humanity
+                                keeps trying to do.
+                            </p>
+
+                            <div className="safety-actions">
+                                <a href="#book" className="primary-btn">Book Your Ride</a>
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
+                            </div>
+                        </div>
+
+                        <div className="safety-video-wrap">
+                            <iframe
+                                src="https://www.youtube.com/embed/Y3d0KVs3i_U?si=q4MWxCU7FT781Dpv"
+                                title="Laughlin Jet Ski Rentals Safety Video"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            />
+                        </div>
+                    </div>
+                </section>
+
                 <section className="section" id="rentals">
                     <div className="section-heading">
                         <span className="section-kicker">Why people ride with us</span>
@@ -181,7 +212,9 @@ function App() {
                         </article>
                     </div>
                 </section>
-
+                {/* Elfsight All-in-One Reviews | Untitled All-in-One Reviews */}
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div className="elfsight-app-61dbbd95-df4c-4212-8c9b-4e709f75a45d" data-elfsight-app-lazy></div>
                 <section className="section reviews-section-wrap" id="reviews">
                     <div className="reviews-card">
                         <span className="section-kicker">Customer Reviews</span>
