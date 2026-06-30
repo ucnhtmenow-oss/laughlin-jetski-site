@@ -90,6 +90,55 @@ img {
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
 }
 
+.background-toggle {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(12, 7, 25, .82);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .32);
+  backdrop-filter: blur(16px);
+}
+
+.background-toggle span {
+  padding: 0 8px;
+  color: rgba(255, 255, 255, .72);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.background-toggle button {
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, .88);
+  background: rgba(255, 255, 255, .08);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.background-toggle button.active {
+  color: #2a0f3a;
+  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+}
+
+.water-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero {
   position: relative;
   min-height: 88vh;
@@ -98,21 +147,65 @@ img {
   justify-content: center;
   padding: 112px 24px 72px;
   overflow: hidden;
-  background:
-    linear-gradient(to bottom, rgba(8, 6, 18, .18), rgba(8, 6, 18, .88)),
-    url("/jetski/hero-ski-beach.jpg") center / cover no-repeat;
+  background: #0f0b1a;
+}
+
+.hero-photo-layer {
+  position: absolute;
+  inset: 0;
+  background: url("/jetski/hero-ski-beach.jpg") center / cover no-repeat;
+}
+
+.hero-water-video {
+  z-index: 0;
+}
+
+.hero-photo-layer {
+  z-index: 1;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(33, 14, 52, .12);
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(8, 6, 18, .18), rgba(8, 6, 18, .88));
   pointer-events: none;
+}
+
+.bg-mode-photo .hero-water-video,
+.bg-mode-photo .main-water-video {
+  opacity: 0;
+}
+
+.bg-mode-photo .hero-photo-layer {
+  opacity: 1;
+}
+
+.bg-mode-water .hero-water-video,
+.bg-mode-water .main-water-video {
+  opacity: 1;
+}
+
+.bg-mode-water .hero-photo-layer {
+  opacity: 0;
+}
+
+.bg-mode-both .hero-water-video {
+  opacity: .54;
+}
+
+.bg-mode-both .main-water-video {
+  opacity: .48;
+}
+
+.bg-mode-both .hero-photo-layer {
+  opacity: .72;
+  mix-blend-mode: soft-light;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   max-width: 1180px;
 }
@@ -249,13 +342,49 @@ img {
 }
 
 .main-content {
+  position: relative;
   width: 100%;
   max-width: none;
   margin: 0;
   padding: 100px max(24px, calc((100vw - 1240px) / 2)) 80px;
+  overflow: hidden;
   background:
     linear-gradient(rgba(15, 11, 26, .72), rgba(24, 17, 38, .88)),
     url("/water-pic.png") center center / cover fixed no-repeat;
+}
+
+.main-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(rgba(15, 11, 26, .70), rgba(24, 17, 38, .86)),
+    url("/water-pic.png") center center / cover fixed no-repeat;
+  pointer-events: none;
+}
+
+.main-water-video {
+  z-index: 0;
+  opacity: 0;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.main-content-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.bg-mode-water .main-content::before {
+  opacity: .28;
+}
+
+.bg-mode-both .main-content::before {
+  opacity: .62;
+}
+
+.bg-mode-photo .main-content::before {
+  opacity: 1;
 }
 
 .section {
@@ -435,6 +564,30 @@ img {
     url("/water-pic.png") center center / cover fixed no-repeat;
 }
 
+.site-footer-line {
+  margin-top: 8px;
+}
+
+.gh3d-maker-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  color: #2a0f3a;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 24px rgba(255, 76, 160, .25);
+}
+
+.gh3d-maker-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 76, 160, .4);
+}
+
 @media (max-width: 1080px) {
 
   .hero-brand,
@@ -466,6 +619,14 @@ img {
     justify-content: flex-start;
     overflow-x: auto;
   }
+
+  .background-toggle {
+    left: 10px;
+    right: 10px;
+    bottom: 76px;
+    justify-content: center;
+    border-radius: 22px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -486,22 +647,8 @@ img {
   .safety-card {
     padding: 20px;
   }
-    .gh3d-maker-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 16px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 126, 202, .32);
-      background: rgba(255, 255, 255, .08);
-      color: rgba(255, 255, 255, .9);
-      font-size: .86rem;
-      font-weight: 900;
-      letter-spacing: .02em;
-    }
-  
-    .gh3d-maker-btn:hover {
-      background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-      color: #2a0f3a; }
+
+  .background-toggle span {
+    display: none;
+  }
 }
