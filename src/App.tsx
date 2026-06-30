@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
-
-type BackgroundMode = "photo" | "water" | "both";
 
 const phoneNumber = "17026247149";
 const displayPhone = "(702) 624-7149";
@@ -11,6 +9,64 @@ const address = "1950 Casino Dr, Laughlin, NV 89029";
 const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
 const fareHarborShortname = "laughlinjetskirental";
 const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
+
+const gh3dInquiryEmail = "support@gearhead3dfab.com";
+const gh3dInquirySubject = encodeURIComponent("GH3D Project Inquiry - Website or Prototype");
+const gh3dInquiryBody = encodeURIComponent(`Hi Gearhead 3D Fab,
+
+I am interested in help with a project.
+
+Name:
+Business / Project Name:
+Phone:
+Email:
+
+What do you need?
+[ ] Website / landing page
+[ ] Online booking or service site
+[ ] Product / prototype design
+[ ] 3D printable part
+[ ] CAD cleanup / file repair
+[ ] Other:
+
+Briefly describe what you want built:
+
+
+Do you already have photos, logos, sketches, CAD files, STL files, or examples?
+[ ] Yes
+[ ] No
+
+What is the main goal?
+[ ] Get more customers
+[ ] Take bookings / payments
+[ ] Show services or products
+[ ] Build a prototype
+[ ] Make a part printable
+[ ] Fix or improve an existing design
+[ ] Not sure yet
+
+Timeline:
+[ ] ASAP
+[ ] This week
+[ ] This month
+[ ] Just getting prices
+
+Budget range:
+[ ] Under $250
+[ ] $250-$500
+[ ] $500-$1,000
+[ ] $1,000+
+[ ] Not sure yet
+
+Best way to contact me:
+[ ] Call
+[ ] Text
+[ ] Email
+
+Anything else I should know?
+`);
+
+const gh3dInquiryMailto = `mailto:${gh3dInquiryEmail}?subject=${gh3dInquirySubject}&body=${gh3dInquiryBody}`;
 
 const walkthroughPhotos = [
     { src: "/jetski/walkthrough-main.jpg", alt: "Main walkthrough overview for Laughlin Jet Ski Rentals", title: "Main Entrance", description: "Entrance is just south of the Chevron gas station in the conjoining lots. Look for the Regency Casino sign.", label: "Entrance" },
@@ -34,8 +90,6 @@ const walkthroughSteps = [
 ];
 
 function App() {
-    const [backgroundMode, setBackgroundMode] = useState<BackgroundMode>("both");
-
     useEffect(() => {
         if (!document.getElementById("fareharbor-lightframe-script")) {
             const fareharborScript = document.createElement("script");
@@ -52,10 +106,54 @@ function App() {
             elfsightScript.async = true;
             document.body.appendChild(elfsightScript);
         }
+
+        const hideLegacyBackgroundPicker = () => {
+            const candidates = Array.from(document.querySelectorAll<HTMLElement>("body *"));
+
+            for (const element of candidates) {
+                const text = (element.textContent ?? "").replace(/\s+/g, " ").trim();
+                const looksLikeOldPicker =
+                    text.includes("BACKGROUND") &&
+                    text.includes("Photo") &&
+                    text.includes("Water") &&
+                    text.includes("Both");
+
+                if (!looksLikeOldPicker) continue;
+
+                const rect = element.getBoundingClientRect();
+                const isSmallFloatingControl =
+                    rect.width > 0 &&
+                    rect.width <= 560 &&
+                    rect.height > 0 &&
+                    rect.height <= 190;
+
+                if (isSmallFloatingControl) {
+                    element.style.display = "none";
+                    element.style.visibility = "hidden";
+                    element.style.pointerEvents = "none";
+                    element.setAttribute("aria-hidden", "true");
+                }
+            }
+        };
+
+        const legacyBackgroundObserver = new MutationObserver(hideLegacyBackgroundPicker);
+
+        window.setTimeout(hideLegacyBackgroundPicker, 0);
+        window.setTimeout(hideLegacyBackgroundPicker, 250);
+        window.setTimeout(hideLegacyBackgroundPicker, 1000);
+
+        legacyBackgroundObserver.observe(document.body, {
+            childList: true,
+            subtree: true,
+        });
+
+        return () => {
+            legacyBackgroundObserver.disconnect();
+        };
     }, []);
 
     return (
-        <div className={`site-shell bg-mode-${backgroundMode}`}>
+        <div className="site-shell">
             <nav className="site-nav" aria-label="Main navigation">
                 <a href="#home" className="site-nav-brand">
                     <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
@@ -69,33 +167,20 @@ function App() {
                     <a href="#pricing">Pricing</a>
                     <a href="#reviews">Reviews</a>
                     <a href="#location">Directions</a>
-                    <a
-                        href="https://gearhead3dfab.com"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="site-nav-cta"
-                    >
+                    <a href={gh3dInquiryMailto} className="site-nav-text-link">
                         Need A Site?
                     </a>
-                    <a href="#book" className="site-nav-cta">Book Now</a>
+                    <a href="#book" className="site-nav-cta site-nav-book">Book Now</a>
                 </div>
             </nav>
 
             <a href="#book" className="floating-book-btn">Book Now</a>
-
-            <div className="background-toggle" aria-label="Background style selector">
-                <span>Background</span>
-                <button type="button" className={backgroundMode === "photo" ? "active" : ""} onClick={() => setBackgroundMode("photo")}>Photo</button>
-                <button type="button" className={backgroundMode === "water" ? "active" : ""} onClick={() => setBackgroundMode("water")}>Water</button>
-                <button type="button" className={backgroundMode === "both" ? "active" : ""} onClick={() => setBackgroundMode("both")}>Both</button>
-            </div>
 
             <section className="hero" id="home">
                 <video className="water-bg-video hero-water-video" autoPlay muted loop playsInline aria-hidden="true">
                     <source src="/jetski/water-loop.mp4" type="video/mp4" />
                 </video>
 
-                <div className="hero-photo-layer" />
                 <div className="hero-overlay" />
 
                 <div className="hero-content">
@@ -301,7 +386,29 @@ function App() {
                         photos={walkthroughPhotos}
                         steps={walkthroughSteps}
                     />
+                    <section className="section gh3d-inquiry-section" id="gh3d-inquiry">
+                        <div className="gh3d-inquiry-card">
+                            <div>
+                                <span className="section-kicker">Built by Gearhead 3D Fab</span>
+                                <h2>Need a website, prototype, or printable part?</h2>
+                                <p>
+                                    This site was built by GH3D Site Maker. If you need a clean business site,
+                                    booking page, prototype, CAD cleanup, or a 3D printable part, send the
+                                    quick project questionnaire and I’ll know what you’re trying to build
+                                    before we start playing twenty questions like it’s a government form.
+                                </p>
+                            </div>
 
+                            <div className="gh3d-inquiry-actions">
+                                <a href={gh3dInquiryMailto} className="primary-btn">
+                                    Start A Project
+                                </a>
+                                <a href="https://gearhead3dfab.com" target="_blank" rel="noreferrer" className="secondary-btn">
+                                    Visit GH3D
+                                </a>
+                            </div>
+                        </div>
+                    </section>
                     <section className="section" id="location">
                         <div className="section-heading">
                             <span className="section-kicker">Location</span>
@@ -344,9 +451,7 @@ function App() {
 
                 <div className="site-footer-line">
                     <a
-                        href="https://gearhead3dfab.com"
-                        target="_blank"
-                        rel="noreferrer"
+                        href={gh3dInquiryMailto}
                         className="gh3d-maker-btn"
                     >
                         Built with GH3D Site Maker

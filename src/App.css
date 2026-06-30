@@ -31,6 +31,10 @@ img {
   background: #0f0b1a;
 }
 
+/* =========================
+   NAV
+   ========================= */
+
 .site-nav {
   position: fixed;
   top: 14px;
@@ -44,10 +48,10 @@ img {
   gap: 18px;
   padding: 10px 12px 10px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, .16);
-  background: rgba(12, 7, 25, .82);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, .32);
-  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(12, 7, 25, .66);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .26);
+  backdrop-filter: blur(18px);
 }
 
 .site-nav-brand {
@@ -80,64 +84,101 @@ img {
   min-height: 38px;
   padding: 8px 12px;
   border-radius: 999px;
-  color: rgba(245, 236, 255, .9);
+  color: rgba(245, 236, 255, .94);
   font-size: .82rem;
   font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.site-nav-links a:hover {
+  color: #ffffff;
+}
+
+.site-nav-links .site-nav-text-link {
+  min-height: auto;
+  padding: 0 8px;
+  border-radius: 0;
+  background: transparent;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.site-nav-links .site-nav-text-link:hover {
+  color: #ffe06d;
 }
 
 .site-nav-links .site-nav-cta {
+  min-width: 92px;
   color: #2a0f3a;
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  box-shadow: 0 10px 24px rgba(255, 76, 160, .22);
 }
 
-.background-toggle {
-  position: fixed;
-  left: 18px;
-  bottom: 18px;
-  z-index: 9999;
-  display: flex;
+.site-nav-links .site-nav-book {
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, .16);
-  background: rgba(12, 7, 25, .82);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, .32);
-  backdrop-filter: blur(16px);
+  justify-content: center;
+  text-align: center;
 }
 
-.background-toggle span {
-  padding: 0 8px;
-  color: rgba(255, 255, 255, .72);
-  font-size: .72rem;
-  font-weight: 900;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+/* =========================
+   REMOVE OLD BACKGROUND PICKER
+   ========================= */
+
+/*
+  The old Photo / Water / Both picker has come back from an older component/cache.
+  Keep the moving water video, but hide any legacy background picker controls.
+*/
+.background-toggle,
+.background-toggle *,
+.background-picker,
+.background-picker *,
+.background-switcher,
+.background-switcher *,
+.background-mode-toggle,
+.background-mode-toggle *,
+.background-mode-control,
+.background-mode-control *,
+.background-controls,
+.background-controls *,
+.bg-toggle,
+.bg-toggle *,
+.bg-mode-toggle,
+.bg-mode-toggle *,
+.hero-bg-toggle,
+.hero-bg-toggle *,
+.hero-background-toggle,
+.hero-background-toggle *,
+.water-background-toggle,
+.water-background-toggle *,
+.photo-water-toggle,
+.photo-water-toggle *,
+.background-pill,
+.background-pill * {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
-.background-toggle button {
-  min-height: 34px;
-  padding: 7px 11px;
-  border: 0;
-  border-radius: 999px;
-  color: rgba(255, 255, 255, .88);
-  background: rgba(255, 255, 255, .08);
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.background-toggle button.active {
-  color: #2a0f3a;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-}
+/* =========================
+   MOVING WATER VIDEO LAYERS
+   ========================= */
 
 .water-bg-video {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
+
+/* =========================
+   HERO
+   ========================= */
 
 .hero {
   position: relative;
@@ -150,62 +191,28 @@ img {
   background: #0f0b1a;
 }
 
-.hero-photo-layer {
-  position: absolute;
-  inset: 0;
-  background: url("/jetski/hero-ski-beach.jpg") center / cover no-repeat;
-}
-
 .hero-water-video {
-  z-index: 0;
+  opacity: .68;
+  filter: saturate(1.08) contrast(1.05);
 }
 
 .hero-photo-layer {
-  z-index: 1;
+  display: none !important;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  background: linear-gradient(to bottom, rgba(8, 6, 18, .18), rgba(8, 6, 18, .88));
+  z-index: 1;
+  background:
+    radial-gradient(circle at center left, rgba(255, 76, 160, .10), transparent 34rem),
+    linear-gradient(to bottom, rgba(8, 6, 18, .16), rgba(8, 6, 18, .72));
   pointer-events: none;
-}
-
-.bg-mode-photo .hero-water-video,
-.bg-mode-photo .main-water-video {
-  opacity: 0;
-}
-
-.bg-mode-photo .hero-photo-layer {
-  opacity: 1;
-}
-
-.bg-mode-water .hero-water-video,
-.bg-mode-water .main-water-video {
-  opacity: 1;
-}
-
-.bg-mode-water .hero-photo-layer {
-  opacity: 0;
-}
-
-.bg-mode-both .hero-water-video {
-  opacity: .54;
-}
-
-.bg-mode-both .main-water-video {
-  opacity: .48;
-}
-
-.bg-mode-both .hero-photo-layer {
-  opacity: .72;
-  mix-blend-mode: soft-light;
 }
 
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   width: 100%;
   max-width: 1180px;
 }
@@ -251,14 +258,15 @@ img {
 
 .hero-copy {
   max-width: 620px;
-  color: rgba(255, 255, 255, .92);
+  color: rgba(255, 255, 255, .94);
   font-size: 1.08rem;
   line-height: 1.7;
 }
 
 .hero-actions,
 .directions-actions,
-.safety-actions {
+.safety-actions,
+.fareharbor-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -275,17 +283,21 @@ img {
   padding: 14px 22px;
   border-radius: 999px;
   font-weight: 800;
+  line-height: 1;
+  text-align: center;
 }
 
 .primary-btn {
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
   color: #2a0f3a;
+  box-shadow: 0 12px 28px rgba(255, 76, 160, .22);
 }
 
 .secondary-btn {
-  border: 1px solid rgba(255, 255, 255, .38);
-  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .40);
+  background: rgba(255, 255, 255, .07);
   color: #ffffff;
+  backdrop-filter: blur(10px);
 }
 
 .floating-book-btn {
@@ -293,11 +305,18 @@ img {
   right: 18px;
   bottom: 18px;
   z-index: 9999;
-  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 22px;
   border-radius: 999px;
   color: #2a0f3a;
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
   font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(255, 76, 160, .28);
 }
 
 .hero-stats {
@@ -315,11 +334,11 @@ img {
 .reviews-card,
 .fareharbor-ready-card,
 .safety-card {
-  border: 1px solid rgba(255, 126, 202, .22);
+  border: 1px solid rgba(255, 126, 202, .25);
   border-radius: 24px;
-  background: rgba(30, 18, 50, .92);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 18px 38px rgba(6, 3, 12, .34);
+  background: rgba(30, 18, 50, .62);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 38px rgba(6, 3, 12, .26);
 }
 
 .stat-card,
@@ -338,8 +357,12 @@ img {
 .stat-label {
   display: block;
   margin-top: 6px;
-  color: rgba(255, 242, 248, .9);
+  color: rgba(255, 242, 248, .92);
 }
+
+/* =========================
+   MAIN CONTENT WITH MOVING WATER
+   ========================= */
 
 .main-content {
   position: relative;
@@ -348,9 +371,13 @@ img {
   margin: 0;
   padding: 100px max(24px, calc((100vw - 1240px) / 2)) 80px;
   overflow: hidden;
-  background:
-    linear-gradient(rgba(15, 11, 26, .72), rgba(24, 17, 38, .88)),
-    url("/water-pic.png") center center / cover fixed no-repeat;
+  background: #0f0b1a;
+}
+
+.main-water-video {
+  z-index: 0;
+  opacity: .50;
+  filter: saturate(1.08) contrast(1.05);
 }
 
 .main-content::before {
@@ -359,32 +386,17 @@ img {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(rgba(15, 11, 26, .70), rgba(24, 17, 38, .86)),
-    url("/water-pic.png") center center / cover fixed no-repeat;
+    radial-gradient(circle at top right, rgba(255, 76, 160, .08), transparent 30rem),
+    linear-gradient(180deg,
+      rgba(15, 11, 26, .54) 0%,
+      rgba(24, 17, 38, .62) 55%,
+      rgba(15, 11, 26, .70) 100%);
   pointer-events: none;
-}
-
-.main-water-video {
-  z-index: 0;
-  opacity: 0;
-  filter: saturate(1.1) contrast(1.05);
 }
 
 .main-content-inner {
   position: relative;
   z-index: 2;
-}
-
-.bg-mode-water .main-content::before {
-  opacity: .28;
-}
-
-.bg-mode-both .main-content::before {
-  opacity: .62;
-}
-
-.bg-mode-photo .main-content::before {
-  opacity: 1;
 }
 
 .section {
@@ -398,7 +410,9 @@ img {
 }
 
 .section-heading h2,
-.safety-copy h2 {
+.safety-copy h2,
+.reviews-card h2,
+.gh3d-inquiry-card h2 {
   margin: 0;
   color: #ffffff;
   font-size: clamp(2rem, 4vw, 3.3rem);
@@ -409,10 +423,17 @@ img {
 .feature-card p,
 .pricing-card p,
 .directions-card p,
-.safety-copy p {
-  color: rgba(240, 231, 255, .86);
+.safety-copy p,
+.fareharbor-book-copy p,
+.reviews-card p,
+.gh3d-inquiry-card p {
+  color: rgba(240, 231, 255, .90);
   line-height: 1.7;
 }
+
+/* =========================
+   SAFETY
+   ========================= */
 
 .safety-section {
   padding-top: 20px;
@@ -452,6 +473,10 @@ img {
   display: block;
 }
 
+/* =========================
+   RENTALS / PRICING
+   ========================= */
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -489,15 +514,19 @@ img {
 
 .card-btn {
   width: 100%;
-  background: linear-gradient(135deg, rgba(255, 214, 61, .2), rgba(255, 76, 160, .16));
-  border: 1px solid rgba(255, 126, 202, .26);
+  background: linear-gradient(135deg, rgba(255, 214, 61, .18), rgba(255, 76, 160, .14));
+  border: 1px solid rgba(255, 126, 202, .28);
   color: #ffe8ff;
 }
+
+/* =========================
+   REVIEWS
+   ========================= */
 
 .reviews-section-wrap {
   margin: 0 calc(50% - 50vw);
   padding: 58px max(24px, calc((100vw - 1180px) / 2));
-  background: rgba(15, 11, 26, .32);
+  background: rgba(15, 11, 26, .18);
 }
 
 .reviews-card {
@@ -511,6 +540,14 @@ img {
   margin-top: 20px;
 }
 
+/* =========================
+   BOOKING
+   ========================= */
+
+.fareharbor-section-wrap {
+  scroll-margin-top: 110px;
+}
+
 .fareharbor-ready-card {
   display: grid;
   grid-template-columns: .36fr .64fr;
@@ -518,15 +555,41 @@ img {
   padding: 26px;
 }
 
+.fareharbor-book-copy h3 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  color: #ffffff;
+}
+
+.fareharbor-accent-line {
+  width: 72px;
+  height: 4px;
+  margin: 14px 0 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+}
+
 .fareharbor-jetski-image {
   border-radius: 22px;
   margin-bottom: 22px;
 }
 
+.fareharbor-call-note {
+  margin-top: 18px;
+  color: rgba(240, 231, 255, .90);
+  line-height: 1.6;
+}
+
+.fareharbor-call-note strong {
+  display: block;
+  margin-top: 4px;
+  color: #ffe06d;
+}
+
 .fareharbor-frame-wrap {
   overflow: hidden;
   border-radius: 20px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, .92);
   min-height: 520px;
 }
 
@@ -536,6 +599,44 @@ img {
   border: 0;
   background: #ffffff;
 }
+
+/* =========================
+   GH3D INQUIRY CTA
+   ========================= */
+
+.gh3d-inquiry-section {
+  padding-top: 40px;
+}
+
+.gh3d-inquiry-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid rgba(255, 126, 202, .28);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 204, 47, .10), transparent 26rem),
+    linear-gradient(135deg, rgba(30, 18, 50, .64), rgba(15, 11, 26, .58));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 44px rgba(6, 3, 12, .26);
+}
+
+.gh3d-inquiry-card p {
+  max-width: 780px;
+}
+
+.gh3d-inquiry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* =========================
+   MAP / DIRECTIONS
+   ========================= */
 
 .map-grid {
   display: grid;
@@ -555,13 +656,16 @@ img {
   border: 0;
 }
 
+/* =========================
+   FOOTER
+   ========================= */
+
 .site-footer {
   text-align: center;
   padding: 30px;
-  color: rgba(255, 255, 255, .72);
-  background:
-    linear-gradient(rgba(15, 11, 26, .78), rgba(24, 17, 38, .9)),
-    url("/water-pic.png") center center / cover fixed no-repeat;
+  color: rgba(255, 255, 255, .78);
+  background: rgba(15, 11, 26, .72);
+  border-top: 1px solid rgba(255, 255, 255, .08);
 }
 
 .site-footer-line {
@@ -578,6 +682,8 @@ img {
   background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
   color: #2a0f3a;
   font-weight: 900;
+  line-height: 1;
+  text-align: center;
   text-decoration: none;
   transition: transform .2s ease, box-shadow .2s ease;
   box-shadow: 0 10px 24px rgba(255, 76, 160, .25);
@@ -587,6 +693,10 @@ img {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(255, 76, 160, .4);
 }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
 
 @media (max-width: 1080px) {
 
@@ -598,6 +708,10 @@ img {
   .fareharbor-ready-card,
   .safety-card {
     grid-template-columns: 1fr;
+  }
+
+  .hero-logo {
+    max-width: 260px;
   }
 }
 
@@ -618,22 +732,26 @@ img {
     width: 100%;
     justify-content: flex-start;
     overflow-x: auto;
+    padding-bottom: 2px;
   }
 
-  .background-toggle {
-    left: 10px;
-    right: 10px;
-    bottom: 76px;
-    justify-content: center;
-    border-radius: 22px;
+  .site-nav-links .site-nav-text-link {
+    padding: 8px 10px;
+  }
+
+  .gh3d-inquiry-card {
+    grid-template-columns: 1fr;
+  }
+
+  .gh3d-inquiry-actions {
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 720px) {
   .hero {
     min-height: auto;
-    padding-top: 86px;
-    padding-bottom: 56px;
+    padding: 86px 18px 56px;
   }
 
   .main-content {
@@ -644,23 +762,25 @@ img {
     max-width: 240px;
   }
 
-  .safety-card {
+  .hero h1 {
+    font-size: clamp(2.45rem, 13vw, 4rem);
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+  }
+
+  .safety-card,
+  .fareharbor-ready-card,
+  .reviews-card,
+  .gh3d-inquiry-card {
     padding: 20px;
   }
 
-  .background-toggle span {
-    display: none;
-    .main-water-video {
-        display: none;
-      }
-    
-      .main-content::before {
-        opacity: 1 !important;
-      }
-    
-      .bg-mode-water .main-content::before,
-      .bg-mode-both .main-content::before,
-      .bg-mode-photo .main-content::before {
-        opacity: 1 !important;   }
+  .floating-book-btn {
+    right: 12px;
+    bottom: 12px;
+    min-height: 48px;
+    padding: 12px 18px;
   }
 }
