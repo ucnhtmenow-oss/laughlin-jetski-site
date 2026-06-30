@@ -26,9 +26,34 @@ img {
 }
 
 .site-shell {
+  position: relative;
   min-height: 100vh;
   color: #ffffff;
   background: #0f0b1a;
+  isolation: isolate;
+}
+
+.site-water-video {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: .74;
+  filter: saturate(1.12) contrast(1.08);
+  pointer-events: none;
+}
+
+.site-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at top left, rgba(255, 76, 160, .09), transparent 32rem),
+    linear-gradient(180deg, rgba(15, 11, 26, .28), rgba(15, 11, 26, .50));
+  pointer-events: none;
 }
 
 /* =========================
@@ -188,7 +213,7 @@ img {
   justify-content: center;
   padding: 112px 24px 72px;
   overflow: hidden;
-  background: #0f0b1a;
+  background: transparent;
 }
 
 .hero-water-video {
@@ -371,7 +396,7 @@ img {
   margin: 0;
   padding: 100px max(24px, calc((100vw - 1240px) / 2)) 80px;
   overflow: hidden;
-  background: #0f0b1a;
+  background: transparent;
 }
 
 .main-water-video {
@@ -388,9 +413,9 @@ img {
   background:
     radial-gradient(circle at top right, rgba(255, 76, 160, .08), transparent 30rem),
     linear-gradient(180deg,
-      rgba(15, 11, 26, .54) 0%,
-      rgba(24, 17, 38, .62) 55%,
-      rgba(15, 11, 26, .70) 100%);
+      rgba(15, 11, 26, .18) 0%,
+      rgba(24, 17, 38, .30) 55%,
+      rgba(15, 11, 26, .42) 100%);
   pointer-events: none;
 }
 
@@ -664,7 +689,7 @@ img {
   text-align: center;
   padding: 30px;
   color: rgba(255, 255, 255, .78);
-  background: rgba(15, 11, 26, .72);
+  background: rgba(15, 11, 26, .56);
   border-top: 1px solid rgba(255, 255, 255, .08);
 }
 

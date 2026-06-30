@@ -154,6 +154,10 @@ function App() {
 
     return (
         <div className="site-shell">
+            <video className="site-water-video" autoPlay muted loop playsInline aria-hidden="true">
+                <source src="/jetski/water-loop.mp4" type="video/mp4" />
+            </video>
+
             <nav className="site-nav" aria-label="Main navigation">
                 <a href="#home" className="site-nav-brand">
                     <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
@@ -177,10 +181,6 @@ function App() {
             <a href="#book" className="floating-book-btn">Book Now</a>
 
             <section className="hero" id="home">
-                <video className="water-bg-video hero-water-video" autoPlay muted loop playsInline aria-hidden="true">
-                    <source src="/jetski/water-loop.mp4" type="video/mp4" />
-                </video>
-
                 <div className="hero-overlay" />
 
                 <div className="hero-content">
@@ -225,10 +225,6 @@ function App() {
             </section>
 
             <main className="main-content">
-                <video className="water-bg-video main-water-video" autoPlay muted loop playsInline aria-hidden="true">
-                    <source src="/jetski/water-loop.mp4" type="video/mp4" />
-                </video>
-
                 <div className="main-content-inner">
                     <section className="section safety-section" id="safety">
                         <div className="safety-card">
