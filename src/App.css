@@ -650,5 +650,17 @@ img {
 
   .background-toggle span {
     display: none;
+    .main-water-video {
+        display: none;
+      }
+    
+      .main-content::before {
+        opacity: 1 !important;
+      }
+    
+      .bg-mode-water .main-content::before,
+      .bg-mode-both .main-content::before,
+      .bg-mode-photo .main-content::before {
+        opacity: 1 !important;   }
   }
 }
