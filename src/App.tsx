@@ -160,7 +160,7 @@ function App() {
 
             <nav className="site-nav" aria-label="Main navigation">
                 <a href="#home" className="site-nav-brand">
-                    <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
+                    <img src="/jetski/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
                     <span>Laughlin Jet Ski Rentals</span>
                 </a>
 
@@ -185,10 +185,6 @@ function App() {
 
                 <div className="hero-content">
                     <div className="hero-brand">
-                        <div className="hero-logo-wrap">
-                            <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals" className="hero-logo" />
-                        </div>
-
                         <div className="hero-text">
                             <span className="eyebrow">River Hours • Open Daily • 9AM–5PM</span>
                             <h1>Laughlin Jet Ski Rentals</h1>
@@ -219,6 +215,20 @@ function App() {
                                     <span className="stat-label">Laughlin, NV 89029</span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="hero-logo-stage" aria-hidden="true">
+                            <img
+                                src="/jetski/laughlin-logo.png"
+                                alt=""
+                                className="hero-main-logo"
+                            />
+
+                            <img
+                                src="/jetski/hero_jetski.png"
+                                alt=""
+                                className="hero-bobbing-jetski"
+                            />
                         </div>
                     </div>
                 </div>
@@ -382,6 +392,7 @@ function App() {
                         photos={walkthroughPhotos}
                         steps={walkthroughSteps}
                     />
+
                     <section className="section gh3d-inquiry-section" id="gh3d-inquiry">
                         <div className="gh3d-inquiry-card">
                             <div>
@@ -405,6 +416,7 @@ function App() {
                             </div>
                         </div>
                     </section>
+
                     <section className="section" id="location">
                         <div className="section-heading">
                             <span className="section-kicker">Location</span>
