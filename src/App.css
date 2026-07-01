@@ -10,6 +10,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: #0f0b1a;
   color: #f5ecff;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -31,6 +32,7 @@ img {
   color: #ffffff;
   background: #0f0b1a;
   isolation: isolate;
+  overflow-x: clip;
 }
 
 .site-water-video {
@@ -82,6 +84,7 @@ img {
 .site-nav-brand {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: 10px;
   color: #ffffff;
   font-weight: 900;
@@ -122,9 +125,9 @@ img {
 }
 
 .site-nav-links .site-nav-text-link {
-  min-height: auto;
-  padding: 0 8px;
-  border-radius: 0;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 999px;
   background: transparent;
   color: #ffffff;
   box-shadow: none;
@@ -401,10 +404,12 @@ img {
 }
 
 .floating-book-btn {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
+  position: fixed !important;
+  left: auto !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  top: auto !important;
+  z-index: 9999 !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -795,7 +800,7 @@ img {
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET
    ========================= */
 
 @media (max-width: 1080px) {
@@ -811,11 +816,7 @@ img {
   }
 
   .hero-brand {
-    gap: 24px;
-  }
-
-  .hero-logo {
-    max-width: 260px;
+    gap: 28px;
   }
 
   .hero-logo-stage {
@@ -839,28 +840,149 @@ img {
   }
 }
 
+/* =========================
+   MOBILE NAV + HERO MAKEOVER
+   ========================= */
+
 @media (max-width: 980px) {
   .site-nav {
-    position: sticky;
+    position: fixed;
     top: 10px;
-    left: auto;
+    left: 10px;
+    right: 10px;
     transform: none;
-    width: calc(100% - 20px);
-    margin: 10px auto -4px;
+    width: auto;
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
     border-radius: 22px;
-    align-items: flex-start;
-    flex-direction: column;
+  }
+
+  .site-nav-brand {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: .92rem;
+  }
+
+  .site-nav-mark {
+    width: 28px;
+    height: 28px;
   }
 
   .site-nav-links {
     width: 100%;
+    display: flex;
     justify-content: flex-start;
+    gap: 6px;
     overflow-x: auto;
-    padding-bottom: 2px;
+    overflow-y: hidden;
+    padding: 2px 2px 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .site-nav-links .site-nav-text-link {
+  .site-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav-links a {
+    min-height: 34px;
     padding: 8px 10px;
+    font-size: .74rem;
+    flex: 0 0 auto;
+  }
+
+  .site-nav-links .site-nav-book {
+    min-width: 86px;
+  }
+
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding: 152px 18px 56px;
+  }
+
+  .hero-content {
+    max-width: 760px;
+  }
+
+  .hero-brand {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-logo-stage {
+    width: min(94vw, 540px);
+    min-height: 390px;
+    margin: 0 auto;
+    justify-self: center;
+    order: 0;
+  }
+
+  .hero-main-logo {
+    top: 0;
+    left: 4%;
+    width: min(50%, 280px);
+  }
+
+  .hero-bobbing-jetski {
+    right: 3%;
+    bottom: 2%;
+    width: min(58%, 330px);
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+
+  .eyebrow {
+    font-size: .72rem;
+    letter-spacing: .12em;
+  }
+
+  .hero h1 {
+    max-width: 720px;
+    font-size: clamp(2.55rem, 9vw, 4.2rem);
+    line-height: 1;
+  }
+
+  .hero-copy {
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 420px;
+  }
+
+  .hero-actions .primary-btn,
+  .hero-actions .secondary-btn {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .stat-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .stat-number {
+    font-size: 1.14rem;
   }
 
   .gh3d-inquiry-card {
@@ -870,80 +992,178 @@ img {
   .gh3d-inquiry-actions {
     justify-content: flex-start;
   }
+
+  .floating-book-btn {
+    right: 14px !important;
+    bottom: 14px !important;
+  }
 }
 
 @media (max-width: 720px) {
+  .site-nav {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    padding: 9px;
+    border-radius: 20px;
+  }
+
+  .site-nav-brand span {
+    max-width: 210px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .site-nav-links a {
+    min-height: 32px;
+    padding: 7px 9px;
+    font-size: .70rem;
+  }
+
   .hero {
-    min-height: auto;
-    padding: 86px 18px 56px;
-  }
-
-  .main-content {
-    padding: 70px 18px 90px;
-  }
-
-  .hero-logo {
-    max-width: 240px;
+    padding: 146px 16px 52px;
   }
 
   .hero-logo-stage {
     width: min(96vw, 430px);
-    min-height: 340px;
-    margin: 4px auto 8px;
+    min-height: 330px;
+    margin: 2px auto 4px;
+  }
+
+  .hero-logo-stage::before {
+    inset: 12% 4% 10%;
+    filter: blur(16px);
   }
 
   .hero-main-logo {
-    top: 0;
-    left: 0;
+    top: 4px;
+    left: 2%;
     width: min(54%, 245px);
   }
 
   .hero-bobbing-jetski {
-    z-index: 5;
     right: 0;
-    bottom: 0;
-    width: min(60%, 280px);
+    bottom: 2%;
+    width: min(61%, 285px);
   }
 
   .hero h1 {
-    font-size: clamp(2.45rem, 13vw, 4rem);
+    font-size: clamp(2.35rem, 12vw, 3.75rem);
   }
 
   .hero-copy {
-    font-size: 1rem;
+    font-size: .96rem;
+  }
+
+  .main-content {
+    padding: 64px 16px 90px;
+  }
+
+  .section {
+    padding: 46px 0;
+  }
+
+  .section-heading h2,
+  .safety-copy h2,
+  .reviews-card h2,
+  .gh3d-inquiry-card h2 {
+    font-size: clamp(1.85rem, 8vw, 2.6rem);
+  }
+
+  .feature-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card,
+  .pricing-card,
+  .directions-card {
+    padding: 18px;
+    border-radius: 20px;
   }
 
   .safety-card,
   .fareharbor-ready-card,
   .reviews-card,
   .gh3d-inquiry-card {
-    padding: 20px;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .fareharbor-frame-wrap {
+    min-height: 560px;
+  }
+
+  .fareharbor-frame {
+    min-height: 700px;
+  }
+
+  .map-embed-card,
+  .map-embed {
+    min-height: 320px;
   }
 
   .floating-book-btn {
-    right: 12px;
-    bottom: 12px;
+    right: 12px !important;
+    bottom: 12px !important;
     min-height: 48px;
     padding: 12px 18px;
   }
 }
 
 @media (max-width: 440px) {
+  .site-nav {
+    left: 7px;
+    right: 7px;
+  }
+
+  .site-nav-brand {
+    font-size: .84rem;
+  }
+
+  .site-nav-brand span {
+    max-width: 185px;
+  }
+
+  .site-nav-links a {
+    font-size: .66rem;
+    padding: 7px 8px;
+  }
+
+  .hero {
+    padding: 140px 14px 48px;
+  }
+
   .hero-logo-stage {
-    min-height: 310px;
+    min-height: 300px;
   }
 
   .hero-main-logo {
     top: 0;
     left: 0;
-    width: min(54%, 220px);
+    width: min(55%, 220px);
   }
 
   .hero-bobbing-jetski {
-    z-index: 5;
-    right: 0;
+    right: -2%;
     bottom: 0;
-    width: min(62%, 250px);
+    width: min(64%, 250px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 13vw, 3.25rem);
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .card-btn {
+    min-height: 48px;
+    padding: 13px 18px;
+  }
+
+  .floating-book-btn {
+    right: 10px !important;
+    bottom: 10px !important;
   }
 }
 
@@ -959,7 +1179,7 @@ img {
 }
 
 /* =========================
-   MOBILE GLOBAL WATER FIX
+   GLOBAL WATER + STACKING FIX
    ========================= */
 
 .site-shell {
@@ -983,16 +1203,23 @@ img {
 }
 
 .site-nav,
-.floating-book-btn,
 .hero,
 .main-content,
 .site-footer {
   position: relative;
 }
 
-.site-nav,
-.floating-book-btn {
+.site-nav {
   z-index: 20;
+}
+
+.floating-book-btn {
+  position: fixed !important;
+  left: auto !important;
+  right: 18px !important;
+  bottom: 18px !important;
+  top: auto !important;
+  z-index: 9999 !important;
 }
 
 .hero,
@@ -1037,6 +1264,15 @@ img {
   .site-footer,
   .reviews-section-wrap {
     background: transparent !important;
+  }
+
+  .floating-book-btn {
+    position: fixed !important;
+    left: auto !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    top: auto !important;
+    z-index: 9999 !important;
   }
 
   .stat-card,
