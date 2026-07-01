@@ -185,6 +185,20 @@ function App() {
 
                 <div className="hero-content">
                     <div className="hero-brand">
+                        <div className="hero-logo-stage" aria-hidden="true">
+                            <img
+                                src="/jetski/laughlin-logo.png"
+                                alt=""
+                                className="hero-main-logo"
+                            />
+
+                            <img
+                                src="/jetski/hero_jetski.png"
+                                alt=""
+                                className="hero-bobbing-jetski"
+                            />
+                        </div>
+
                         <div className="hero-text">
                             <span className="eyebrow">River Hours • Open Daily • 9AM–5PM</span>
                             <h1>Laughlin Jet Ski Rentals</h1>
@@ -215,20 +229,6 @@ function App() {
                                     <span className="stat-label">Laughlin, NV 89029</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="hero-logo-stage" aria-hidden="true">
-                            <img
-                                src="/jetski/laughlin-logo.png"
-                                alt=""
-                                className="hero-main-logo"
-                            />
-
-                            <img
-                                src="/jetski/hero_jetski.png"
-                                alt=""
-                                className="hero-bobbing-jetski"
-                            />
                         </div>
                     </div>
                 </div>
