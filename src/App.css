@@ -240,7 +240,7 @@ img {
 
 .hero-brand {
   display: grid;
-  grid-template-columns: minmax(0, .94fr) minmax(360px, .74fr);
+  grid-template-columns: minmax(0, .96fr) minmax(360px, .72fr);
   gap: 34px;
   align-items: center;
 }
@@ -267,8 +267,8 @@ img {
 
 .hero-logo-stage {
   position: relative;
-  width: min(40vw, 520px);
-  min-height: 480px;
+  width: min(42vw, 560px);
+  min-height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,23 +280,24 @@ img {
 .hero-logo-stage::before {
   content: "";
   position: absolute;
-  inset: 10% 4% 16%;
+  inset: 7% 2% 10%;
   z-index: 0;
   border-radius: 999px;
   background:
-    radial-gradient(circle at 50% 42%, rgba(255, 204, 47, .18), transparent 36%),
-    radial-gradient(circle at 50% 56%, rgba(255, 76, 160, .12), transparent 48%);
+    radial-gradient(circle at 44% 34%, rgba(255, 204, 47, .18), transparent 36%),
+    radial-gradient(circle at 55% 62%, rgba(255, 76, 160, .12), transparent 48%);
   filter: blur(18px);
   opacity: .85;
 }
 
 .hero-main-logo {
-  position: relative;
+  position: absolute;
   z-index: 3;
-  width: min(100%, 520px);
+  top: 0;
+  left: -6%;
+  width: min(84%, 470px);
   height: auto;
   object-fit: contain;
-  transform: translateY(-26px);
   filter:
     drop-shadow(0 22px 34px rgba(0, 0, 0, .60)) drop-shadow(0 0 18px rgba(255, 180, 65, .20));
 }
@@ -304,9 +305,9 @@ img {
 .hero-bobbing-jetski {
   position: absolute;
   z-index: 2;
-  right: 6%;
-  bottom: 1%;
-  width: min(72%, 390px);
+  right: 0;
+  bottom: -2%;
+  width: min(78%, 430px);
   height: auto;
   object-fit: contain;
   transform-origin: 50% 78%;
@@ -819,21 +820,22 @@ img {
   }
 
   .hero-logo-stage {
-    width: min(88vw, 500px);
-    min-height: 420px;
+    width: min(88vw, 520px);
+    min-height: 470px;
     justify-self: center;
     order: -1;
   }
 
   .hero-main-logo {
-    width: min(100%, 500px);
-    transform: translateY(0);
+    top: 0;
+    left: 0;
+    width: min(78%, 420px);
   }
 
   .hero-bobbing-jetski {
-    right: 7%;
+    right: 3%;
     bottom: 0;
-    width: min(72%, 360px);
+    width: min(76%, 390px);
   }
 }
 
@@ -885,19 +887,21 @@ img {
   }
 
   .hero-logo-stage {
-    width: min(92vw, 420px);
-    min-height: 350px;
+    width: min(92vw, 430px);
+    min-height: 410px;
     margin: 4px auto 8px;
   }
 
   .hero-main-logo {
-    width: min(100%, 410px);
+    top: 0;
+    left: 0;
+    width: min(74%, 350px);
   }
 
   .hero-bobbing-jetski {
-    right: 6%;
+    right: 1%;
     bottom: 0;
-    width: min(72%, 320px);
+    width: min(78%, 340px);
   }
 
   .hero h1 {
@@ -925,17 +929,19 @@ img {
 
 @media (max-width: 440px) {
   .hero-logo-stage {
-    min-height: 310px;
+    min-height: 360px;
   }
 
   .hero-main-logo {
-    width: min(100%, 360px);
+    top: 0;
+    left: 0;
+    width: min(74%, 315px);
   }
 
   .hero-bobbing-jetski {
-    right: 6%;
+    right: 0;
     bottom: 0;
-    width: min(74%, 285px);
+    width: min(80%, 300px);
   }
 }
 
