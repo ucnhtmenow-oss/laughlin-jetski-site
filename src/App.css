@@ -244,11 +244,15 @@ img {
 
 .hero-brand {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 36px;
+  grid-template-columns: minmax(0, .92fr) minmax(390px, .78fr);
+  gap: 38px;
   align-items: center;
 }
-
+.hero-text {
+  min-width: 0;
+  position: relative;
+  z-index: 4;
+}
 .hero-logo-wrap {
   display: flex;
   align-items: center;
@@ -778,7 +782,20 @@ img {
     min-height: auto;
     padding: 86px 18px 56px;
   }
-
+    .hero-logo-stage {
+      width: min(92vw, 430px);
+      min-height: 350px;
+      margin: 4px auto 8px;
+    }
+  
+    .hero-main-logo {
+      width: min(100%, 410px);
+    }
+  
+    .hero-bobbing-jetski {
+      right: 1%;
+      bottom: 1%;
+      width: min(78%, 340px); }
   .main-content {
     padding: 70px 18px 90px;
   }
@@ -786,7 +803,76 @@ img {
   .hero-logo {
     max-width: 240px;
   }
-
+    .hero-logo-stage {
+      position: relative;
+      width: min(44vw, 560px);
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: end;
+      pointer-events: none;
+      isolation: isolate;
+    }
+  
+    .hero-logo-stage::before {
+      content: "";
+      position: absolute;
+      inset: 8% 2% 12%;
+      z-index: 0;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255, 204, 47, .18), transparent 36%),
+        radial-gradient(circle at 50% 58%, rgba(255, 76, 160, .12), transparent 46%);
+      filter: blur(18px);
+      opacity: .85;
+    }
+  
+    .hero-main-logo {
+      position: relative;
+      z-index: 3;
+      width: min(100%, 560px);
+      height: auto;
+      object-fit: contain;
+      transform: translateY(-20px);
+      filter:
+        drop-shadow(0 22px 34px rgba(0, 0, 0, .60)) drop-shadow(0 0 18px rgba(255, 180, 65, .20));
+    }
+  
+    .hero-bobbing-jetski {
+      position: absolute;
+      z-index: 2;
+      right: -4%;
+      bottom: 2%;
+      width: min(82%, 470px);
+      height: auto;
+      object-fit: contain;
+      transform-origin: 50% 80%;
+      animation: jetskiDockBob 4.8s ease-in-out infinite;
+      filter:
+        drop-shadow(0 24px 26px rgba(0, 0, 0, .62)) drop-shadow(0 0 14px rgba(255, 155, 65, .14));
+    }
+  
+    @keyframes jetskiDockBob {
+      0% {
+        transform: translateY(0) rotate(-0.7deg);
+      }
+  
+      25% {
+        transform: translateY(-5px) rotate(0.35deg);
+      }
+  
+      50% {
+        transform: translateY(2px) rotate(0.75deg);
+      }
+  
+      75% {
+        transform: translateY(-3px) rotate(-0.2deg);
+      }
+  
+      100% {
+        transform: translateY(0) rotate(-0.7deg);
+      } }
   .hero h1 {
     font-size: clamp(2.45rem, 13vw, 4rem);
   }
@@ -809,6 +895,31 @@ img {
     padding: 12px 18px;
   }
 }
+@media (max-width: 440px) {
+  .hero-logo-stage {
+    min-height: 310px;
+  }
+
+  .hero-main-logo {
+    width: min(100%, 360px);
+  }
+
+  .hero-bobbing-jetski {
+    width: min(82%, 300px);
+    bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bobbing-jetski {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* =========================
    MOBILE GLOBAL WATER FIX
    ========================= */
