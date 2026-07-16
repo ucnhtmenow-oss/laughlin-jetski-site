@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
@@ -9,6 +9,7 @@ const address = "1950 Casino Dr, Laughlin, NV 89029";
 const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
 const fareHarborShortname = "laughlinjetskirental";
 const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
+const waterPlaybackRate = 0.35;
 
 const gh3dInquiryEmail = "support@gearhead3dfab.com";
 const gh3dInquirySubject = encodeURIComponent("GH3D Project Inquiry - Website or Prototype");
@@ -90,6 +91,9 @@ const walkthroughSteps = [
 ];
 
 function App() {
+    const [logoFailed, setLogoFailed] = useState(false);
+    const [jetSkiFailed, setJetSkiFailed] = useState(false);
+
     useEffect(() => {
         if (!document.getElementById("fareharbor-lightframe-script")) {
             const fareharborScript = document.createElement("script");
@@ -112,7 +116,14 @@ function App() {
         <div className="site-shell">
             <nav className="site-nav" aria-label="Main navigation">
                 <a href="#home" className="site-nav-brand">
-                    <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
+                    {!logoFailed && (
+                        <img
+                            src="/laughlin-logo.png"
+                            alt=""
+                            className="site-nav-mark"
+                            onError={() => setLogoFailed(true)}
+                        />
+                    )}
                     <span>Laughlin Jet Ski Rentals</span>
                 </a>
 
@@ -131,6 +142,12 @@ function App() {
             <a href="#book" className="floating-book-btn">Book Now</a>
 
             <section className="hero" id="home">
+                <img
+                    className="hero-scene-base"
+                    src="/jetski/laughlin-landing-photo.png"
+                    alt="Laughlin riverfront at sunset"
+                />
+
                 <video
                     className="hero-water-video"
                     autoPlay
@@ -140,25 +157,27 @@ function App() {
                     preload="auto"
                     aria-hidden="true"
                     onLoadedMetadata={(event) => {
-                        event.currentTarget.defaultPlaybackRate = 0.55;
-                        event.currentTarget.playbackRate = 0.35;
+                        event.currentTarget.defaultPlaybackRate = waterPlaybackRate;
+                        event.currentTarget.playbackRate = waterPlaybackRate;
                     }}
                 >
                     <source src="/jetski/water-loop.mp4" type="video/mp4" />
                 </video>
 
-                <div className="hero-photo-layer" aria-hidden="true" />
                 <div className="hero-overlay" aria-hidden="true" />
 
                 <div className="hero-content">
-                    <div className="hero-top-grid">
+                    <div className="hero-layout">
                         <div className="hero-text">
                             <span className="eyebrow">River Hours • Open Daily • 9AM–5PM</span>
+
                             <h1>
-                                Laughlin Jet Ski
-                                <span>Rentals</span>
+                                <span className="hero-title-main">Laughlin Jet Ski</span>
+                                <span className="hero-title-accent">Rentals</span>
                             </h1>
+
                             <div className="hero-accent-line" />
+
                             <p className="hero-copy">
                                 Looking for jet ski rentals in Laughlin NV on the Colorado River?
                                 Laughlin Jet Ski Rentals keeps it simple with real skis, easy
@@ -166,15 +185,35 @@ function App() {
                             </p>
 
                             <div className="hero-actions">
-                                <a href="#book" className="primary-btn hero-primary-btn">Book Online</a>
-                                <a href={`tel:${phoneNumber}`} className="secondary-btn hero-secondary-btn">Call {displayPhone}</a>
-                                <a href={mapsUrl} target="_blank" rel="noreferrer" className="secondary-btn hero-secondary-btn">Get Directions</a>
+                                <a href="#book" className="primary-btn">Book Online</a>
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
+                                <a href={mapsUrl} target="_blank" rel="noreferrer" className="secondary-btn">Get Directions</a>
                             </div>
                         </div>
 
                         <div className="hero-art">
-                            <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals" className="hero-main-logo" />
-                            <img src="/jetski/hero-ski-beach.jpg" alt="Jet ski on the Colorado River" className="hero-jetski-image" />
+                            {!logoFailed ? (
+                                <img
+                                    src="/laughlin-logo.png"
+                                    alt="Laughlin Jet Ski Rentals"
+                                    className="hero-main-logo"
+                                    onError={() => setLogoFailed(true)}
+                                />
+                            ) : (
+                                <div className="hero-logo-fallback">
+                                    <strong>Laughlin</strong>
+                                    <span>Jet Ski Rentals</span>
+                                </div>
+                            )}
+
+                            {!jetSkiFailed && (
+                                <img
+                                    src="/jetski/laughlin-hero-jetski.png"
+                                    alt="Jet ski"
+                                    className="hero-jetski"
+                                    onError={() => setJetSkiFailed(true)}
+                                />
+                            )}
                         </div>
                     </div>
 
@@ -184,11 +223,13 @@ function App() {
                             <span className="stat-number">{displayPhone}</span>
                             <span className="stat-label">Direct booking line</span>
                         </a>
+
                         <div className="stat-card">
                             <span className="stat-icon">◷</span>
                             <span className="stat-number">9AM–5PM</span>
                             <span className="stat-label">Monday through Sunday</span>
                         </div>
+
                         <a href={mapsUrl} target="_blank" rel="noreferrer" className="stat-card">
                             <span className="stat-icon">⌖</span>
                             <span className="stat-number">1950 Casino Dr</span>
@@ -365,6 +406,7 @@ function App() {
                         photos={walkthroughPhotos}
                         steps={walkthroughSteps}
                     />
+
                     <section className="section gh3d-inquiry-section" id="gh3d-inquiry">
                         <div className="gh3d-inquiry-card">
                             <div>
@@ -379,15 +421,12 @@ function App() {
                             </div>
 
                             <div className="gh3d-inquiry-actions">
-                                <a href={gh3dInquiryMailto} className="primary-btn">
-                                    Start A Project
-                                </a>
-                                <a href="https://gearhead3dfab.com" target="_blank" rel="noreferrer" className="secondary-btn">
-                                    Visit GH3D
-                                </a>
+                                <a href={gh3dInquiryMailto} className="primary-btn">Start A Project</a>
+                                <a href="https://gearhead3dfab.com" target="_blank" rel="noreferrer" className="secondary-btn">Visit GH3D</a>
                             </div>
                         </div>
                     </section>
+
                     <section className="section" id="location">
                         <div className="section-heading">
                             <span className="section-kicker">Location</span>
@@ -423,18 +462,9 @@ function App() {
 
             <footer className="site-footer">
                 <div className="site-footer-line">© Laughlin Jet Ski Rentals • {address}</div>
-
+                <div className="site-footer-line"><VisitorCount /></div>
                 <div className="site-footer-line">
-                    <VisitorCount />
-                </div>
-
-                <div className="site-footer-line">
-                    <a
-                        href={gh3dInquiryMailto}
-                        className="gh3d-maker-btn"
-                    >
-                        Built with GH3D Site Maker
-                    </a>
+                    <a href={gh3dInquiryMailto} className="gh3d-maker-btn">Built with GH3D Site Maker</a>
                 </div>
             </footer>
         </div>
