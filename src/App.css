@@ -136,7 +136,6 @@ img {
 }
 
 .hero {
-  --hero-media-width: min(100%, 150vh);
   position: relative;
   min-height: 100vh;
   margin: 0;
@@ -148,29 +147,8 @@ img {
   background: #04101e;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -28px;
-  z-index: -1;
-  background:
-    linear-gradient(rgba(2, 8, 26, .30), rgba(2, 8, 26, .52)),
-    url("/jetski/laughlin-landing-photo.png") center / cover no-repeat;
-  filter: blur(22px) brightness(.72) saturate(.92);
-  transform: scale(1.05);
-}
-
 .hero-scene-base,
-.hero-water-video {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: var(--hero-media-width);
-  height: 100%;
-  transform: translateX(-50%);
-}
-
+.hero-water-video,
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -178,32 +156,29 @@ img {
 
 .hero-scene-base {
   z-index: 0;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
 }
 
 .hero-water-video {
   z-index: 1;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center bottom;
-  opacity: .62;
+  opacity: .72;
   mix-blend-mode: soft-light;
-  filter: brightness(.94) contrast(1.10) saturate(.94);
-  clip-path: inset(53% 0 0 0);
-  transform: translateX(-50%) scale(1.01);
+  filter: brightness(.95) contrast(1.12) saturate(.96);
+  clip-path: inset(52% 0 0 0);
+  transform: scale(1.015);
 }
 
 .hero-overlay {
   z-index: 2;
   background:
-    linear-gradient(
-      90deg,
-      rgba(2, 8, 26, .72) 0%,
-      rgba(2, 8, 26, .28) 18%,
-      rgba(2, 8, 26, .18) 50%,
-      rgba(2, 8, 26, .28) 82%,
-      rgba(2, 8, 26, .72) 100%
-    ),
+    linear-gradient(90deg, rgba(2, 8, 26, .76) 0%, rgba(2, 8, 26, .34) 45%, rgba(2, 8, 26, .18) 70%, rgba(2, 8, 26, .34) 100%),
     linear-gradient(180deg, rgba(3, 9, 24, .12) 0%, rgba(3, 9, 24, .08) 52%, rgba(3, 9, 24, .82) 100%);
   pointer-events: none;
 }
@@ -758,26 +733,6 @@ img {
 }
 
 @media (max-width: 1000px) {
-  .hero {
-    --hero-media-width: 100%;
-  }
-
-  .hero-scene-base,
-  .hero-water-video {
-    left: 0;
-    width: 100%;
-    transform: none;
-  }
-
-  .hero-scene-base {
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .hero-water-video {
-    transform: scale(1.01);
-  }
-
   .site-nav {
     position: sticky;
     top: 10px;
