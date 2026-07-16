@@ -1,904 +1,1487 @@
-* {
-  box-sizing: border-box;
-}
+{
+    box-sizing: border-box;
+  }
 
-:root {
-  color-scheme: dark;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #050a16;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-}
+  :root {
+    color-scheme: dark;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #050a16;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
 
-html {
-  scroll-behavior: smooth;
-  background: #050a16;
-}
+  html {
+    scroll-behavior: smooth;
+    background: #050a16;
+  }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  overflow-x: hidden;
-  background: #050a16;
-  color: #f7f8ff;
-}
+  body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background: #050a16;
+    color: #f7f8ff;
+  }
 
-button,
-a {
-  font: inherit;
-}
+  button,
+  a {
+    font: inherit;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-img,
-svg {
-  display: block;
-}
+  img,
+  svg {
+    display: block;
+  }
 
-img {
-  max-width: 100%;
-}
+  img {
+    max-width: 100%;
+  }
 
-.site-shell {
-  min-height: 100vh;
-  overflow: hidden;
-  color: #ffffff;
-  background: #050a16;
-}
+  .site-shell {
+    min-height: 100vh;
+    overflow: hidden;
+    color: #ffffff;
+    background: #050a16;
+  }
 
-/* =========================
+  /* =========================
    EXACT LANDING HERO
    ========================= */
 
-.site-nav,
-.floating-book-btn,
-.background-toggle {
-  display: none !important;
-}
+  .site-nav,
+  .floating-book-btn,
+  .background-toggle {
+    display: none !important;
+  }
 
-.exact-hero {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: #050a16;
-  isolation: isolate;
-}
+  .exact-hero {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #050a16;
+    isolation: isolate;
+  }
 
-.exact-hero-image {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  object-position: top center;
-  user-select: none;
-  -webkit-user-drag: none;
-}
+  .exact-hero-image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: top center;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 
-.exact-hotspot {
-  position: absolute;
-  z-index: 3;
-  display: block;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  box-shadow: none;
-  color: transparent;
-  cursor: pointer;
-}
+  .exact-hotspot {
+    position: absolute;
+    z-index: 3;
+    display: block;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: none;
+    color: transparent;
+    cursor: pointer;
+  }
 
-.exact-hotspot:hover {
-  background: transparent;
-}
+  .exact-hotspot:hover {
+    background: transparent;
+  }
 
-.exact-hotspot:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
-}
+  .exact-hotspot:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+  }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
-/* Hotspot coordinates are percentages of the 1225 × 1284 reference image. */
-.hotspot-brand { left: 3.1%; top: 2.2%; width: 27.5%; height: 4.8%; }
-.hotspot-home { left: 32.2%; top: 2.1%; width: 7.0%; height: 5.1%; }
-.hotspot-safety { left: 39.5%; top: 2.1%; width: 6.6%; height: 5.1%; }
-.hotspot-rentals { left: 46.3%; top: 2.1%; width: 7.2%; height: 5.1%; }
-.hotspot-pricing { left: 53.0%; top: 2.1%; width: 6.7%; height: 5.1%; }
-.hotspot-reviews { left: 59.5%; top: 2.1%; width: 7.5%; height: 5.1%; }
-.hotspot-directions-nav { left: 66.6%; top: 2.1%; width: 8.2%; height: 5.1%; }
-.hotspot-need-site { left: 75.1%; top: 2.1%; width: 10.2%; height: 5.1%; }
-.hotspot-book-nav { left: 85.7%; top: 2.0%; width: 11.4%; height: 5.3%; }
+  /* Hotspot coordinates are percentages of the 1225 × 1284 reference image. */
+  .hotspot-brand {
+    left: 3.1%;
+    top: 2.2%;
+    width: 27.5%;
+    height: 4.8%;
+  }
 
-.hotspot-book-online { left: 4.7%; top: 56.5%; width: 18.7%; height: 5.3%; }
-.hotspot-call { left: 23.9%; top: 56.5%; width: 19.6%; height: 5.3%; }
-.hotspot-get-directions { left: 44.0%; top: 56.5%; width: 16.5%; height: 5.3%; }
-.hotspot-scroll { left: 91.3%; top: 31.1%; width: 5.4%; height: 23.8%; }
-.hotspot-phone-card { left: 4.4%; top: 79.2%; width: 28.9%; height: 15.2%; border-radius: 24px; }
-.hotspot-address-card { left: 65.4%; top: 79.2%; width: 29.1%; height: 15.2%; border-radius: 24px; }
+  .hotspot-home {
+    left: 32.2%;
+    top: 2.1%;
+    width: 7.0%;
+    height: 5.1%;
+  }
 
-/* Shared controls and content cards below the exact hero. */
-.section-kicker {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #ffd45c;
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.19em;
-  text-transform: uppercase;
-}
+  .hotspot-safety {
+    left: 39.5%;
+    top: 2.1%;
+    width: 6.6%;
+    height: 5.1%;
+  }
 
-.primary-btn,
-.secondary-btn,
-.card-btn {
-  min-height: 54px;
-  padding: 15px 23px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  border-radius: 999px;
-  font-weight: 900;
-  line-height: 1;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
+  .hotspot-rentals {
+    left: 46.3%;
+    top: 2.1%;
+    width: 7.2%;
+    height: 5.1%;
+  }
 
-.primary-btn:hover,
-.secondary-btn:hover,
-.card-btn:hover {
-  transform: translateY(-2px);
-}
+  .hotspot-pricing {
+    left: 53.0%;
+    top: 2.1%;
+    width: 6.7%;
+    height: 5.1%;
+  }
 
-.primary-btn {
-  color: #140e18;
-  background: linear-gradient(135deg, #ffc63b 0%, #ff7b57 48%, #ff2e9d 100%);
-  box-shadow: 0 14px 30px rgba(255, 64, 154, 0.24);
-}
+  .hotspot-reviews {
+    left: 59.5%;
+    top: 2.1%;
+    width: 7.5%;
+    height: 5.1%;
+  }
 
-.secondary-btn {
-  border: 1px solid rgba(196, 206, 236, 0.46);
-  color: #ffffff;
-  background: rgba(4, 10, 27, 0.55);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-}
+  .hotspot-directions-nav {
+    left: 66.6%;
+    top: 2.1%;
+    width: 8.2%;
+    height: 5.1%;
+  }
 
-.secondary-btn:hover {
-  border-color: rgba(255, 255, 255, 0.75);
-}
+  .hotspot-need-site {
+    left: 75.1%;
+    top: 2.1%;
+    width: 10.2%;
+    height: 5.1%;
+  }
 
-.stat-card,
-.feature-card,
-.pricing-card,
-.map-embed-card,
-.directions-card,
-.reviews-card,
-.fareharbor-ready-card,
-.safety-card {
-  border: 1px solid rgba(158, 173, 214, 0.32);
-  border-radius: 24px;
-  background: rgba(4, 10, 28, 0.76);
-  box-shadow:
-    0 22px 42px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(18px) saturate(1.12);
-}
+  .hotspot-book-nav {
+    left: 85.7%;
+    top: 2.0%;
+    width: 11.4%;
+    height: 5.3%;
+  }
 
-.feature-card,
-.pricing-card,
-.directions-card {
-  padding: 20px;
-}
+  .hotspot-book-online {
+    left: 4.7%;
+    top: 56.5%;
+    width: 18.7%;
+    height: 5.3%;
+  }
 
-/* =========================
+  .hotspot-call {
+    left: 23.9%;
+    top: 56.5%;
+    width: 19.6%;
+    height: 5.3%;
+  }
+
+  .hotspot-get-directions {
+    left: 44.0%;
+    top: 56.5%;
+    width: 16.5%;
+    height: 5.3%;
+  }
+
+  .hotspot-scroll {
+    left: 91.3%;
+    top: 31.1%;
+    width: 5.4%;
+    height: 23.8%;
+  }
+
+  .hotspot-phone-card {
+    left: 4.4%;
+    top: 79.2%;
+    width: 28.9%;
+    height: 15.2%;
+    border-radius: 24px;
+  }
+
+  .hotspot-address-card {
+    left: 65.4%;
+    top: 79.2%;
+    width: 29.1%;
+    height: 15.2%;
+    border-radius: 24px;
+  }
+
+  /* Shared controls and content cards below the exact hero. */
+  .section-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #ffd45c;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .card-btn {
+    min-height: 54px;
+    padding: 15px 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 999px;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .primary-btn:hover,
+  .secondary-btn:hover,
+  .card-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .primary-btn {
+    color: #140e18;
+    background: linear-gradient(135deg, #ffc63b 0%, #ff7b57 48%, #ff2e9d 100%);
+    box-shadow: 0 14px 30px rgba(255, 64, 154, 0.24);
+  }
+
+  .secondary-btn {
+    border: 1px solid rgba(196, 206, 236, 0.46);
+    color: #ffffff;
+    background: rgba(4, 10, 27, 0.55);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .secondary-btn:hover {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .stat-card,
+  .feature-card,
+  .pricing-card,
+  .map-embed-card,
+  .directions-card,
+  .reviews-card,
+  .fareharbor-ready-card,
+  .safety-card {
+    border: 1px solid rgba(158, 173, 214, 0.32);
+    border-radius: 24px;
+    background: rgba(4, 10, 28, 0.76);
+    box-shadow:
+      0 22px 42px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px) saturate(1.12);
+  }
+
+  .feature-card,
+  .pricing-card,
+  .directions-card {
+    padding: 20px;
+  }
+
+  /* =========================
    MAIN CONTENT
    ========================= */
 
-.main-content {
-  position: relative;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 94px max(24px, calc((100vw - 1240px) / 2)) 80px;
-  background:
-    radial-gradient(circle at 88% 4%, rgba(255, 66, 151, 0.08), transparent 32rem),
-    radial-gradient(circle at 12% 42%, rgba(255, 197, 57, 0.05), transparent 34rem),
-    linear-gradient(180deg, #07101f 0%, #0d0b1b 52%, #070a14 100%);
-}
+  .main-content {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 94px max(24px, calc((100vw - 1240px) / 2)) 80px;
+    background:
+      radial-gradient(circle at 88% 4%, rgba(255, 66, 151, 0.08), transparent 32rem),
+      radial-gradient(circle at 12% 42%, rgba(255, 197, 57, 0.05), transparent 34rem),
+      linear-gradient(180deg, #07101f 0%, #0d0b1b 52%, #070a14 100%);
+  }
 
-.main-water-video {
-  display: none !important;
-}
+  .main-water-video {
+    display: none !important;
+  }
 
-.main-content-inner {
-  position: relative;
-  z-index: 2;
-}
+  .main-content-inner {
+    position: relative;
+    z-index: 2;
+  }
 
-.section {
-  padding: 60px 0;
-  scroll-margin-top: 112px;
-}
+  .section {
+    padding: 60px 0;
+    scroll-margin-top: 112px;
+  }
 
-.section-heading {
-  max-width: 760px;
-  margin-bottom: 28px;
-}
+  .section-heading {
+    max-width: 760px;
+    margin-bottom: 28px;
+  }
 
-.section-heading h2,
-.safety-copy h2,
-.reviews-card h2,
-.gh3d-inquiry-card h2 {
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(2rem, 4vw, 3.3rem);
-  line-height: 1.06;
-}
+  .section-heading h2,
+  .safety-copy h2,
+  .reviews-card h2,
+  .gh3d-inquiry-card h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.06;
+  }
 
-.section-heading p,
-.feature-card p,
-.pricing-card p,
-.directions-card p,
-.safety-copy p,
-.fareharbor-book-copy p,
-.reviews-card p,
-.gh3d-inquiry-card p {
-  color: rgba(240, 236, 255, 0.88);
-  line-height: 1.7;
-}
+  .section-heading p,
+  .feature-card p,
+  .pricing-card p,
+  .directions-card p,
+  .safety-copy p,
+  .fareharbor-book-copy p,
+  .reviews-card p,
+  .gh3d-inquiry-card p {
+    color: rgba(240, 236, 255, 0.88);
+    line-height: 1.7;
+  }
 
-/* =========================
+  /* =========================
    SAFETY
    ========================= */
 
-.safety-section {
-  padding-top: 20px;
-}
+  .safety-section {
+    padding-top: 20px;
+  }
 
-.safety-card {
-  display: grid;
-  grid-template-columns: .82fr 1.18fr;
-  gap: 28px;
-  align-items: center;
-  padding: 26px;
-  overflow: hidden;
-}
+  .safety-card {
+    display: grid;
+    grid-template-columns: .82fr 1.18fr;
+    gap: 28px;
+    align-items: center;
+    padding: 26px;
+    overflow: hidden;
+  }
 
-.safety-copy {
-  min-width: 0;
-}
+  .safety-copy {
+    min-width: 0;
+  }
 
-.safety-copy p {
-  margin: 18px 0 0;
-}
+  .safety-copy p {
+    margin: 18px 0 0;
+  }
 
-.safety-video-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 22px;
-  overflow: hidden;
-  background: #000000;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, .36);
-}
+  .safety-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #000000;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, .36);
+  }
 
-.safety-video-wrap iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
+  .safety-video-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
 
-/* =========================
+  /* =========================
    RENTALS / PRICING
    ========================= */
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
 
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
 
-.feature-card h3,
-.pricing-card h3,
-.directions-card h3 {
-  color: #ffd65b;
-}
+  .feature-card h3,
+  .pricing-card h3,
+  .directions-card h3 {
+    color: #ffd65b;
+  }
 
-.pricing-badge {
-  display: inline-flex;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ffd65b, #ff4ca0);
-  color: #2a0f3a;
-  font-size: .78rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
+  .pricing-badge {
+    display: inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffd65b, #ff4ca0);
+    color: #2a0f3a;
+    font-size: .78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
 
-.price {
-  font-size: 2.55rem;
-  font-weight: 900;
-  color: #ff5db1;
-}
+  .price {
+    font-size: 2.55rem;
+    font-weight: 900;
+    color: #ff5db1;
+  }
 
-.card-btn {
-  width: 100%;
-  background: linear-gradient(135deg, rgba(255, 214, 61, .18), rgba(255, 76, 160, .14));
-  border: 1px solid rgba(255, 126, 202, .28);
-  color: #ffe8ff;
-}
+  .card-btn {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(255, 214, 61, .18), rgba(255, 76, 160, .14));
+    border: 1px solid rgba(255, 126, 202, .28);
+    color: #ffe8ff;
+  }
 
-/* =========================
+  /* =========================
    REVIEWS
    ========================= */
 
-.reviews-section-wrap {
-  margin: 0 calc(50% - 50vw);
-  padding: 58px max(24px, calc((100vw - 1180px) / 2));
-  background: rgba(15, 11, 26, .18);
-}
+  .reviews-section-wrap {
+    margin: 0 calc(50% - 50vw);
+    padding: 58px max(24px, calc((100vw - 1180px) / 2));
+    background: rgba(15, 11, 26, .18);
+  }
 
-.reviews-card {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  padding: 26px;
-}
+  .reviews-card {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 26px;
+  }
 
-.reviews-widget-wrap {
-  min-height: 240px;
-  margin-top: 20px;
-}
+  .reviews-widget-wrap {
+    min-height: 240px;
+    margin-top: 20px;
+  }
 
-/* =========================
+  /* =========================
    BOOKING
    ========================= */
 
-.fareharbor-section-wrap {
-  scroll-margin-top: 110px;
-}
+  .fareharbor-section-wrap {
+    scroll-margin-top: 110px;
+  }
 
-.fareharbor-ready-card {
-  display: grid;
-  grid-template-columns: .36fr .64fr;
-  gap: 30px;
-  padding: 26px;
-}
+  .fareharbor-ready-card {
+    display: grid;
+    grid-template-columns: .36fr .64fr;
+    gap: 30px;
+    padding: 26px;
+  }
 
-.fareharbor-book-copy h3 {
-  margin: 0;
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
-  color: #ffffff;
-}
+  .fareharbor-book-copy h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    color: #ffffff;
+  }
 
-.fareharbor-accent-line {
-  width: 72px;
-  height: 4px;
-  margin: 14px 0 18px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-}
+  .fareharbor-accent-line {
+    width: 72px;
+    height: 4px;
+    margin: 14px 0 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+  }
 
-.fareharbor-jetski-image {
-  border-radius: 22px;
-  margin-bottom: 22px;
-}
+  .fareharbor-jetski-image {
+    border-radius: 22px;
+    margin-bottom: 22px;
+  }
 
-.fareharbor-call-note {
-  margin-top: 18px;
-  color: rgba(240, 231, 255, .90);
-  line-height: 1.6;
-}
+  .fareharbor-call-note {
+    margin-top: 18px;
+    color: rgba(240, 231, 255, .90);
+    line-height: 1.6;
+  }
 
-.fareharbor-call-note strong {
-  display: block;
-  margin-top: 4px;
-  color: #ffe06d;
-}
+  .fareharbor-call-note strong {
+    display: block;
+    margin-top: 4px;
+    color: #ffe06d;
+  }
 
-.fareharbor-frame-wrap {
-  overflow: hidden;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, .92);
-  min-height: 520px;
-}
+  .fareharbor-frame-wrap {
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .92);
+    min-height: 520px;
+  }
 
-.fareharbor-frame {
-  width: 100%;
-  min-height: 640px;
-  border: 0;
-  background: #ffffff;
-}
+  .fareharbor-frame {
+    width: 100%;
+    min-height: 640px;
+    border: 0;
+    background: #ffffff;
+  }
 
-/* =========================
+  /* =========================
    GH3D INQUIRY CTA
    ========================= */
 
-.gh3d-inquiry-section {
-  padding-top: 40px;
-}
-
-.gh3d-inquiry-card {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 28px;
-  align-items: center;
-  padding: 30px;
-  border: 1px solid rgba(255, 126, 202, .28);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at top left, rgba(255, 204, 47, .10), transparent 26rem),
-    linear-gradient(135deg, rgba(30, 18, 50, .64), rgba(15, 11, 26, .58));
-  backdrop-filter: blur(16px);
-  box-shadow: 0 18px 44px rgba(6, 3, 12, .26);
-}
-
-.gh3d-inquiry-card p {
-  max-width: 780px;
-}
-
-.gh3d-inquiry-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 12px;
-}
-
-/* =========================
-   MAP / DIRECTIONS
-   ========================= */
-
-.map-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 20px;
-}
-
-.map-embed-card {
-  overflow: hidden;
-  min-height: 400px;
-}
-
-.map-embed {
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  border: 0;
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-
-.site-footer {
-  text-align: center;
-  padding: 30px;
-  color: rgba(255, 255, 255, .78);
-  background: rgba(15, 11, 26, .72);
-  border-top: 1px solid rgba(255, 255, 255, .08);
-}
-
-.site-footer-line {
-  margin-top: 8px;
-}
-
-.gh3d-maker-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-  color: #2a0f3a;
-  font-weight: 900;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease;
-  box-shadow: 0 10px 24px rgba(255, 76, 160, .25);
-}
-
-.gh3d-maker-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(255, 76, 160, .4);
-}
-
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-
-@media (max-width: 1180px) {
-  .site-nav {
-    width: calc(100% - 24px);
-  }
-
-  .site-nav-links {
-    gap: 2px;
-  }
-
-  .site-nav-links a {
-    padding-inline: 10px;
-    font-size: 0.82rem;
-  }
-
-  .site-nav-links .site-nav-cta {
-    min-width: 112px;
-  }
-
-  .hero {
-    padding-inline: 34px;
-  }
-
-  .hero-top-grid {
-    grid-template-columns: minmax(0, 0.95fr) minmax(390px, 1.05fr);
-    gap: 18px;
-  }
-
-  .hero-art {
-    min-height: 560px;
-  }
-
-  .hero-scroll-rail {
-    right: 15px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .site-nav {
-    position: sticky;
-    top: 10px;
-    left: auto;
-    width: calc(100% - 20px);
-    min-height: 0;
-    margin: 10px auto -2px;
-    padding: 11px 14px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    transform: none;
-    border-radius: 22px;
-  }
-
-  .site-nav-brand {
-    justify-content: center;
-  }
-
-  .site-nav-links {
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 0 0 4px;
-    scrollbar-width: thin;
-  }
-
-  .site-nav-links a {
-    flex: 0 0 auto;
-  }
-
-  .hero {
-    min-height: auto;
-    margin-top: -104px;
-    padding: 224px 28px 48px;
-  }
-
-  .hero-content {
-    gap: 34px;
-  }
-
-  .hero-top-grid {
-    min-height: 0;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .hero-text {
-    max-width: 760px;
-    padding-top: 0;
-  }
-
-  .hero h1 {
-    font-size: clamp(3.4rem, 10vw, 6rem);
-  }
-
-  .hero-copy {
-    max-width: 700px;
-  }
-
-  .hero-art {
-    min-height: 520px;
-    width: min(760px, 100%);
-    margin: 0 auto;
-  }
-
-  .hero-main-logo {
-    left: 1%;
-    width: min(68%, 490px);
-  }
-
-  .hero-bobbing-jetski {
-    right: -2%;
-    width: min(83%, 620px);
-  }
-
-  .hero-stats,
-  .feature-grid,
-  .pricing-grid,
-  .map-grid,
-  .fareharbor-ready-card,
-  .safety-card {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-stats {
-    width: min(760px, 100%);
-    margin-inline: auto;
-  }
-
-  .stat-card {
-    min-height: 150px;
-  }
-
-  .hero-scroll-rail {
-    display: none;
+  .gh3d-inquiry-section {
+    padding-top: 40px;
   }
 
   .gh3d-inquiry-card {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid rgba(255, 126, 202, .28);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at top left, rgba(255, 204, 47, .10), transparent 26rem),
+      linear-gradient(135deg, rgba(30, 18, 50, .64), rgba(15, 11, 26, .58));
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 44px rgba(6, 3, 12, .26);
+  }
+
+  .gh3d-inquiry-card p {
+    max-width: 780px;
   }
 
   .gh3d-inquiry-actions {
-    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px;
   }
-}
 
-@media (max-width: 720px) {
+  /* =========================
+   MAP / DIRECTIONS
+   ========================= */
+
+  .map-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+  }
+
+  .map-embed-card {
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .map-embed {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: 0;
+  }
+
+  /* =========================
+   FOOTER
+   ========================= */
+
+  .site-footer {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255, 255, 255, .78);
+    background: rgba(15, 11, 26, .72);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+  }
+
+  .site-footer-line {
+    margin-top: 8px;
+  }
+
+  .gh3d-maker-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
+    color: #2a0f3a;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+    box-shadow: 0 10px 24px rgba(255, 76, 160, .25);
+  }
+
+  .gh3d-maker-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(255, 76, 160, .4);
+  }
+
+
+  /* =========================
+   RESPONSIVE
+   ========================= */
+
+  @media (max-width: 1180px) {
+    .site-nav {
+      width: calc(100% - 24px);
+    }
+
+    .site-nav-links {
+      gap: 2px;
+    }
+
+    .site-nav-links a {
+      padding-inline: 10px;
+      font-size: 0.82rem;
+    }
+
+    .site-nav-links .site-nav-cta {
+      min-width: 112px;
+    }
+
+    .hero {
+      padding-inline: 34px;
+    }
+
+    .hero-top-grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(390px, 1.05fr);
+      gap: 18px;
+    }
+
+    .hero-art {
+      min-height: 560px;
+    }
+
+    .hero-scroll-rail {
+      right: 15px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .site-nav {
+      position: sticky;
+      top: 10px;
+      left: auto;
+      width: calc(100% - 20px);
+      min-height: 0;
+      margin: 10px auto -2px;
+      padding: 11px 14px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      transform: none;
+      border-radius: 22px;
+    }
+
+    .site-nav-brand {
+      justify-content: center;
+    }
+
+    .site-nav-links {
+      width: 100%;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding: 0 0 4px;
+      scrollbar-width: thin;
+    }
+
+    .site-nav-links a {
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      min-height: auto;
+      margin-top: -104px;
+      padding: 224px 28px 48px;
+    }
+
+    .hero-content {
+      gap: 34px;
+    }
+
+    .hero-top-grid {
+      min-height: 0;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      padding-top: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.4rem, 10vw, 6rem);
+    }
+
+    .hero-copy {
+      max-width: 700px;
+    }
+
+    .hero-art {
+      min-height: 520px;
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero-main-logo {
+      left: 1%;
+      width: min(68%, 490px);
+    }
+
+    .hero-bobbing-jetski {
+      right: -2%;
+      width: min(83%, 620px);
+    }
+
+    .hero-stats,
+    .feature-grid,
+    .pricing-grid,
+    .map-grid,
+    .fareharbor-ready-card,
+    .safety-card {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+      width: min(760px, 100%);
+      margin-inline: auto;
+    }
+
+    .stat-card {
+      min-height: 150px;
+    }
+
+    .hero-scroll-rail {
+      display: none;
+    }
+
+    .gh3d-inquiry-card {
+      grid-template-columns: 1fr;
+    }
+
+    .gh3d-inquiry-actions {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .site-nav-brand {
+      font-size: 1rem;
+    }
+
+    .site-nav-mark {
+      width: 46px;
+      height: 40px;
+    }
+
+    .site-nav-links a {
+      min-height: 40px;
+      padding: 10px 11px;
+      font-size: 0.78rem;
+    }
+
+    .site-nav-links .site-nav-cta {
+      min-width: 104px;
+    }
+
+    .hero {
+      margin-top: -102px;
+      padding: 212px 18px 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 15vw, 4.7rem);
+      letter-spacing: -0.07em;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+    }
+
+    .hero-copy {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .hero-primary-btn,
+    .hero-secondary-btn {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .hero-art {
+      min-height: 390px;
+    }
+
+    .hero-main-logo {
+      top: 0;
+      left: 0;
+      width: min(76%, 390px);
+    }
+
+    .hero-bobbing-jetski {
+      right: -10%;
+      bottom: -2%;
+      width: min(96%, 510px);
+    }
+
+    .hero-stats {
+      gap: 12px;
+    }
+
+    .stat-card {
+      min-height: 0;
+      padding: 22px;
+    }
+
+    .stat-icon {
+      width: 54px;
+      height: 54px;
+    }
+
+    .stat-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .main-content {
+      padding: 64px 18px 88px;
+    }
+
+    .safety-card,
+    .fareharbor-ready-card,
+    .reviews-card,
+    .gh3d-inquiry-card {
+      padding: 20px;
+    }
+
+    .floating-book-btn {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 9999;
+      min-height: 48px;
+      padding: 13px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #160f1b;
+      background: linear-gradient(135deg, #ffc63b, #ff2f9e);
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(255, 63, 155, 0.3);
+    }
+  }
+
+  @media (max-width: 460px) {
+    .hero {
+      padding-top: 206px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.72rem, 14.5vw, 3.8rem);
+    }
+
+    .hero-art {
+      min-height: 330px;
+    }
+
+    .hero-main-logo {
+      width: min(78%, 320px);
+    }
+
+    .hero-bobbing-jetski {
+      width: min(102%, 440px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .hero-bobbing-jetski {
+      animation: none;
+    }
+  }
+
+  /* =========================================================
+   LOCKED HERO: USER-APPROVED BASE IMAGE + MASKED WATER VIDEO
+   The page colors and layout remain unchanged. Only the river moves.
+   ========================================================= */
+
+  .exact-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 666 / 444;
+    margin: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: #050a16;
+  }
+
+  .exact-hero-base,
+  .exact-water-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .exact-hero-base {
+    z-index: 1;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .exact-water-video {
+    z-index: 2;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.025);
+    opacity: 0.68;
+    mix-blend-mode: luminosity;
+    filter: brightness(0.92) contrast(1.14) saturate(0.86);
+    -webkit-mask-image: url("/jetski/laughlin-water-mask.png");
+    mask-image: url("/jetski/laughlin-water-mask.png");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+  .exact-hotspot {
+    z-index: 5;
+  }
+
+  .new-hotspot-home {
+    left: 26.3%;
+    top: 2.1%;
+    width: 5.7%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-rentals {
+    left: 32.4%;
+    top: 2.1%;
+    width: 6.7%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-tours {
+    left: 40.2%;
+    top: 2.1%;
+    width: 5.5%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-pricing {
+    left: 46.8%;
+    top: 2.1%;
+    width: 6.0%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-safety {
+    left: 54.0%;
+    top: 2.1%;
+    width: 6.1%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-about {
+    left: 61.2%;
+    top: 2.1%;
+    width: 5.4%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-faq {
+    left: 68.4%;
+    top: 2.1%;
+    width: 3.7%;
+    height: 7.0%;
+  }
+
+  .new-hotspot-contact {
+    left: 73.4%;
+    top: 2.1%;
+    width: 6.7%;
+    height: 7.0%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .exact-water-video {
+      display: none;
+    }
+
+    .main-water-video {
+      display: none;
+    }
+
+    .main-content::before {
+      opacity: 1 !important;
+    }
+
+    .bg-mode-water .main-content::before,
+    .bg-mode-both .main-content::before,
+    .bg-mode-photo .main-content::before {
+      opacity: 1 !important;
+    }
+  }
+
+  /* =========================================================
+   REAL RESPONSIVE HERO REBUILD
+   Keeps moving water only in the hero and restores the full page below.
+   ========================================================= */
+
+  .site-nav,
+  .floating-book-btn {
+    display: flex !important;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    z-index: 1000;
+    width: min(1180px, calc(100% - 28px));
+    min-height: 66px;
+    padding: 10px 14px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(153, 174, 230, .28);
+    border-radius: 24px;
+    background: rgba(5, 12, 32, .84);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, .34);
+    backdrop-filter: blur(18px) saturate(1.18);
+  }
+
   .site-nav-brand {
-    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    white-space: nowrap;
   }
 
   .site-nav-mark {
     width: 46px;
-    height: 40px;
+    height: 42px;
+    object-fit: contain;
+  }
+
+  .site-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
   }
 
   .site-nav-links a {
-    min-height: 40px;
-    padding: 10px 11px;
-    font-size: 0.78rem;
+    min-height: 42px;
+    padding: 10px 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, .92);
+    font-size: .84rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .site-nav-links a:hover {
+    background: rgba(255, 255, 255, .07);
+  }
+
+  .site-nav-need {
+    border: 1px solid rgba(255, 255, 255, .12);
   }
 
   .site-nav-links .site-nav-cta {
-    min-width: 104px;
-  }
-
-  .hero {
-    margin-top: -102px;
-    padding: 212px 18px 40px;
-  }
-
-  .hero h1 {
-    font-size: clamp(3rem, 15vw, 4.7rem);
-    letter-spacing: -0.07em;
-  }
-
-  .eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-  }
-
-  .hero-copy {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .hero-primary-btn,
-  .hero-secondary-btn {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .hero-art {
-    min-height: 390px;
-  }
-
-  .hero-main-logo {
-    top: 0;
-    left: 0;
-    width: min(76%, 390px);
-  }
-
-  .hero-bobbing-jetski {
-    right: -10%;
-    bottom: -2%;
-    width: min(96%, 510px);
-  }
-
-  .hero-stats {
-    gap: 12px;
-  }
-
-  .stat-card {
-    min-height: 0;
-    padding: 22px;
-  }
-
-  .stat-icon {
-    width: 54px;
-    height: 54px;
-  }
-
-  .stat-icon svg {
-    width: 26px;
-    height: 26px;
-  }
-
-  .main-content {
-    padding: 64px 18px 88px;
-  }
-
-  .safety-card,
-  .fareharbor-ready-card,
-  .reviews-card,
-  .gh3d-inquiry-card {
-    padding: 20px;
+    min-width: 122px;
+    color: #140e18;
+    background: linear-gradient(135deg, #ffc63b 0%, #ff7b57 48%, #ff2e9d 100%);
+    box-shadow: 0 10px 24px rgba(255, 63, 155, .26);
   }
 
   .floating-book-btn {
     position: fixed;
-    right: 12px;
-    bottom: 12px;
+    right: 18px;
+    bottom: 18px;
     z-index: 9999;
-    min-height: 48px;
-    padding: 13px 18px;
-    display: inline-flex;
+    min-height: 50px;
+    padding: 14px 21px;
     align-items: center;
     justify-content: center;
     border-radius: 999px;
     color: #160f1b;
     background: linear-gradient(135deg, #ffc63b, #ff2f9e);
     font-weight: 900;
-    box-shadow: 0 14px 30px rgba(255, 63, 155, 0.3);
+    box-shadow: 0 14px 30px rgba(255, 63, 155, .30);
   }
-}
 
-@media (max-width: 460px) {
   .hero {
-    padding-top: 206px;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 124px max(54px, calc((100vw - 1180px) / 2)) 56px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    background: #04101e;
+  }
+
+  .hero-water-video,
+  .hero-photo-layer,
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-water-video {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(.72) contrast(1.14) saturate(.88);
+  }
+
+  .hero-photo-layer {
+    z-index: 1;
+    background:
+      linear-gradient(90deg, rgba(3, 9, 24, .68) 0%, rgba(3, 9, 24, .18) 50%, rgba(3, 9, 24, .30) 100%),
+      url("/jetski/hero-ski-beach.jpg") right center / cover no-repeat;
+    opacity: .62;
+    mix-blend-mode: soft-light;
+  }
+
+  .hero-overlay {
+    z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(4, 10, 27, .28) 0%, rgba(4, 10, 27, .10) 42%, rgba(4, 10, 27, .86) 100%),
+      radial-gradient(circle at 78% 35%, rgba(255, 85, 164, .10), transparent 28rem);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    width: min(1180px, 100%);
+    margin: 0 auto;
+  }
+
+  .hero-top-grid {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(500px, 1.1fr);
+    gap: 36px;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 610px;
+    padding-top: 38px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #ffd45c;
+    font-size: .82rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
   }
 
   .hero h1 {
-    font-size: clamp(2.72rem, 14.5vw, 3.8rem);
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(4rem, 6.8vw, 7.2rem);
+    line-height: .88;
+    letter-spacing: -.065em;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, .36);
+  }
+
+  .hero h1 span {
+    display: block;
+    margin-top: 12px;
+    color: transparent;
+    background: linear-gradient(135deg, #ffc63b 0%, #ff8a5f 42%, #ff43a7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .hero-accent-line {
+    width: 110px;
+    height: 4px;
+    margin: 26px 0 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ffd34d, #ff4ca0);
+  }
+
+  .hero-copy {
+    max-width: 560px;
+    margin: 0;
+    color: rgba(255, 255, 255, .94);
+    font-size: 1.07rem;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
   }
 
   .hero-art {
-    min-height: 330px;
+    position: relative;
+    min-height: 650px;
   }
 
   .hero-main-logo {
-    width: min(78%, 320px);
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    z-index: 3;
+    width: min(66%, 500px);
+    filter: drop-shadow(0 22px 40px rgba(0, 0, 0, .46));
   }
 
-  .hero-bobbing-jetski {
-    width: min(102%, 440px);
+  .hero-jetski-image {
+    position: absolute;
+    right: -9%;
+    bottom: -3%;
+    z-index: 2;
+    width: min(94%, 760px);
+    height: 74%;
+    object-fit: cover;
+    object-position: center 58%;
+    border-radius: 46% 46% 14% 18% / 22% 24% 16% 16%;
+    filter: drop-shadow(0 32px 42px rgba(0, 0, 0, .48));
+    -webkit-mask-image: linear-gradient(to top, #000 72%, transparent 100%);
+    mask-image: linear-gradient(to top, #000 72%, transparent 100%);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
   }
 
-  .hero-bobbing-jetski {
-    animation: none;
+  .stat-card {
+    min-height: 168px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-}
 
-/* =========================================================
-   LOCKED HERO: USER-APPROVED BASE IMAGE + MASKED WATER VIDEO
-   The page colors and layout remain unchanged. Only the river moves.
-   ========================================================= */
-
-.exact-hero {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 666 / 444;
-  margin: 0;
-  overflow: hidden;
-  isolation: isolate;
-  background: #050a16;
-}
-
-.exact-hero-base,
-.exact-water-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.exact-hero-base {
-  z-index: 1;
-  object-fit: cover;
-  object-position: center;
-}
-
-.exact-water-video {
-  z-index: 2;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.025);
-  opacity: 0.68;
-  mix-blend-mode: luminosity;
-  filter: brightness(0.92) contrast(1.14) saturate(0.86);
-  -webkit-mask-image: url("/jetski/laughlin-water-mask.png");
-  mask-image: url("/jetski/laughlin-water-mask.png");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-}
-
-.exact-hotspot {
-  z-index: 5;
-}
-
-.new-hotspot-home     { left: 26.3%; top: 2.1%; width: 5.7%; height: 7.0%; }
-.new-hotspot-rentals  { left: 32.4%; top: 2.1%; width: 6.7%; height: 7.0%; }
-.new-hotspot-tours    { left: 40.2%; top: 2.1%; width: 5.5%; height: 7.0%; }
-.new-hotspot-pricing  { left: 46.8%; top: 2.1%; width: 6.0%; height: 7.0%; }
-.new-hotspot-safety   { left: 54.0%; top: 2.1%; width: 6.1%; height: 7.0%; }
-.new-hotspot-about    { left: 61.2%; top: 2.1%; width: 5.4%; height: 7.0%; }
-.new-hotspot-faq      { left: 68.4%; top: 2.1%; width: 3.7%; height: 7.0%; }
-.new-hotspot-contact  { left: 73.4%; top: 2.1%; width: 6.7%; height: 7.0%; }
-
-@media (prefers-reduced-motion: reduce) {
-  .exact-water-video {
-    display: none;
+  .stat-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #201323;
+    background: linear-gradient(135deg, #ffc63b, #ff4ca0);
+    font-size: 1.35rem;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(255, 76, 160, .22);
   }
-    .main-water-video {
+
+  .stat-number {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 900;
+  }
+
+  .stat-label {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, .84);
+  }
+
+  .hero-scroll-rail {
+    position: absolute;
+    right: 2.3%;
+    top: 40%;
+    z-index: 4;
+    width: 54px;
+    min-height: 300px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgba(255, 135, 164, .9);
+    border-radius: 999px;
+    background: rgba(4, 10, 27, .58);
+    backdrop-filter: blur(14px);
+  }
+
+  .hero-scroll-rail span {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .9);
+  }
+
+  .hero-scroll-rail span.active {
+    background: #ff709b;
+  }
+
+  .hero-scroll-rail strong {
+    font-size: 1.5rem;
+  }
+
+  .main-content {
+    background:
+      radial-gradient(circle at 88% 4%, rgba(255, 66, 151, .08), transparent 32rem),
+      radial-gradient(circle at 12% 42%, rgba(255, 197, 57, .05), transparent 34rem),
+      linear-gradient(180deg, #07101f 0%, #0d0b1b 52%, #070a14 100%) !important;
+  }
+
+  .main-water-video,
+  .exact-water-video,
+  .exact-hero-base,
+  .exact-hotspot,
+  .background-toggle {
+    display: none !important;
+  }
+
+  @media (max-width: 1180px) {
+    .hero-top-grid {
+      grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+    }
+
+    .hero-scroll-rail {
+      right: 12px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .site-nav {
+      position: sticky;
+      top: 10px;
+      left: auto;
+      width: calc(100% - 20px);
+      margin: 10px auto -2px;
+      flex-direction: column;
+      align-items: stretch;
+      transform: none;
+    }
+
+    .site-nav-brand {
+      justify-content: center;
+    }
+
+    .site-nav-links {
+      justify-content: flex-start;
+      overflow-x: auto;
+    }
+
+    .hero {
+      min-height: auto;
+      margin-top: -104px;
+      padding: 214px 28px 48px;
+    }
+
+    .hero-top-grid {
+      min-height: 0;
+      grid-template-columns: 1fr;
+    }
+
+    .hero-art {
+      min-height: 520px;
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero-main-logo {
+      left: 1%;
+      width: min(66%, 490px);
+    }
+
+    .hero-jetski-image {
+      right: -2%;
+      width: min(86%, 650px);
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-scroll-rail {
       display: none;
     }
-  
-    .main-content::before {
-      opacity: 1 !important;
+  }
+
+  @media (max-width: 720px) {
+    .site-nav-links a {
+      min-height: 40px;
+      padding: 10px 11px;
+      font-size: .78rem;
     }
-  
-    .bg-mode-water .main-content::before,
-    .bg-mode-both .main-content::before,
-    .bg-mode-photo .main-content::before {
-      opacity: 1 !important; }
-}
+
+    .hero {
+      padding: 206px 18px 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 15vw, 4.7rem);
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .hero-primary-btn,
+    .hero-secondary-btn {
+      width: 100%;
+    }
+
+    .hero-art {
+      min-height: 390px;
+    }
+
+    .hero-main-logo {
+      top: 0;
+      left: 0;
+      width: min(76%, 390px);
+    }
+
+    .hero-jetski-image {
+      right: -9%;
+      bottom: -2%;
+      width: min(98%, 520px);
+      height: 78%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-water-video {
+      display: none;
+    }
+  }

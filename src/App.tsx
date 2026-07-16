@@ -106,61 +106,13 @@ function App() {
             elfsightScript.async = true;
             document.body.appendChild(elfsightScript);
         }
-
-        const hideLegacyBackgroundPicker = () => {
-            const candidates = Array.from(document.querySelectorAll<HTMLElement>("body *"));
-
-            for (const element of candidates) {
-                const text = (element.textContent ?? "").replace(/\s+/g, " ").trim();
-                const looksLikeOldPicker =
-                    text.includes("BACKGROUND") &&
-                    text.includes("Photo") &&
-                    text.includes("Water") &&
-                    text.includes("Both");
-
-                if (!looksLikeOldPicker) continue;
-
-                const rect = element.getBoundingClientRect();
-                const isSmallFloatingControl =
-                    rect.width > 0 &&
-                    rect.width <= 560 &&
-                    rect.height > 0 &&
-                    rect.height <= 190;
-
-                if (isSmallFloatingControl) {
-                    element.style.display = "none";
-                    element.style.visibility = "hidden";
-                    element.style.pointerEvents = "none";
-                    element.setAttribute("aria-hidden", "true");
-                }
-            }
-        };
-
-        const legacyBackgroundObserver = new MutationObserver(hideLegacyBackgroundPicker);
-
-        window.setTimeout(hideLegacyBackgroundPicker, 0);
-        window.setTimeout(hideLegacyBackgroundPicker, 250);
-        window.setTimeout(hideLegacyBackgroundPicker, 1000);
-
-        legacyBackgroundObserver.observe(document.body, {
-            childList: true,
-            subtree: true,
-        });
-
-        return () => {
-            legacyBackgroundObserver.disconnect();
-        };
     }, []);
 
     return (
         <div className="site-shell">
-            <video className="site-water-video" autoPlay muted loop playsInline aria-hidden="true">
-                <source src="/jetski/water-loop.mp4" type="video/mp4" />
-            </video>
-
             <nav className="site-nav" aria-label="Main navigation">
                 <a href="#home" className="site-nav-brand">
-                    <img src="/jetski/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
+                    <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals logo" className="site-nav-mark" />
                     <span>Laughlin Jet Ski Rentals</span>
                 </a>
 
@@ -171,38 +123,42 @@ function App() {
                     <a href="#pricing">Pricing</a>
                     <a href="#reviews">Reviews</a>
                     <a href="#location">Directions</a>
-                    <a href={gh3dInquiryMailto} className="site-nav-text-link">
-                        Need A Site?
-                    </a>
-                    <a href="#book" className="site-nav-cta site-nav-book">Book Now</a>
+                    <a href="#gh3d-inquiry" className="site-nav-need">Need A Site?</a>
+                    <a href="#book" className="site-nav-cta">Book Now</a>
                 </div>
             </nav>
 
             <a href="#book" className="floating-book-btn">Book Now</a>
 
             <section className="hero" id="home">
-                <div className="hero-overlay" />
+                <video
+                    className="hero-water-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    aria-hidden="true"
+                    onLoadedMetadata={(event) => {
+                        event.currentTarget.defaultPlaybackRate = 0.55;
+                        event.currentTarget.playbackRate = 0.35;
+                    }}
+                >
+                    <source src="/jetski/water-loop.mp4" type="video/mp4" />
+                </video>
+
+                <div className="hero-photo-layer" aria-hidden="true" />
+                <div className="hero-overlay" aria-hidden="true" />
 
                 <div className="hero-content">
-                    <div className="hero-brand">
-                        <div className="hero-logo-stage" aria-hidden="true">
-                            <img
-                                src="/jetski/laughlin-logo.png"
-                                alt=""
-                                className="hero-main-logo"
-                            />
-
-                            <img
-                                src="/jetski/hero_jetski.png"
-                                alt=""
-                                className="hero-bobbing-jetski"
-                            />
-                        </div>
-
+                    <div className="hero-top-grid">
                         <div className="hero-text">
                             <span className="eyebrow">River Hours • Open Daily • 9AM–5PM</span>
-                            <h1>Laughlin Jet Ski Rentals</h1>
-
+                            <h1>
+                                Laughlin Jet Ski
+                                <span>Rentals</span>
+                            </h1>
+                            <div className="hero-accent-line" />
                             <p className="hero-copy">
                                 Looking for jet ski rentals in Laughlin NV on the Colorado River?
                                 Laughlin Jet Ski Rentals keeps it simple with real skis, easy
@@ -210,28 +166,45 @@ function App() {
                             </p>
 
                             <div className="hero-actions">
-                                <a href="#book" className="primary-btn">Book Online</a>
-                                <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
-                                <a href={mapsUrl} target="_blank" rel="noreferrer" className="secondary-btn">Get Directions</a>
-                            </div>
-
-                            <div className="hero-stats">
-                                <div className="stat-card">
-                                    <span className="stat-number">{displayPhone}</span>
-                                    <span className="stat-label">Direct booking line</span>
-                                </div>
-                                <div className="stat-card">
-                                    <span className="stat-number">9AM–5PM</span>
-                                    <span className="stat-label">Monday through Sunday</span>
-                                </div>
-                                <div className="stat-card">
-                                    <span className="stat-number">1950 Casino Dr</span>
-                                    <span className="stat-label">Laughlin, NV 89029</span>
-                                </div>
+                                <a href="#book" className="primary-btn hero-primary-btn">Book Online</a>
+                                <a href={`tel:${phoneNumber}`} className="secondary-btn hero-secondary-btn">Call {displayPhone}</a>
+                                <a href={mapsUrl} target="_blank" rel="noreferrer" className="secondary-btn hero-secondary-btn">Get Directions</a>
                             </div>
                         </div>
+
+                        <div className="hero-art">
+                            <img src="/laughlin-logo.png" alt="Laughlin Jet Ski Rentals" className="hero-main-logo" />
+                            <img src="/jetski/hero-ski-beach.jpg" alt="Jet ski on the Colorado River" className="hero-jetski-image" />
+                        </div>
+                    </div>
+
+                    <div className="hero-stats">
+                        <a href={`tel:${phoneNumber}`} className="stat-card">
+                            <span className="stat-icon">☎</span>
+                            <span className="stat-number">{displayPhone}</span>
+                            <span className="stat-label">Direct booking line</span>
+                        </a>
+                        <div className="stat-card">
+                            <span className="stat-icon">◷</span>
+                            <span className="stat-number">9AM–5PM</span>
+                            <span className="stat-label">Monday through Sunday</span>
+                        </div>
+                        <a href={mapsUrl} target="_blank" rel="noreferrer" className="stat-card">
+                            <span className="stat-icon">⌖</span>
+                            <span className="stat-number">1950 Casino Dr</span>
+                            <span className="stat-label">Laughlin, NV 89029</span>
+                        </a>
                     </div>
                 </div>
+
+                <a href="#safety" className="hero-scroll-rail" aria-label="Scroll to safety section">
+                    <span className="active" />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <strong>↓</strong>
+                </a>
             </section>
 
             <main className="main-content">
@@ -392,7 +365,6 @@ function App() {
                         photos={walkthroughPhotos}
                         steps={walkthroughSteps}
                     />
-
                     <section className="section gh3d-inquiry-section" id="gh3d-inquiry">
                         <div className="gh3d-inquiry-card">
                             <div>
@@ -416,7 +388,6 @@ function App() {
                             </div>
                         </div>
                     </section>
-
                     <section className="section" id="location">
                         <div className="section-heading">
                             <span className="section-kicker">Location</span>
