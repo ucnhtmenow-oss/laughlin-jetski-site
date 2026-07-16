@@ -2,18 +2,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050a16;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
 html {
   scroll-behavior: smooth;
-  background: #0f0b1a;
+  background: #050a16;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background: #0f0b1a;
-  color: #f5ecff;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050a16;
+  color: #f7f8ff;
+}
+
+button,
+a {
+  font: inherit;
 }
 
 a {
@@ -21,414 +33,153 @@ a {
   text-decoration: none;
 }
 
-img {
+img,
+svg {
   display: block;
+}
+
+img {
   max-width: 100%;
 }
 
 .site-shell {
-  position: relative;
   min-height: 100vh;
-  color: #ffffff;
-  background: #0f0b1a;
-  isolation: isolate;
-  overflow-x: clip;
-}
-
-.site-water-video {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  opacity: .74;
-  filter: saturate(1.12) contrast(1.08);
-  pointer-events: none;
-}
-
-.site-shell::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at top left, rgba(255, 76, 160, .09), transparent 32rem),
-    linear-gradient(180deg, rgba(15, 11, 26, .28), rgba(15, 11, 26, .50));
-  pointer-events: none;
-}
-
-/* =========================
-   NAV
-   ========================= */
-
-.site-nav {
-  position: fixed;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  width: min(1180px, calc(100% - 28px));
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 10px 12px 10px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, .18);
-  background: rgba(12, 7, 25, .66);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, .26);
-  backdrop-filter: blur(18px);
-}
-
-.site-nav-brand {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  gap: 10px;
-  color: #ffffff;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.site-nav-mark {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  object-fit: cover;
-}
-
-.site-nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-}
-
-.site-nav-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  color: rgba(245, 236, 255, .94);
-  font-size: .82rem;
-  font-weight: 800;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.site-nav-links a:hover {
-  color: #ffffff;
-}
-
-.site-nav-links .site-nav-text-link {
-  min-height: 38px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: transparent;
-  color: #ffffff;
-  box-shadow: none;
-}
-
-.site-nav-links .site-nav-text-link:hover {
-  color: #ffe06d;
-}
-
-.site-nav-links .site-nav-cta {
-  min-width: 92px;
-  color: #2a0f3a;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-  box-shadow: 0 10px 24px rgba(255, 76, 160, .22);
-}
-
-.site-nav-links .site-nav-book {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* =========================
-   REMOVE OLD BACKGROUND PICKER
-   ========================= */
-
-.background-toggle,
-.background-toggle *,
-.background-picker,
-.background-picker *,
-.background-switcher,
-.background-switcher *,
-.background-mode-toggle,
-.background-mode-toggle *,
-.background-mode-control,
-.background-mode-control *,
-.background-controls,
-.background-controls *,
-.bg-toggle,
-.bg-toggle *,
-.bg-mode-toggle,
-.bg-mode-toggle *,
-.hero-bg-toggle,
-.hero-bg-toggle *,
-.hero-background-toggle,
-.hero-background-toggle *,
-.water-background-toggle,
-.water-background-toggle *,
-.photo-water-toggle,
-.photo-water-toggle *,
-.background-pill,
-.background-pill * {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* =========================
-   MOVING WATER VIDEO LAYERS
-   ========================= */
-
-.water-bg-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-/* =========================
-   HERO
-   ========================= */
-
-.hero {
-  position: relative;
-  min-height: 88vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 112px 24px 72px;
   overflow: hidden;
-  background: transparent;
+  color: #ffffff;
+  background: #050a16;
 }
 
-.hero-water-video {
-  opacity: .68;
-  filter: saturate(1.08) contrast(1.05);
-}
+/* =========================
+   EXACT LANDING HERO
+   ========================= */
 
-.hero-photo-layer {
+.site-nav,
+.floating-book-btn,
+.background-toggle {
   display: none !important;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    radial-gradient(circle at center left, rgba(255, 76, 160, .10), transparent 34rem),
-    linear-gradient(to bottom, rgba(8, 6, 18, .16), rgba(8, 6, 18, .72));
-  pointer-events: none;
-}
-
-.hero-content {
+.exact-hero {
   position: relative;
-  z-index: 2;
   width: 100%;
-  max-width: 1180px;
-}
-
-.hero-brand {
-  display: grid;
-  grid-template-columns: minmax(560px, 640px) minmax(0, 1fr);
-  gap: 42px;
-  align-items: center;
-}
-
-.hero-logo-stage {
-  position: relative;
-  width: min(48vw, 640px);
-  min-height: 440px;
-  display: block;
-  justify-self: start;
-  pointer-events: none;
+  margin: 0;
+  overflow: hidden;
+  background: #050a16;
   isolation: isolate;
 }
 
-.hero-logo-stage::before {
-  content: "";
-  position: absolute;
-  inset: 5% 2% 8%;
-  z-index: 0;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 28% 34%, rgba(255, 204, 47, .16), transparent 34%),
-    radial-gradient(circle at 74% 62%, rgba(255, 76, 160, .10), transparent 46%);
-  filter: blur(18px);
-  opacity: .85;
+.exact-hero-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.hero-main-logo {
+.exact-hotspot {
   position: absolute;
   z-index: 3;
-  top: 8px;
-  left: 0;
-  width: min(54%, 345px);
-  height: auto;
-  object-fit: contain;
-  filter:
-    drop-shadow(0 22px 34px rgba(0, 0, 0, .60)) drop-shadow(0 0 18px rgba(255, 180, 65, .20));
+  display: block;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: transparent;
+  cursor: pointer;
 }
 
-.hero-bobbing-jetski {
+.exact-hotspot:hover {
+  background: transparent;
+}
+
+.exact-hotspot:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.sr-only {
   position: absolute;
-  z-index: 5;
-  right: 0;
-  bottom: 2px;
-  width: min(58%, 390px);
-  height: auto;
-  object-fit: contain;
-  transform-origin: 50% 78%;
-  transform: scaleX(-1);
-  animation: jetskiDockBob 3.6s ease-in-out infinite;
-  will-change: transform;
-  filter:
-    drop-shadow(0 24px 26px rgba(0, 0, 0, .62)) drop-shadow(0 0 14px rgba(255, 155, 65, .14));
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-@keyframes jetskiDockBob {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(1.2deg) scaleX(-1);
-  }
+/* Hotspot coordinates are percentages of the 1225 × 1284 reference image. */
+.hotspot-brand { left: 3.1%; top: 2.2%; width: 27.5%; height: 4.8%; }
+.hotspot-home { left: 32.2%; top: 2.1%; width: 7.0%; height: 5.1%; }
+.hotspot-safety { left: 39.5%; top: 2.1%; width: 6.6%; height: 5.1%; }
+.hotspot-rentals { left: 46.3%; top: 2.1%; width: 7.2%; height: 5.1%; }
+.hotspot-pricing { left: 53.0%; top: 2.1%; width: 6.7%; height: 5.1%; }
+.hotspot-reviews { left: 59.5%; top: 2.1%; width: 7.5%; height: 5.1%; }
+.hotspot-directions-nav { left: 66.6%; top: 2.1%; width: 8.2%; height: 5.1%; }
+.hotspot-need-site { left: 75.1%; top: 2.1%; width: 10.2%; height: 5.1%; }
+.hotspot-book-nav { left: 85.7%; top: 2.0%; width: 11.4%; height: 5.3%; }
 
-  20% {
-    transform: translate3d(0, -9px, 0) rotate(-.45deg) scaleX(-1);
-  }
+.hotspot-book-online { left: 4.7%; top: 56.5%; width: 18.7%; height: 5.3%; }
+.hotspot-call { left: 23.9%; top: 56.5%; width: 19.6%; height: 5.3%; }
+.hotspot-get-directions { left: 44.0%; top: 56.5%; width: 16.5%; height: 5.3%; }
+.hotspot-scroll { left: 91.3%; top: 31.1%; width: 5.4%; height: 23.8%; }
+.hotspot-phone-card { left: 4.4%; top: 79.2%; width: 28.9%; height: 15.2%; border-radius: 24px; }
+.hotspot-address-card { left: 65.4%; top: 79.2%; width: 29.1%; height: 15.2%; border-radius: 24px; }
 
-  45% {
-    transform: translate3d(0, 3px, 0) rotate(-1deg) scaleX(-1);
-  }
-
-  70% {
-    transform: translate3d(0, -6px, 0) rotate(.35deg) scaleX(-1);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0) rotate(1.2deg) scaleX(-1);
-  }
-}
-
-.hero-text {
-  min-width: 0;
-  position: relative;
-  z-index: 4;
-}
-
-.hero-logo-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-logo {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 16px 34px rgba(0, 0, 0, .28));
-}
-
-.eyebrow,
+/* Shared controls and content cards below the exact hero. */
 .section-kicker {
   display: inline-block;
-  color: #ffe06d;
-  font-size: .8rem;
-  font-weight: 800;
-  letter-spacing: .15em;
+  margin-bottom: 14px;
+  color: #ffd45c;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.19em;
   text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.hero h1 {
-  margin: 10px 0;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: .95;
-  color: #ffffff;
-}
-
-.hero-copy {
-  max-width: 620px;
-  color: rgba(255, 255, 255, .94);
-  font-size: 1.08rem;
-  line-height: 1.7;
-}
-
-.hero-actions,
-.directions-actions,
-.safety-actions,
-.fareharbor-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
 }
 
 .primary-btn,
 .secondary-btn,
 .card-btn {
+  min-height: 54px;
+  padding: 15px 23px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 14px 22px;
+  gap: 10px;
   border-radius: 999px;
-  font-weight: 800;
-  line-height: 1;
-  text-align: center;
-}
-
-.primary-btn {
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
-  color: #2a0f3a;
-  box-shadow: 0 12px 28px rgba(255, 76, 160, .22);
-}
-
-.secondary-btn {
-  border: 1px solid rgba(255, 255, 255, .40);
-  background: rgba(255, 255, 255, .07);
-  color: #ffffff;
-  backdrop-filter: blur(10px);
-}
-
-.floating-book-btn {
-  position: fixed !important;
-  left: auto !important;
-  right: 18px !important;
-  bottom: 18px !important;
-  top: auto !important;
-  z-index: 9999 !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 14px 22px;
-  border-radius: 999px;
-  color: #2a0f3a;
-  background: linear-gradient(135deg, #ffcc2f, #ff4ca0);
   font-weight: 900;
   line-height: 1;
   text-align: center;
-  box-shadow: 0 14px 32px rgba(255, 76, 160, .28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 40px;
+.primary-btn:hover,
+.secondary-btn:hover,
+.card-btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary-btn {
+  color: #140e18;
+  background: linear-gradient(135deg, #ffc63b 0%, #ff7b57 48%, #ff2e9d 100%);
+  box-shadow: 0 14px 30px rgba(255, 64, 154, 0.24);
+}
+
+.secondary-btn {
+  border: 1px solid rgba(196, 206, 236, 0.46);
+  color: #ffffff;
+  background: rgba(4, 10, 27, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.secondary-btn:hover {
+  border-color: rgba(255, 255, 255, 0.75);
 }
 
 .stat-card,
@@ -439,34 +190,23 @@ img {
 .reviews-card,
 .fareharbor-ready-card,
 .safety-card {
-  border: 1px solid rgba(255, 126, 202, .25);
+  border: 1px solid rgba(158, 173, 214, 0.32);
   border-radius: 24px;
-  background: rgba(30, 18, 50, .62);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 18px 38px rgba(6, 3, 12, .26);
+  background: rgba(4, 10, 28, 0.76);
+  box-shadow:
+    0 22px 42px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(1.12);
 }
 
-.stat-card,
 .feature-card,
 .pricing-card,
 .directions-card {
   padding: 20px;
 }
 
-.stat-number {
-  display: block;
-  font-size: 1.3rem;
-  font-weight: 900;
-}
-
-.stat-label {
-  display: block;
-  margin-top: 6px;
-  color: rgba(255, 242, 248, .92);
-}
-
 /* =========================
-   MAIN CONTENT WITH MOVING WATER
+   MAIN CONTENT
    ========================= */
 
 .main-content {
@@ -474,29 +214,15 @@ img {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 100px max(24px, calc((100vw - 1240px) / 2)) 80px;
-  overflow: hidden;
-  background: transparent;
+  padding: 94px max(24px, calc((100vw - 1240px) / 2)) 80px;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(255, 66, 151, 0.08), transparent 32rem),
+    radial-gradient(circle at 12% 42%, rgba(255, 197, 57, 0.05), transparent 34rem),
+    linear-gradient(180deg, #07101f 0%, #0d0b1b 52%, #070a14 100%);
 }
 
 .main-water-video {
-  z-index: 0;
-  opacity: .50;
-  filter: saturate(1.08) contrast(1.05);
-}
-
-.main-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    radial-gradient(circle at top right, rgba(255, 76, 160, .08), transparent 30rem),
-    linear-gradient(180deg,
-      rgba(15, 11, 26, .18) 0%,
-      rgba(24, 17, 38, .30) 55%,
-      rgba(15, 11, 26, .42) 100%);
-  pointer-events: none;
+  display: none !important;
 }
 
 .main-content-inner {
@@ -506,7 +232,7 @@ img {
 
 .section {
   padding: 60px 0;
-  scroll-margin-top: 110px;
+  scroll-margin-top: 112px;
 }
 
 .section-heading {
@@ -532,7 +258,7 @@ img {
 .fareharbor-book-copy p,
 .reviews-card p,
 .gh3d-inquiry-card p {
-  color: rgba(240, 231, 255, .90);
+  color: rgba(240, 236, 255, 0.88);
   line-height: 1.7;
 }
 
@@ -769,7 +495,7 @@ img {
   text-align: center;
   padding: 30px;
   color: rgba(255, 255, 255, .78);
-  background: rgba(15, 11, 26, .56);
+  background: rgba(15, 11, 26, .72);
   border-top: 1px solid rgba(255, 255, 255, .08);
 }
 
@@ -799,190 +525,144 @@ img {
   box-shadow: 0 14px 30px rgba(255, 76, 160, .4);
 }
 
+
 /* =========================
-   TABLET
+   RESPONSIVE
    ========================= */
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
+  .site-nav {
+    width: calc(100% - 24px);
+  }
 
-  .hero-brand,
+  .site-nav-links {
+    gap: 2px;
+  }
+
+  .site-nav-links a {
+    padding-inline: 10px;
+    font-size: 0.82rem;
+  }
+
+  .site-nav-links .site-nav-cta {
+    min-width: 112px;
+  }
+
+  .hero {
+    padding-inline: 34px;
+  }
+
+  .hero-top-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(390px, 1.05fr);
+    gap: 18px;
+  }
+
+  .hero-art {
+    min-height: 560px;
+  }
+
+  .hero-scroll-rail {
+    right: 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .site-nav {
+    position: sticky;
+    top: 10px;
+    left: auto;
+    width: calc(100% - 20px);
+    min-height: 0;
+    margin: 10px auto -2px;
+    padding: 11px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    transform: none;
+    border-radius: 22px;
+  }
+
+  .site-nav-brand {
+    justify-content: center;
+  }
+
+  .site-nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 0 4px;
+    scrollbar-width: thin;
+  }
+
+  .site-nav-links a {
+    flex: 0 0 auto;
+  }
+
+  .hero {
+    min-height: auto;
+    margin-top: -104px;
+    padding: 224px 28px 48px;
+  }
+
+  .hero-content {
+    gap: 34px;
+  }
+
+  .hero-top-grid {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-text {
+    max-width: 760px;
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.4rem, 10vw, 6rem);
+  }
+
+  .hero-copy {
+    max-width: 700px;
+  }
+
+  .hero-art {
+    min-height: 520px;
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+
+  .hero-main-logo {
+    left: 1%;
+    width: min(68%, 490px);
+  }
+
+  .hero-bobbing-jetski {
+    right: -2%;
+    width: min(83%, 620px);
+  }
+
+  .hero-stats,
   .feature-grid,
   .pricing-grid,
-  .hero-stats,
   .map-grid,
   .fareharbor-ready-card,
   .safety-card {
     grid-template-columns: 1fr;
   }
 
-  .hero-brand {
-    gap: 28px;
-  }
-
-  .hero-logo-stage {
-    width: min(92vw, 620px);
-    min-height: 430px;
-    justify-self: center;
-    order: -1;
-  }
-
-  .hero-main-logo {
-    top: 4px;
-    left: 0;
-    width: min(52%, 330px);
-  }
-
-  .hero-bobbing-jetski {
-    z-index: 5;
-    right: 0;
-    bottom: 0;
-    width: min(58%, 360px);
-  }
-}
-
-/* =========================
-   MOBILE NAV + HERO MAKEOVER
-   ========================= */
-
-@media (max-width: 980px) {
-  .site-nav {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    transform: none;
-    width: auto;
-    min-height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 22px;
-  }
-
-  .site-nav-brand {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 8px;
-    font-size: .92rem;
-  }
-
-  .site-nav-mark {
-    width: 28px;
-    height: 28px;
-  }
-
-  .site-nav-links {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    gap: 6px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 2px 2px 4px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .site-nav-links::-webkit-scrollbar {
-    display: none;
-  }
-
-  .site-nav-links a {
-    min-height: 34px;
-    padding: 8px 10px;
-    font-size: .74rem;
-    flex: 0 0 auto;
-  }
-
-  .site-nav-links .site-nav-book {
-    min-width: 86px;
-  }
-
-  .hero {
-    min-height: auto;
-    align-items: flex-start;
-    padding: 152px 18px 56px;
-  }
-
-  .hero-content {
-    max-width: 760px;
-  }
-
-  .hero-brand {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .hero-logo-stage {
-    width: min(94vw, 540px);
-    min-height: 390px;
-    margin: 0 auto;
-    justify-self: center;
-    order: 0;
-  }
-
-  .hero-main-logo {
-    top: 0;
-    left: 4%;
-    width: min(50%, 280px);
-  }
-
-  .hero-bobbing-jetski {
-    right: 3%;
-    bottom: 2%;
-    width: min(58%, 330px);
-  }
-
-  .hero-text {
-    text-align: left;
-  }
-
-  .eyebrow {
-    font-size: .72rem;
-    letter-spacing: .12em;
-  }
-
-  .hero h1 {
-    max-width: 720px;
-    font-size: clamp(2.55rem, 9vw, 4.2rem);
-    line-height: 1;
-  }
-
-  .hero-copy {
-    max-width: 640px;
-    font-size: 1rem;
-    line-height: 1.62;
-  }
-
-  .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    max-width: 420px;
-  }
-
-  .hero-actions .primary-btn,
-  .hero-actions .secondary-btn {
-    width: 100%;
-    min-height: 50px;
-  }
-
   .hero-stats {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 28px;
+    width: min(760px, 100%);
+    margin-inline: auto;
   }
 
   .stat-card {
-    padding: 18px;
-    border-radius: 20px;
+    min-height: 150px;
   }
 
-  .stat-number {
-    font-size: 1.14rem;
+  .hero-scroll-rail {
+    display: none;
   }
 
   .gh3d-inquiry-card {
@@ -992,298 +672,233 @@ img {
   .gh3d-inquiry-actions {
     justify-content: flex-start;
   }
-
-  .floating-book-btn {
-    right: 14px !important;
-    bottom: 14px !important;
-  }
 }
 
 @media (max-width: 720px) {
-  .site-nav {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    padding: 9px;
-    border-radius: 20px;
+  .site-nav-brand {
+    font-size: 1rem;
   }
 
-  .site-nav-brand span {
-    max-width: 210px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .site-nav-mark {
+    width: 46px;
+    height: 40px;
   }
 
   .site-nav-links a {
-    min-height: 32px;
-    padding: 7px 9px;
-    font-size: .70rem;
+    min-height: 40px;
+    padding: 10px 11px;
+    font-size: 0.78rem;
+  }
+
+  .site-nav-links .site-nav-cta {
+    min-width: 104px;
   }
 
   .hero {
-    padding: 146px 16px 52px;
-  }
-
-  .hero-logo-stage {
-    width: min(96vw, 430px);
-    min-height: 330px;
-    margin: 2px auto 4px;
-  }
-
-  .hero-logo-stage::before {
-    inset: 12% 4% 10%;
-    filter: blur(16px);
-  }
-
-  .hero-main-logo {
-    top: 4px;
-    left: 2%;
-    width: min(54%, 245px);
-  }
-
-  .hero-bobbing-jetski {
-    right: 0;
-    bottom: 2%;
-    width: min(61%, 285px);
+    margin-top: -102px;
+    padding: 212px 18px 40px;
   }
 
   .hero h1 {
-    font-size: clamp(2.35rem, 12vw, 3.75rem);
+    font-size: clamp(3rem, 15vw, 4.7rem);
+    letter-spacing: -0.07em;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 
   .hero-copy {
-    font-size: .96rem;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
-  .main-content {
-    padding: 64px 16px 90px;
-  }
-
-  .section {
-    padding: 46px 0;
-  }
-
-  .section-heading h2,
-  .safety-copy h2,
-  .reviews-card h2,
-  .gh3d-inquiry-card h2 {
-    font-size: clamp(1.85rem, 8vw, 2.6rem);
-  }
-
-  .feature-grid,
-  .pricing-grid {
+  .hero-actions {
+    display: grid;
     grid-template-columns: 1fr;
   }
 
-  .feature-card,
-  .pricing-card,
-  .directions-card {
-    padding: 18px;
-    border-radius: 20px;
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    width: 100%;
+    min-width: 0;
   }
 
-  .safety-card,
-  .fareharbor-ready-card,
-  .reviews-card,
-  .gh3d-inquiry-card {
-    padding: 18px;
-    border-radius: 22px;
-  }
-
-  .fareharbor-frame-wrap {
-    min-height: 560px;
-  }
-
-  .fareharbor-frame {
-    min-height: 700px;
-  }
-
-  .map-embed-card,
-  .map-embed {
-    min-height: 320px;
-  }
-
-  .floating-book-btn {
-    right: 12px !important;
-    bottom: 12px !important;
-    min-height: 48px;
-    padding: 12px 18px;
-  }
-}
-
-@media (max-width: 440px) {
-  .site-nav {
-    left: 7px;
-    right: 7px;
-  }
-
-  .site-nav-brand {
-    font-size: .84rem;
-  }
-
-  .site-nav-brand span {
-    max-width: 185px;
-  }
-
-  .site-nav-links a {
-    font-size: .66rem;
-    padding: 7px 8px;
-  }
-
-  .hero {
-    padding: 140px 14px 48px;
-  }
-
-  .hero-logo-stage {
-    min-height: 300px;
+  .hero-art {
+    min-height: 390px;
   }
 
   .hero-main-logo {
     top: 0;
     left: 0;
-    width: min(55%, 220px);
+    width: min(76%, 390px);
   }
 
   .hero-bobbing-jetski {
-    right: -2%;
-    bottom: 0;
-    width: min(64%, 250px);
+    right: -10%;
+    bottom: -2%;
+    width: min(96%, 510px);
   }
 
-  .hero h1 {
-    font-size: clamp(2.2rem, 13vw, 3.25rem);
+  .hero-stats {
+    gap: 12px;
   }
 
-  .primary-btn,
-  .secondary-btn,
-  .card-btn {
-    min-height: 48px;
-    padding: 13px 18px;
+  .stat-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .stat-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .stat-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .main-content {
+    padding: 64px 18px 88px;
+  }
+
+  .safety-card,
+  .fareharbor-ready-card,
+  .reviews-card,
+  .gh3d-inquiry-card {
+    padding: 20px;
   }
 
   .floating-book-btn {
-    right: 10px !important;
-    bottom: 10px !important;
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 9999;
+    min-height: 48px;
+    padding: 13px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #160f1b;
+    background: linear-gradient(135deg, #ffc63b, #ff2f9e);
+    font-weight: 900;
+    box-shadow: 0 14px 30px rgba(255, 63, 155, 0.3);
+  }
+}
+
+@media (max-width: 460px) {
+  .hero {
+    padding-top: 206px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.72rem, 14.5vw, 3.8rem);
+  }
+
+  .hero-art {
+    min-height: 330px;
+  }
+
+  .hero-main-logo {
+    width: min(78%, 320px);
+  }
+
+  .hero-bobbing-jetski {
+    width: min(102%, 440px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-bobbing-jetski {
-    animation: none;
-    transform: scaleX(-1);
-  }
-
   html {
     scroll-behavior: auto;
   }
+
+  .hero-bobbing-jetski {
+    animation: none;
+  }
 }
 
-/* =========================
-   GLOBAL WATER + STACKING FIX
-   ========================= */
+/* =========================================================
+   LOCKED HERO: USER-APPROVED BASE IMAGE + MASKED WATER VIDEO
+   The page colors and layout remain unchanged. Only the river moves.
+   ========================================================= */
 
-.site-shell {
+.exact-hero {
   position: relative;
+  width: 100%;
+  aspect-ratio: 666 / 444;
+  margin: 0;
+  overflow: hidden;
   isolation: isolate;
-  background: transparent !important;
+  background: #050a16;
 }
 
-.site-water-video {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  min-width: 100vw !important;
-  min-height: 100vh !important;
-  object-fit: cover !important;
-  opacity: 0.68 !important;
-  pointer-events: none !important;
-  display: block !important;
-}
-
-.site-nav,
-.hero,
-.main-content,
-.site-footer {
-  position: relative;
-}
-
-.site-nav {
-  z-index: 20;
-}
-
-.floating-book-btn {
-  position: fixed !important;
-  left: auto !important;
-  right: 18px !important;
-  bottom: 18px !important;
-  top: auto !important;
-  z-index: 9999 !important;
-}
-
-.hero,
-.main-content,
-.site-footer {
-  z-index: 2;
-  background: transparent !important;
-}
-
-.hero::before,
-.hero::after,
-.main-content::before,
-.main-content::after {
+.exact-hero-base,
+.exact-water-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
   pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.main-content::before {
-  background:
-    radial-gradient(circle at top right, rgba(255, 76, 160, .06), transparent 30rem),
-    linear-gradient(180deg,
-      rgba(15, 11, 26, .28) 0%,
-      rgba(24, 17, 38, .38) 55%,
-      rgba(15, 11, 26, .48) 100%) !important;
+.exact-hero-base {
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
 }
 
-@media (max-width: 820px) {
+.exact-water-video {
+  z-index: 2;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.025);
+  opacity: 0.68;
+  mix-blend-mode: luminosity;
+  filter: brightness(0.92) contrast(1.14) saturate(0.86);
+  -webkit-mask-image: url("/jetski/laughlin-water-mask.png");
+  mask-image: url("/jetski/laughlin-water-mask.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
 
-  html,
-  body,
-  #root,
-  .site-shell {
-    background: transparent !important;
-  }
+.exact-hotspot {
+  z-index: 5;
+}
 
-  .site-water-video {
-    opacity: 0.76 !important;
-    transform: translateZ(0);
-  }
+.new-hotspot-home     { left: 26.3%; top: 2.1%; width: 5.7%; height: 7.0%; }
+.new-hotspot-rentals  { left: 32.4%; top: 2.1%; width: 6.7%; height: 7.0%; }
+.new-hotspot-tours    { left: 40.2%; top: 2.1%; width: 5.5%; height: 7.0%; }
+.new-hotspot-pricing  { left: 46.8%; top: 2.1%; width: 6.0%; height: 7.0%; }
+.new-hotspot-safety   { left: 54.0%; top: 2.1%; width: 6.1%; height: 7.0%; }
+.new-hotspot-about    { left: 61.2%; top: 2.1%; width: 5.4%; height: 7.0%; }
+.new-hotspot-faq      { left: 68.4%; top: 2.1%; width: 3.7%; height: 7.0%; }
+.new-hotspot-contact  { left: 73.4%; top: 2.1%; width: 6.7%; height: 7.0%; }
 
-  .hero,
-  .main-content,
-  .site-footer,
-  .reviews-section-wrap {
-    background: transparent !important;
+@media (prefers-reduced-motion: reduce) {
+  .exact-water-video {
+    display: none;
   }
-
-  .floating-book-btn {
-    position: fixed !important;
-    left: auto !important;
-    right: 12px !important;
-    bottom: 12px !important;
-    top: auto !important;
-    z-index: 9999 !important;
-  }
-
-  .stat-card,
-  .feature-card,
-  .pricing-card,
-  .map-embed-card,
-  .directions-card,
-  .reviews-card,
-  .fareharbor-ready-card,
-  .safety-card,
-  .gh3d-inquiry-card {
-    background: rgba(30, 18, 50, .52) !important;
-  }
+    .main-water-video {
+      display: none;
+    }
+  
+    .main-content::before {
+      opacity: 1 !important;
+    }
+  
+    .bg-mode-water .main-content::before,
+    .bg-mode-both .main-content::before,
+    .bg-mode-photo .main-content::before {
+      opacity: 1 !important; }
 }
