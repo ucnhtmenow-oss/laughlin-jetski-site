@@ -118,7 +118,7 @@ function App() {
                 <a href="#home" className="site-nav-brand">
                     {!logoFailed && (
                         <img
-                            src="/laughlin-logo.png"
+                            src="/jetski/laughlin-logo.png"
                             alt=""
                             className="site-nav-mark"
                             onError={() => setLogoFailed(true)}
@@ -194,7 +194,7 @@ function App() {
                         <div className="hero-art">
                             {!logoFailed ? (
                                 <img
-                                    src="/laughlin-logo.png"
+                                    src="/jetski/laughlin-logo.png"
                                     alt="Laughlin Jet Ski Rentals"
                                     className="hero-main-logo"
                                     onError={() => setLogoFailed(true)}
