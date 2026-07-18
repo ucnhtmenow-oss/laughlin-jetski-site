@@ -107,6 +107,12 @@ img {
   background: rgba(255, 255, 255, .07);
 }
 
+.site-nav-links a.is-active:not(.site-nav-cta) {
+  color: #ffffff;
+  background: rgba(32, 186, 255, .13);
+  box-shadow: inset 0 0 0 1px rgba(85, 201, 255, .26);
+}
+
 .site-nav-need {
   border: 1px solid rgba(37, 177, 255, .56);
 }
@@ -168,18 +174,38 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center bottom;
-  opacity: .72;
-  mix-blend-mode: soft-light;
-  filter: brightness(.95) contrast(1.12) saturate(.96);
-  clip-path: inset(52% 0 0 0);
-  transform: scale(1.015);
+  opacity: .48;
+  mix-blend-mode: screen;
+  filter: brightness(.82) contrast(1.18) saturate(.78);
+  transform: scale(1.012);
+  -webkit-mask-image: url("/jetski/laughlin-water-mask.png");
+  mask-image: url("/jetski/laughlin-water-mask.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
 
 .hero-overlay {
   z-index: 2;
+  bottom: auto;
+  height: 68%;
   background:
-    linear-gradient(90deg, rgba(2, 8, 26, .76) 0%, rgba(2, 8, 26, .34) 45%, rgba(2, 8, 26, .18) 70%, rgba(2, 8, 26, .34) 100%),
-    linear-gradient(180deg, rgba(3, 9, 24, .12) 0%, rgba(3, 9, 24, .08) 52%, rgba(3, 9, 24, .82) 100%);
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 26, .78) 0%,
+      rgba(2, 8, 26, .58) 30%,
+      rgba(2, 8, 26, .22) 58%,
+      rgba(2, 8, 26, 0) 88%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 9, 24, .22) 0%,
+      rgba(3, 9, 24, .06) 58%,
+      rgba(3, 9, 24, 0) 100%
+    );
   pointer-events: none;
 }
 
@@ -223,7 +249,7 @@ img {
 .hero-title-main {
   display: block;
   color: #ffffff;
-  font-size: clamp(3.45rem, 5.15vw, 5.75rem);
+  font-size: clamp(3.2rem, 4.7vw, 5.2rem);
   white-space: nowrap;
 }
 
@@ -231,7 +257,7 @@ img {
   display: block;
   margin-top: 10px;
   color: transparent;
-  font-size: clamp(3.7rem, 5.45vw, 6rem);
+  font-size: clamp(3.4rem, 5vw, 5.5rem);
   background: linear-gradient(135deg, #1db9ff 0%, #806eff 45%, #ff3b9d 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -306,11 +332,13 @@ img {
 
 .hero-main-logo {
   position: absolute;
-  top: 3%;
-  right: 2%;
+  top: -2%;
+  left: -12%;
+  right: auto;
   z-index: 3;
-  width: min(69%, 520px);
+  width: min(98%, 660px);
   object-fit: contain;
+  transform: none;
   filter: drop-shadow(0 22px 40px rgba(0, 0, 0, .46));
 }
 
@@ -349,10 +377,10 @@ img {
 .hero-jetski {
   position: absolute;
   right: -6%;
-  bottom: -3%;
+  bottom: 5%;
   z-index: 2;
-  width: min(96%, 760px);
-  max-height: 74%;
+  width: min(108%, 840px);
+  max-height: 48%;
   object-fit: contain;
   object-position: right bottom;
   filter: drop-shadow(0 30px 42px rgba(0, 0, 0, .5));
@@ -422,37 +450,106 @@ img {
   color: rgba(255, 255, 255, .84);
 }
 
-.hero-scroll-rail {
+.page-section-wheel {
+  position: fixed;
+  top: 50%;
+  right: 14px;
+  z-index: 950;
+  width: 206px;
+  height: 206px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(4, 10, 27, .76);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, .36),
+    0 0 34px rgba(255, 59, 157, .12);
+  backdrop-filter: blur(16px) saturate(1.12);
+}
+
+.page-section-wheel-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.page-section-wheel-svg defs path {
+  fill: none;
+}
+
+.page-section-wheel-track,
+.page-section-wheel-inner {
+  fill: none;
+  pointer-events: none;
+}
+
+.page-section-wheel-track {
+  stroke: url(#section-wheel-gradient);
+  stroke-width: 2.4;
+  opacity: .92;
+}
+
+.page-section-wheel-inner {
+  stroke: rgba(85, 201, 255, .24);
+  stroke-width: 1.2;
+}
+
+.page-section-wheel-svg a {
+  outline: none;
+}
+
+.page-section-wheel-label {
+  fill: rgba(255, 255, 255, .74);
+  font-size: 10.1px;
+  font-weight: 900;
+  letter-spacing: 1.05px;
+  transition: fill .18s ease, filter .18s ease;
+  cursor: pointer;
+}
+
+.page-section-wheel-svg a:hover .page-section-wheel-label,
+.page-section-wheel-svg a:focus-visible .page-section-wheel-label {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 7px rgba(85, 201, 255, .74));
+}
+
+.page-section-wheel-svg a.is-active .page-section-wheel-label {
+  fill: url(#section-wheel-gradient);
+  filter: drop-shadow(0 0 8px rgba(255, 59, 157, .78));
+}
+
+.page-section-wheel-center {
   position: absolute;
-  right: 2.3%;
-  top: 40%;
-  z-index: 4;
-  width: 54px;
-  min-height: 300px;
-  padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border: 2px solid rgba(255, 76, 160, .9);
-  border-radius: 999px;
-  background: rgba(4, 10, 27, .58);
-  backdrop-filter: blur(14px);
+  top: 50%;
+  left: 50%;
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(85, 201, 255, .38);
+  border-radius: 50%;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(29, 185, 255, .18), transparent 45%),
+    rgba(3, 10, 30, .88);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .07),
+    0 10px 26px rgba(0, 0, 0, .28);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
 
-.hero-scroll-rail span {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .9);
-}
-
-.hero-scroll-rail span.active {
-  background: #55c9ff;
-}
-
-.hero-scroll-rail strong {
-  font-size: 1.5rem;
+.page-section-wheel-center:hover,
+.page-section-wheel-center:focus-visible {
+  transform: translate(-50%, -50%) scale(1.06);
+  border-color: rgba(255, 76, 160, .82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 0 24px rgba(255, 59, 157, .24);
+  outline: none;
 }
 
 .main-content {
@@ -727,8 +824,14 @@ img {
     grid-template-columns: minmax(0, .96fr) minmax(410px, 1.04fr);
   }
 
-  .hero-scroll-rail {
-    right: 12px;
+  .page-section-wheel {
+    right: 10px;
+    width: 184px;
+    height: 184px;
+  }
+
+  .page-section-wheel-label {
+    font-size: 9.4px;
   }
 }
 
@@ -775,13 +878,15 @@ img {
   }
 
   .hero-main-logo {
-    right: 0;
-    width: min(66%, 490px);
+    left: 2%;
+    right: auto;
+    width: min(86%, 560px);
+    transform: none;
   }
 
   .hero-jetski {
-    right: -2%;
-    width: min(88%, 650px);
+    right: 0;
+    width: min(100%, 720px);
   }
 
   .hero-stats,
@@ -793,8 +898,29 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .hero-scroll-rail {
-    display: none;
+  .page-section-wheel {
+    top: auto;
+    right: 12px;
+    bottom: 14px;
+    width: 158px;
+    height: 158px;
+    transform: none;
+  }
+
+  .page-section-wheel-label {
+    font-size: 8.7px;
+    letter-spacing: .78px;
+  }
+
+  .page-section-wheel-center {
+    width: 60px;
+    height: 60px;
+    font-size: 1.55rem;
+  }
+
+  .floating-book-btn {
+    right: 178px;
+    bottom: 22px;
   }
 
   .gh3d-inquiry-card {
@@ -807,6 +933,29 @@ img {
 }
 
 @media (max-width: 720px) {
+  .page-section-wheel {
+    right: 6px;
+    bottom: 8px;
+    width: 138px;
+    height: 138px;
+  }
+
+  .page-section-wheel-label {
+    font-size: 8px;
+    letter-spacing: .55px;
+  }
+
+  .page-section-wheel-center {
+    width: 52px;
+    height: 52px;
+    font-size: 1.35rem;
+  }
+
+  .floating-book-btn {
+    right: 150px;
+    bottom: 18px;
+  }
+
   .site-nav-links a {
     min-height: 40px;
     padding: 10px 11px;
@@ -841,14 +990,16 @@ img {
 
   .hero-main-logo {
     top: 0;
-    right: 0;
-    width: min(78%, 390px);
+    left: 0;
+    right: auto;
+    width: min(88%, 430px);
+    transform: none;
   }
 
   .hero-jetski {
-    right: -8%;
-    bottom: -1%;
-    width: min(98%, 520px);
+    right: -6%;
+    bottom: 1%;
+    width: min(102%, 540px);
   }
 
   .main-content {
@@ -876,3 +1027,627 @@ img {
     animation: none;
   }
 }
+
+
+/* =========================================================
+   LOCKED PHOTO + WATER FIX
+   Exact uploaded photo, exact red jet ski, smaller logo,
+   no circular rail, and moving water behind the full page.
+   ========================================================= */
+
+html,
+body,
+#root {
+  background: #020713;
+}
+
+.site-shell {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+
+.site-water-video,
+.site-water-shade {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.site-water-video {
+  z-index: -3;
+  object-fit: cover;
+  object-position: center;
+  opacity: .34;
+  filter: brightness(.46) contrast(1.08) saturate(.62);
+}
+
+.site-water-shade {
+  z-index: -2;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(29, 185, 255, .12), transparent 34rem),
+    radial-gradient(circle at 86% 76%, rgba(255, 59, 157, .11), transparent 38rem),
+    linear-gradient(180deg, rgba(2, 7, 19, .20), rgba(2, 7, 19, .50));
+}
+
+.page-section-wheel {
+  display: none !important;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: #071320;
+}
+
+.hero-media-stage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+  width: min(100vw, 150vh);
+  height: 100%;
+  overflow: hidden;
+  background: #071320;
+  transform: translateX(-50%);
+}
+
+.hero-media-stage::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 47%;
+  z-index: 2;
+  height: 10%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(209, 104, 65, 0) 0%,
+    rgba(159, 79, 56, .12) 36%,
+    rgba(36, 39, 47, .18) 72%,
+    rgba(7, 19, 32, 0) 100%
+  );
+}
+
+.hero-scene-base,
+.hero-water-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-scene-base {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center top;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 52%,
+    82% 51.5%,
+    64% 51%,
+    46% 50.5%,
+    28% 49.5%,
+    12% 48.5%,
+    0 48%
+  );
+}
+
+.hero-water-video {
+  z-index: 1;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  height: 54%;
+  object-fit: cover;
+  object-position: center 72%;
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter: brightness(.72) contrast(1.14) saturate(.82) sepia(.08);
+  transform: none;
+  clip-path: polygon(
+    0 5%,
+    18% 6%,
+    36% 7%,
+    56% 8%,
+    74% 9%,
+    100% 10%,
+    100% 100%,
+    0 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, .78) 8%,
+    #000 16%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, .78) 8%,
+    #000 16%,
+    #000 100%
+  );
+}
+
+.hero-overlay {
+  display: none !important;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 4;
+  padding: 30px 32px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 650px;
+  z-index: 4;
+}
+
+.hero-main-logo {
+  position: absolute;
+  top: 6%;
+  left: 10%;
+  right: auto;
+  z-index: 4;
+  width: min(48%, 320px);
+  max-height: 250px;
+  object-fit: contain;
+  transform: none;
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .42));
+}
+
+.hero-jetski {
+  position: absolute;
+  right: -4%;
+  bottom: 4%;
+  z-index: 3;
+  width: min(98%, 760px);
+  max-height: 43%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter:
+    hue-rotate(285deg)
+    saturate(1.42)
+    brightness(1.06)
+    contrast(1.05)
+    drop-shadow(0 28px 38px rgba(0, 0, 0, .48));
+  animation: hero-jetski-bob 4s ease-in-out infinite;
+}
+
+.main-content {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 8, 22, .42) 0%,
+    rgba(5, 9, 24, .58) 48%,
+    rgba(2, 6, 18, .66) 100%
+  ) !important;
+  backdrop-filter: blur(1px);
+}
+
+.reviews-section-wrap {
+  background: rgba(3, 8, 22, .28);
+}
+
+.site-footer {
+  background: rgba(3, 8, 22, .68);
+}
+
+@media (max-width: 1000px) {
+  .hero-media-stage {
+    width: 100vw;
+    max-height: none;
+  }
+
+  .hero-text {
+    padding: 24px;
+  }
+
+  .hero-main-logo {
+    top: 4%;
+    left: 5%;
+    width: min(42%, 280px);
+  }
+
+  .hero-jetski {
+    right: -2%;
+    bottom: 1%;
+    width: min(92%, 650px);
+  }
+
+  .floating-book-btn {
+    right: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-main-logo {
+    top: 2%;
+    left: 3%;
+    width: min(46%, 220px);
+  }
+
+  .hero-jetski {
+    right: -12%;
+    bottom: 0;
+    width: min(112%, 560px);
+    max-height: 46%;
+  }
+
+  .hero-text {
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   FINAL PAGE-WATER + GOLD JET-SKI OVERRIDE
+   Removes the dark-blue site background, exposes the fixed
+   moving-water layer across the full page, and shifts the
+   riderless jet ski toward the logo's yellow/orange palette.
+   ========================================================= */
+
+html,
+body,
+#root {
+  background: transparent !important;
+}
+
+body {
+  background-color: #24110b !important;
+}
+
+.site-shell {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+}
+
+.site-water-video {
+  z-index: 0 !important;
+  opacity: .76 !important;
+  mix-blend-mode: normal;
+  filter:
+    brightness(.64)
+    contrast(1.16)
+    saturate(.84)
+    sepia(.30)
+    hue-rotate(342deg) !important;
+}
+
+.site-water-shade {
+  z-index: 1 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 14, 7, .04) 0%,
+    rgba(28, 10, 8, .10) 42%,
+    rgba(12, 5, 8, .22) 100%
+  ) !important;
+}
+
+.site-nav,
+.floating-book-btn,
+.hero,
+.main-content,
+.site-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.site-nav,
+.floating-book-btn {
+  position: fixed;
+}
+
+.hero {
+  background: transparent !important;
+}
+
+.hero::before {
+  background: transparent !important;
+}
+
+.hero-media-stage {
+  background: transparent !important;
+}
+
+.main-content {
+  background: rgba(20, 8, 12, .24) !important;
+  backdrop-filter: none !important;
+}
+
+.reviews-section-wrap {
+  background: rgba(18, 7, 11, .22) !important;
+}
+
+.site-footer {
+  background: rgba(16, 6, 10, .42) !important;
+}
+
+.hero-jetski {
+  filter:
+    hue-rotate(42deg)
+    saturate(1.72)
+    brightness(1.10)
+    contrast(1.06)
+    drop-shadow(0 28px 38px rgba(0, 0, 0, .48)) !important;
+}
+
+/* =========================================================
+   HERO STACKING + FULL-WIDTH PHOTO + GOLD JET SKI
+   ========================================================= */
+
+/* Keep the complete navigation above every hero layer. */
+.site-nav {
+  position: fixed !important;
+  z-index: 5000 !important;
+}
+
+.floating-book-btn {
+  position: fixed !important;
+  z-index: 5100 !important;
+}
+
+/* The hero itself stays above the full-page water background. */
+.hero {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Fill the entire hero width so full-page water cannot appear
+   behind the casino or around the sides of the sunset photo. */
+.hero-media-stage {
+  left: 0 !important;
+  width: 100vw !important;
+  max-width: none !important;
+  z-index: 0 !important;
+  transform: none !important;
+  background: #31150f !important;
+}
+
+.hero-content {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Preserve the photo on top and the motion water only below
+   the shoreline inside the hero stage. */
+.hero-scene-base {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+.hero-water-video {
+  z-index: 1 !important;
+}
+
+/* Make the riderless ski gold/yellow-orange like the logo.
+   Sepia does the heavy lifting instead of barely rotating red. */
+.hero-jetski {
+  filter:
+    grayscale(.10)
+    sepia(.92)
+    saturate(3.65)
+    hue-rotate(350deg)
+    brightness(1.10)
+    contrast(1.08)
+    drop-shadow(0 28px 38px rgba(0, 0, 0, .48)) !important;
+}
+
+/* =========================================================
+   EDGE-TO-EDGE HERO + SHORELINE-LOCKED MOTION WATER
+   ========================================================= */
+
+/* Force the hero itself to span the full browser width even
+   if any parent container tries to constrain it. */
+.hero {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  background: #31150f !important;
+}
+
+/* Stretch the sunset image and water stage to both screen edges. */
+.hero-media-stage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  transform: none !important;
+  overflow: hidden !important;
+  background: #31150f !important;
+}
+
+/* Keep only the land/sky portion of the uploaded photo.
+   The lower still-water portion is hidden. */
+.hero-scene-base {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  clip-path: inset(0 0 47% 0) !important;
+}
+
+/* Motion water begins at the shoreline, never above it. */
+.hero-water-video {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 51.5% !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 48.5% !important;
+  object-fit: cover !important;
+  object-position: center 68% !important;
+  clip-path: none !important;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, .72) 3%,
+    #000 8%,
+    #000 100%
+  ) !important;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, .72) 3%,
+    #000 8%,
+    #000 100%
+  ) !important;
+}
+
+/* Soft seam exactly where the riverbank meets the motion water. */
+.hero-media-stage::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 49.5%;
+  z-index: 2;
+  height: 7%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 62, 42, 0) 0%,
+    rgba(86, 51, 42, .14) 42%,
+    rgba(24, 29, 34, .18) 72%,
+    rgba(7, 19, 32, 0) 100%
+  );
+}
+
+/* =========================================================
+   EXACT JET-SKI COLOR + FOOTER LEGAL NOTICE
+   The PNG itself contains the gold replacement. Do not apply
+   a whole-image color filter or the black/white trim will shift.
+   ========================================================= */
+
+.hero-jetski {
+  filter: drop-shadow(0 28px 38px rgba(0, 0, 0, .48)) !important;
+}
+
+.site-legal {
+  width: min(920px, 100%);
+  margin: 18px auto 0;
+  padding: 0;
+  color: rgba(255, 255, 255, .76);
+  text-align: left;
+}
+
+.site-legal summary {
+  width: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #55c9ff;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.site-legal p {
+  margin: 12px 0 0;
+  font-size: .82rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 720px) {
+  .site-legal {
+    padding-inline: 4px;
+  }
+
+  .site-legal p {
+    font-size: .78rem;
+  }
+}
+
+/* =========================================================
+   FINAL LOGO POSITION
+   Shift the hero logo right so it no longer blocks the casino.
+   ========================================================= */
+
+.hero-main-logo {
+  left: 28% !important;
+}
+
+@media (max-width: 1000px) {
+  .hero-main-logo {
+    left: 18% !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-main-logo {
+    left: 10% !important;
+  }
+}
+
+/* =========================================================
+   SLOW, SMOOTH JET-SKI DIP
+   Same dip-and-return motion, stretched into a longer cycle
+   with softer movement so it reads like a gentle river swell.
+   ========================================================= */
+
+   .hero-jetski {
+    transform-origin: 58% 68%;
+    animation: hero-jetski-continuous-float 10s linear infinite !important;
+    will-change: transform;
+  }
+  
+  @keyframes hero-jetski-continuous-float {
+    0% {
+      transform: translate3d(0, 2px, 0) rotate(0.24deg);
+    }
+  
+    12% {
+      transform: translate3d(0, -2px, 0) rotate(-0.24deg);
+    }
+  
+    25% {
+      transform: translate3d(0, 1px, 0) rotate(0.24deg);
+    }
+  
+    38% {
+      transform: translate3d(0, -1px, 0) rotate(-0.18deg);
+    }
+  
+    50% {
+      transform: translate3d(0, 3px, 0) rotate(0.48deg);
+    }
+  
+    62% {
+      transform: translate3d(0, -3px, 0) rotate(-0.22deg);
+    }
+  
+    75% {
+      transform: translate3d(0, 3px, 0) rotate(0.08deg);
+    }
+  
+    88% {
+      transform: translate3d(0, -2px, 0) rotate(-0.12deg);
+    }
+  
+    100% {
+      transform: translate3d(0, 2px, 0) rotate(0.24deg);
+    } }

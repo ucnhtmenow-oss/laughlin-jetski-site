@@ -11,6 +11,15 @@ const fareHarborShortname = "laughlinjetskirental";
 const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
 const waterPlaybackRate = 0.35;
 
+const pageNavItems = [
+    { id: "home", label: "Home" },
+    { id: "safety", label: "Safety" },
+    { id: "rentals", label: "Rentals" },
+    { id: "pricing", label: "Pricing" },
+    { id: "reviews", label: "Reviews" },
+    { id: "location", label: "Directions" },
+] as const;
+
 const gh3dInquiryEmail = "support@gearhead3dfab.com";
 const gh3dInquirySubject = encodeURIComponent("GH3D Project Inquiry - Website or Prototype");
 const gh3dInquiryBody = encodeURIComponent(`Hi Gearhead 3D Fab,
@@ -93,6 +102,7 @@ const walkthroughSteps = [
 function App() {
     const [logoFailed, setLogoFailed] = useState(false);
     const [jetSkiFailed, setJetSkiFailed] = useState(false);
+    const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
         if (!document.getElementById("fareharbor-lightframe-script")) {
@@ -112,8 +122,51 @@ function App() {
         }
     }, []);
 
+    useEffect(() => {
+        const updateActiveSection = () => {
+            const activationLine = 150;
+            let currentSection = "home";
+
+            for (const item of pageNavItems) {
+                const section = document.getElementById(item.id);
+
+                if (section && section.getBoundingClientRect().top <= activationLine) {
+                    currentSection = item.id;
+                }
+            }
+
+            setActiveSection(currentSection);
+        };
+
+        updateActiveSection();
+        window.addEventListener("scroll", updateActiveSection, { passive: true });
+        window.addEventListener("resize", updateActiveSection);
+
+        return () => {
+            window.removeEventListener("scroll", updateActiveSection);
+            window.removeEventListener("resize", updateActiveSection);
+        };
+    }, []);
+
     return (
         <div className="site-shell">
+            <video
+                className="site-water-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+                onLoadedMetadata={(event) => {
+                    event.currentTarget.defaultPlaybackRate = waterPlaybackRate;
+                    event.currentTarget.playbackRate = waterPlaybackRate;
+                }}
+            >
+                <source src="/jetski/water-loop.mp4" type="video/mp4" />
+            </video>
+            <div className="site-water-shade" aria-hidden="true" />
+
             <nav className="site-nav" aria-label="Main navigation">
                 <a href="#home" className="site-nav-brand">
                     {!logoFailed && (
@@ -128,12 +181,16 @@ function App() {
                 </a>
 
                 <div className="site-nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#safety">Safety</a>
-                    <a href="#rentals">Rentals</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#reviews">Reviews</a>
-                    <a href="#location">Directions</a>
+                    {pageNavItems.map((item) => (
+                        <a
+                            key={item.id}
+                            href={`#${item.id}`}
+                            className={activeSection === item.id ? "is-active" : undefined}
+                            aria-current={activeSection === item.id ? "page" : undefined}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                     <a href="#gh3d-inquiry" className="site-nav-need">Need A Site?</a>
                     <a href="#book" className="site-nav-cta">Book Now</a>
                 </div>
@@ -142,29 +199,29 @@ function App() {
             <a href="#book" className="floating-book-btn">Book Now</a>
 
             <section className="hero" id="home">
-                <img
-                    className="hero-scene-base"
-                    src="/jetski/laughlin-landing-photo.png"
-                    alt="Laughlin riverfront at sunset"
-                />
+                <div className="hero-media-stage">
+                    <img
+                        className="hero-scene-base"
+                        src="/jetski/laughlin-landing-photo.png"
+                        alt="Laughlin riverfront at sunset"
+                    />
 
-                <video
-                    className="hero-water-video"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    aria-hidden="true"
-                    onLoadedMetadata={(event) => {
-                        event.currentTarget.defaultPlaybackRate = waterPlaybackRate;
-                        event.currentTarget.playbackRate = waterPlaybackRate;
-                    }}
-                >
-                    <source src="/jetski/water-loop.mp4" type="video/mp4" />
-                </video>
-
-                <div className="hero-overlay" aria-hidden="true" />
+                    <video
+                        className="hero-water-video"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        aria-hidden="true"
+                        onLoadedMetadata={(event) => {
+                            event.currentTarget.defaultPlaybackRate = waterPlaybackRate;
+                            event.currentTarget.playbackRate = waterPlaybackRate;
+                        }}
+                    >
+                        <source src="/jetski/water-loop.mp4" type="video/mp4" />
+                    </video>
+                </div>
 
                 <div className="hero-content">
                     <div className="hero-layout">
@@ -238,14 +295,6 @@ function App() {
                     </div>
                 </div>
 
-                <a href="#safety" className="hero-scroll-rail" aria-label="Scroll to safety section">
-                    <span className="active" />
-                    <span />
-                    <span />
-                    <span />
-                    <span />
-                    <strong>↓</strong>
-                </a>
             </section>
 
             <main className="main-content">
@@ -461,8 +510,31 @@ function App() {
             </main>
 
             <footer className="site-footer">
-                <div className="site-footer-line">© Laughlin Jet Ski Rentals • {address}</div>
+                <div className="site-footer-line">
+                    © 2026 Laughlin Jet Ski Rentals. All rights reserved.
+                </div>
+
+                <details className="site-legal">
+                    <summary>Copyright &amp; Image Use</summary>
+                    <p>
+                        Except where otherwise stated, Laughlin Jet Ski Rentals claims rights in the
+                        human-authored website design, written content, logo presentation, selection
+                        and arrangement, composite artwork, color treatment, masking, animation, and
+                        other original elements of this website.
+                    </p>
+                    <p>
+                        Website content may not be copied, reproduced, modified, republished,
+                        distributed, displayed, sold, licensed, used in advertising, or used to create
+                        derivative works without prior written permission, except where permitted by law.
+                    </p>
+                    <p>
+                        The Laughlin Jet Ski Rentals name and logo may not be used in a way that suggests
+                        sponsorship, endorsement, affiliation, or source without written authorization.
+                    </p>
+                </details>
+
                 <div className="site-footer-line"><VisitorCount /></div>
+
                 <div className="site-footer-line">
                     <a href={gh3dInquiryMailto} className="gh3d-maker-btn">Built with GH3D Site Maker</a>
                 </div>

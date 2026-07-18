@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import MaintenancePage from "./MaintenancePage";
-import "./maintenance.css";
+import App from "./App";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  throw new Error("Root element was not found.");
+}
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <MaintenancePage />
+    <App />
   </React.StrictMode>,
 );
