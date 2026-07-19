@@ -242,7 +242,6 @@ function App() {
                             </p>
 
                             <div className="hero-actions">
-                                <a href="#book" className="primary-btn">Book Online</a>
                                 <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
                                 <a href={mapsUrl} target="_blank" rel="noreferrer" className="secondary-btn">Get Directions</a>
                             </div>
@@ -426,7 +425,6 @@ function App() {
                                 </p>
 
                                 <div className="fareharbor-actions">
-                                    <a href="#book" className="primary-btn">Book Now</a>
                                     <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
                                 </div>
 

@@ -1312,7 +1312,7 @@ body,
 }
 
 body {
-  background-color: #24110b !important;
+  background-color: #071320 !important;
 }
 
 .site-shell {
@@ -1366,7 +1366,7 @@ body {
 }
 
 .hero-media-stage {
-  background: transparent !important;
+  background: #071320 !important;
 }
 
 .main-content {
@@ -1489,7 +1489,7 @@ body {
   height: 100% !important;
   object-fit: cover !important;
   object-position: center top !important;
-  clip-path: inset(0 0 47% 0) !important;
+  clip-path: none !important;
 }
 
 /* Motion water begins at the shoreline, never above it. */
