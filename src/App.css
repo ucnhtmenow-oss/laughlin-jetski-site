@@ -1823,3 +1823,324 @@ body {
     rgba(4, 10, 28, .78);
 }
 
+
+
+/* =========================================================
+   MOBILE CLEANUP PASS — 2026-08-08
+   Mobile-only layout corrections.
+   Desktop hero/photo/water/logo/jet-ski presentation is untouched.
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .site-nav {
+    top: 6px !important;
+    left: 50% !important;
+    width: calc(100% - 12px) !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    gap: 6px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    transform: translateX(-50%) !important;
+    border-radius: 18px !important;
+  }
+
+  .site-nav-brand {
+    min-height: 34px;
+    justify-content: center !important;
+    gap: 7px !important;
+    font-size: .82rem;
+  }
+
+  .site-nav-mark {
+    width: 34px !important;
+    height: 32px !important;
+  }
+
+  .site-nav-links {
+    width: 100%;
+    gap: 3px !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 1px 0 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav-links a {
+    flex: 0 0 auto;
+    min-height: 34px !important;
+    padding: 8px 10px !important;
+    font-size: .72rem !important;
+  }
+
+  .site-nav-links .site-nav-cta {
+    min-width: 96px !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+    margin-top: 0 !important;
+    padding: 132px 14px 28px !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+  }
+
+  .hero-layout {
+    min-height: 0 !important;
+    gap: 8px !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-text {
+    max-width: 100% !important;
+    padding: 16px 6px 8px !important;
+  }
+
+  .eyebrow {
+    margin-bottom: 10px !important;
+    font-size: .68rem !important;
+    letter-spacing: .12em !important;
+  }
+
+  .hero-title-main {
+    font-size: clamp(2.35rem, 12vw, 3.55rem) !important;
+    line-height: .96 !important;
+  }
+
+  .hero-title-accent {
+    margin-top: 5px !important;
+    font-size: clamp(2.55rem, 12.8vw, 3.8rem) !important;
+    line-height: .94 !important;
+  }
+
+  .hero-accent-line {
+    margin: 17px 0 15px !important;
+  }
+
+  .hero-copy {
+    max-width: 100% !important;
+    font-size: .96rem !important;
+    line-height: 1.58 !important;
+  }
+
+  .hero-actions {
+    gap: 9px !important;
+    margin-top: 17px !important;
+  }
+
+  .hero-actions .secondary-btn {
+    min-height: 48px !important;
+    padding: 13px 16px !important;
+  }
+
+  .hero-art {
+    min-height: 300px !important;
+    width: 100% !important;
+    margin: 2px auto 0 !important;
+  }
+
+  .hero-main-logo {
+    top: 4px !important;
+    left: 50% !important;
+    right: auto !important;
+    width: min(48%, 178px) !important;
+    max-height: 150px !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .hero-jetski {
+    right: -7% !important;
+    bottom: -2% !important;
+    width: min(112%, 510px) !important;
+    max-height: 62% !important;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 8px !important;
+  }
+
+  .stat-card {
+    min-height: 0 !important;
+    padding: 15px 16px !important;
+  }
+
+  .stat-icon {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 8px !important;
+    font-size: 1rem !important;
+  }
+
+  .stat-number {
+    font-size: 1.05rem !important;
+  }
+
+  .stat-label {
+    margin-top: 4px !important;
+    font-size: .86rem !important;
+  }
+
+  .floating-book-btn {
+    right: 10px !important;
+    bottom: 10px !important;
+    min-height: 46px !important;
+    padding: 12px 16px !important;
+    font-size: .84rem !important;
+  }
+
+  .main-content {
+    padding: 42px 14px 76px !important;
+  }
+
+  .section {
+    padding: 34px 0 !important;
+  }
+
+  .section-heading {
+    margin-bottom: 20px !important;
+  }
+
+  .section-heading h2,
+  .safety-copy h2,
+  .reviews-card h2,
+  .gh3d-inquiry-card h2,
+  .rates-flyer-copy h2 {
+    font-size: clamp(1.85rem, 9vw, 2.65rem) !important;
+  }
+
+  .rates-flyer-section {
+    padding-top: 4px !important;
+  }
+
+  .rates-flyer-card {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .rates-flyer-copy {
+    max-width: 100% !important;
+  }
+
+  .rates-flyer-copy > p {
+    margin-top: 13px !important;
+  }
+
+  .rates-flyer-actions {
+    gap: 9px !important;
+    margin-top: 17px !important;
+  }
+
+  .rates-flyer-image-link {
+    width: 100% !important;
+    border-radius: 18px !important;
+  }
+
+  .rates-flyer-open-label {
+    right: 8px !important;
+    bottom: 8px !important;
+    padding: 7px 9px !important;
+    font-size: .66rem !important;
+  }
+
+  .safety-card,
+  .fareharbor-ready-card,
+  .reviews-card,
+  .gh3d-inquiry-card,
+  .feature-card,
+  .pricing-card,
+  .directions-card {
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .safety-card,
+  .fareharbor-ready-card {
+    gap: 18px !important;
+  }
+
+  .feature-grid,
+  .pricing-grid,
+  .map-grid {
+    gap: 14px !important;
+  }
+
+  .pricing-badge {
+    font-size: .7rem !important;
+  }
+
+  .price {
+    font-size: 2.15rem !important;
+  }
+
+  .price-secondary {
+    font-size: 1.7rem !important;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .card-btn {
+    min-height: 48px !important;
+    padding: 13px 17px !important;
+  }
+
+  .fareharbor-frame-wrap {
+    min-height: 560px !important;
+    border-radius: 16px !important;
+  }
+
+  .fareharbor-frame {
+    min-height: 600px !important;
+  }
+
+  .fareharbor-jetski-image {
+    margin-bottom: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .map-embed-card,
+  .map-embed {
+    min-height: 330px !important;
+  }
+
+  .site-footer {
+    padding: 24px 14px 74px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-nav-links a {
+    padding-inline: 9px !important;
+    font-size: .69rem !important;
+  }
+
+  .hero {
+    padding-top: 128px !important;
+  }
+
+  .hero-art {
+    min-height: 270px !important;
+  }
+
+  .hero-main-logo {
+    width: min(50%, 164px) !important;
+  }
+
+  .hero-jetski {
+    right: -10% !important;
+    width: 116% !important;
+  }
+}
