@@ -1,18 +1,13 @@
-Laughlin Jet Ski FareHarbor pink/orange booking section
+DIRECT DROP
 
-Files:
-- src/App.tsx
-- src/App.css
-- public/jetski/jetski-harbor.jpg
+Extract this ZIP directly into:
+C:\Users\17024\Desktop\dev\laughlin-jetski-site
 
-Changes:
-- Uses the uploaded jet ski harbor image
-- Removes duplicate Book Your Ride heading
-- Matches the dark purple + orange/pink color scheme
-- Keeps FareHarbor iframe live
-- Keeps phone fallback
-- Mobile stacks safely
+Choose Replace All.
 
-After replacing files:
-npm run build
-npm run dev
+This package changes only the hero layering:
+- Uses the exact image you most recently supplied.
+- Uses water-loop.mp4 as the moving water beneath the image.
+- Keeps the sky, shoreline, hotel, palms, and navigation stationary.
+- Keeps the jet ski on a separate layer with a gentle bob.
+- Does not generate or substitute another hero image.

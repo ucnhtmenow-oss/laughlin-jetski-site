@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import WalkthroughSection from "./components/WalkthroughSection";
 import VisitorCount from "./components/VisitorCount";
@@ -9,16 +9,6 @@ const address = "1950 Casino Dr, Laughlin, NV 89029";
 const mapsUrl = "https://maps.google.com/?q=1950+Casino+Dr+Laughlin+NV+89029";
 const fareHarborShortname = "laughlinjetskirental";
 const fareHarborBookingUrl = `https://fareharbor.com/embeds/book/${fareHarborShortname}/?full-items=yes`;
-const waterPlaybackRate = 0.35;
-
-const pageNavItems = [
-    { id: "home", label: "Home" },
-    { id: "safety", label: "Safety" },
-    { id: "rentals", label: "Rentals" },
-    { id: "pricing", label: "Pricing" },
-    { id: "reviews", label: "Reviews" },
-    { id: "location", label: "Directions" },
-] as const;
 
 const gh3dInquiryEmail = "support@gearhead3dfab.com";
 const gh3dInquirySubject = encodeURIComponent("GH3D Project Inquiry - Website or Prototype");
@@ -100,10 +90,6 @@ const walkthroughSteps = [
 ];
 
 function App() {
-    const [logoFailed, setLogoFailed] = useState(false);
-    const [jetSkiFailed, setJetSkiFailed] = useState(false);
-    const [activeSection, setActiveSection] = useState("home");
-
     useEffect(() => {
         if (!document.getElementById("fareharbor-lightframe-script")) {
             const fareharborScript = document.createElement("script");
@@ -122,221 +108,67 @@ function App() {
         }
     }, []);
 
-    useEffect(() => {
-        const updateActiveSection = () => {
-            const activationLine = 150;
-            let currentSection = "home";
-
-            for (const item of pageNavItems) {
-                const section = document.getElementById(item.id);
-
-                if (section && section.getBoundingClientRect().top <= activationLine) {
-                    currentSection = item.id;
-                }
-            }
-
-            setActiveSection(currentSection);
-        };
-
-        updateActiveSection();
-        window.addEventListener("scroll", updateActiveSection, { passive: true });
-        window.addEventListener("resize", updateActiveSection);
-
-        return () => {
-            window.removeEventListener("scroll", updateActiveSection);
-            window.removeEventListener("resize", updateActiveSection);
-        };
-    }, []);
-
     return (
         <div className="site-shell">
-            <video
-                className="site-water-video"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                aria-hidden="true"
-                onLoadedMetadata={(event) => {
-                    event.currentTarget.defaultPlaybackRate = waterPlaybackRate;
-                    event.currentTarget.playbackRate = waterPlaybackRate;
-                }}
-            >
-                <source src="/jetski/water-loop.mp4" type="video/mp4" />
-            </video>
-            <div className="site-water-shade" aria-hidden="true" />
+            <section className="exact-hero" id="home" aria-label="Laughlin Jet Ski Rentals landing page">
+                <img
+                    src="/jetski/laughlin-landing-exact.png"
+                    alt="Laughlin Jet Ski Rentals on the Colorado River at sunset, with booking information, hours, phone number, and directions"
+                    className="exact-hero-image"
+                    draggable={false}
+                />
 
-            <nav className="site-nav" aria-label="Main navigation">
-                <a href="#home" className="site-nav-brand">
-                    {!logoFailed && (
-                        <img
-                            src="/jetski/laughlin-logo.png"
-                            alt=""
-                            className="site-nav-mark"
-                            onError={() => setLogoFailed(true)}
-                        />
-                    )}
-                    <span>Laughlin Jet Ski Rentals</span>
+                <a href="#home" className="exact-hotspot hotspot-brand" aria-label="Laughlin Jet Ski Rentals home">
+                    <span className="sr-only">Laughlin Jet Ski Rentals home</span>
+                </a>
+                <a href="#home" className="exact-hotspot hotspot-home" aria-label="Home">
+                    <span className="sr-only">Home</span>
+                </a>
+                <a href="#safety" className="exact-hotspot hotspot-safety" aria-label="Safety">
+                    <span className="sr-only">Safety</span>
+                </a>
+                <a href="#rentals" className="exact-hotspot hotspot-rentals" aria-label="Rentals">
+                    <span className="sr-only">Rentals</span>
+                </a>
+                <a href="#pricing" className="exact-hotspot hotspot-pricing" aria-label="Pricing">
+                    <span className="sr-only">Pricing</span>
+                </a>
+                <a href="#reviews" className="exact-hotspot hotspot-reviews" aria-label="Reviews">
+                    <span className="sr-only">Reviews</span>
+                </a>
+                <a href="#location" className="exact-hotspot hotspot-directions-nav" aria-label="Directions">
+                    <span className="sr-only">Directions</span>
+                </a>
+                <a href={gh3dInquiryMailto} className="exact-hotspot hotspot-need-site" aria-label="Need a site">
+                    <span className="sr-only">Need a site</span>
+                </a>
+                <a href="#book" className="exact-hotspot hotspot-book-nav" aria-label="Book now">
+                    <span className="sr-only">Book now</span>
                 </a>
 
-                <div className="site-nav-links">
-                    {pageNavItems.map((item) => (
-                        <a
-                            key={item.id}
-                            href={`#${item.id}`}
-                            className={activeSection === item.id ? "is-active" : undefined}
-                            aria-current={activeSection === item.id ? "page" : undefined}
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                    <a href="#gh3d-inquiry" className="site-nav-need">Need A Site?</a>
-                    <a href="#book" className="site-nav-cta">Book Now</a>
-                </div>
-            </nav>
+                <a href="#book" className="exact-hotspot hotspot-book-online" aria-label="Book online">
+                    <span className="sr-only">Book online</span>
+                </a>
+                <a href={`tel:${phoneNumber}`} className="exact-hotspot hotspot-call" aria-label={`Call ${displayPhone}`}>
+                    <span className="sr-only">Call {displayPhone}</span>
+                </a>
+                <a href={mapsUrl} target="_blank" rel="noreferrer" className="exact-hotspot hotspot-get-directions" aria-label="Get directions">
+                    <span className="sr-only">Get directions</span>
+                </a>
+                <a href="#safety" className="exact-hotspot hotspot-scroll" aria-label="Scroll down to safety">
+                    <span className="sr-only">Scroll down</span>
+                </a>
 
-            <a href="#book" className="floating-book-btn">Book Now</a>
-
-            <section className="hero" id="home">
-                <div className="hero-media-stage">
-                    <img
-                        className="hero-scene-base"
-                        src="/jetski/laughlin-landing-photo.png"
-                        alt="Laughlin riverfront at sunset"
-                    />
-
-                    <video
-                        className="hero-water-video"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="auto"
-                        aria-hidden="true"
-                        onLoadedMetadata={(event) => {
-                            event.currentTarget.defaultPlaybackRate = waterPlaybackRate;
-                            event.currentTarget.playbackRate = waterPlaybackRate;
-                        }}
-                    >
-                        <source src="/jetski/water-loop.mp4" type="video/mp4" />
-                    </video>
-                </div>
-
-                <div className="hero-content">
-                    <div className="hero-layout">
-                        <div className="hero-text">
-                            <span className="eyebrow">River Hours • Open Daily • 9AM–5PM</span>
-
-                            <h1>
-                                <span className="hero-title-main">Laughlin Jet Ski</span>
-                                <span className="hero-title-accent">Rentals</span>
-                            </h1>
-
-                            <div className="hero-accent-line" />
-
-                            <p className="hero-copy">
-                                Looking for jet ski rentals in Laughlin NV on the Colorado River?
-                                Laughlin Jet Ski Rentals keeps it simple with real skis, easy
-                                directions, and online booking.
-                            </p>
-
-                            <div className="hero-actions">
-                                <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
-                                <a href={mapsUrl} target="_blank" rel="noreferrer" className="secondary-btn">Get Directions</a>
-                            </div>
-                        </div>
-
-                        <div className="hero-art">
-                            {!logoFailed ? (
-                                <img
-                                    src="/jetski/laughlin-logo.png"
-                                    alt="Laughlin Jet Ski Rentals"
-                                    className="hero-main-logo"
-                                    onError={() => setLogoFailed(true)}
-                                />
-                            ) : (
-                                <div className="hero-logo-fallback">
-                                    <strong>Laughlin</strong>
-                                    <span>Jet Ski Rentals</span>
-                                </div>
-                            )}
-
-                            {!jetSkiFailed && (
-                                <img
-                                    src="/jetski/laughlin-hero-jetski.png"
-                                    alt="Jet ski"
-                                    className="hero-jetski"
-                                    onError={() => setJetSkiFailed(true)}
-                                />
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="hero-stats">
-                        <a href={`tel:${phoneNumber}`} className="stat-card">
-                            <span className="stat-icon">☎</span>
-                            <span className="stat-number">{displayPhone}</span>
-                            <span className="stat-label">Direct booking line</span>
-                        </a>
-
-                        <div className="stat-card">
-                            <span className="stat-icon">◷</span>
-                            <span className="stat-number">9AM–5PM</span>
-                            <span className="stat-label">Monday through Sunday</span>
-                        </div>
-
-                        <a href={mapsUrl} target="_blank" rel="noreferrer" className="stat-card">
-                            <span className="stat-icon">⌖</span>
-                            <span className="stat-number">1950 Casino Dr</span>
-                            <span className="stat-label">Laughlin, NV 89029</span>
-                        </a>
-                    </div>
-                </div>
-
+                <a href={`tel:${phoneNumber}`} className="exact-hotspot hotspot-phone-card" aria-label={`Call ${displayPhone}`}>
+                    <span className="sr-only">Call {displayPhone}</span>
+                </a>
+                <a href={mapsUrl} target="_blank" rel="noreferrer" className="exact-hotspot hotspot-address-card" aria-label="Open 1950 Casino Drive in maps">
+                    <span className="sr-only">Open address in maps</span>
+                </a>
             </section>
 
             <main className="main-content">
                 <div className="main-content-inner">
-
-                    <section className="section rates-flyer-section" aria-labelledby="rates-specials-title">
-                        <div className="rates-flyer-card">
-                            <div className="rates-flyer-copy">
-                                <span className="section-kicker">Current Rates &amp; Specials</span>
-                                <h2 id="rates-specials-title">Pick your river time.</h2>
-                                <p>
-                                    See the current daily rental pricing and Monday–Thursday Early Bird
-                                    special before you book. First tank of gas is included.
-                                </p>
-
-                                <div className="rates-flyer-actions">
-                                    <a href="#book" className="primary-btn">Book Now</a>
-                                    <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
-                                </div>
-
-                                <p className="rates-flyer-note">
-                                    Early Bird pricing applies from 9AM–11AM Monday–Thursday, excluding
-                                    holidays. All-day rentals have limited availability.
-                                </p>
-                            </div>
-
-                            <a
-                                href="/jetski/laughlin-rates-flyer.png"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rates-flyer-image-link"
-                                aria-label="Open the current Laughlin Jet Ski Rentals rates flyer full size"
-                            >
-                                <img
-                                    src="/jetski/laughlin-rates-flyer.png"
-                                    alt="Laughlin Jet Ski Rentals current pricing flyer with daily and Early Bird rates"
-                                    className="rates-flyer-image"
-                                />
-                                <span className="rates-flyer-open-label">Tap to view full size</span>
-                            </a>
-                        </div>
-                    </section>
-
                     <section className="section safety-section" id="safety">
                         <div className="safety-card">
                             <div className="safety-copy">
@@ -417,20 +249,19 @@ function App() {
                             </article>
 
                             <article className="pricing-card">
-                                <span className="pricing-badge">Daily</span>
+                                <span className="pricing-badge">Mon–Thu</span>
                                 <h3>All Day Rental</h3>
-                                <div className="price">$550</div>
-                                <p>First tank of gas and life vest included. Limited availability on all-day rentals.</p>
+                                <div className="price">$350</div>
+                                <p>First tank of gas and life vest included.</p>
                                 <a href="#book" className="card-btn">Reserve This Rental</a>
                             </article>
 
-                            <article className="pricing-card pricing-card-early-bird">
-                                <span className="pricing-badge">Mon–Thu • 9AM–11AM</span>
-                                <h3>Early Bird Special</h3>
-                                <div className="price">$199 <span className="price-unit">2 Hours</span></div>
-                                <div className="price-secondary">$395 <span>All Day</span></div>
-                                <p>Excluding holidays. First tank of gas and life vest included.</p>
-                                <a href="#book" className="card-btn">Reserve Early Bird</a>
+                            <article className="pricing-card">
+                                <span className="pricing-badge">Sat–Sun</span>
+                                <h3>All Day Rental</h3>
+                                <div className="price">$500</div>
+                                <p>First tank of gas and life vest included.</p>
+                                <a href="#book" className="card-btn">Reserve This Rental</a>
                             </article>
                         </div>
                     </section>
@@ -465,6 +296,7 @@ function App() {
                                 </p>
 
                                 <div className="fareharbor-actions">
+                                    <a href="#book" className="primary-btn">Book Now</a>
                                     <a href={`tel:${phoneNumber}`} className="secondary-btn">Call {displayPhone}</a>
                                 </div>
 
@@ -493,7 +325,6 @@ function App() {
                         photos={walkthroughPhotos}
                         steps={walkthroughSteps}
                     />
-
                     <section className="section gh3d-inquiry-section" id="gh3d-inquiry">
                         <div className="gh3d-inquiry-card">
                             <div>
@@ -508,12 +339,15 @@ function App() {
                             </div>
 
                             <div className="gh3d-inquiry-actions">
-                                <a href={gh3dInquiryMailto} className="primary-btn">Start A Project</a>
-                                <a href="https://gearhead3dfab.com" target="_blank" rel="noreferrer" className="secondary-btn">Visit GH3D</a>
+                                <a href={gh3dInquiryMailto} className="primary-btn">
+                                    Start A Project
+                                </a>
+                                <a href="https://gearhead3dfab.com" target="_blank" rel="noreferrer" className="secondary-btn">
+                                    Visit GH3D
+                                </a>
                             </div>
                         </div>
                     </section>
-
                     <section className="section" id="location">
                         <div className="section-heading">
                             <span className="section-kicker">Location</span>
@@ -548,33 +382,19 @@ function App() {
             </main>
 
             <footer className="site-footer">
+                <div className="site-footer-line">© Laughlin Jet Ski Rentals • {address}</div>
+
                 <div className="site-footer-line">
-                    © 2026 Laughlin Jet Ski Rentals. All rights reserved.
+                    <VisitorCount />
                 </div>
 
-                <details className="site-legal">
-                    <summary>Copyright &amp; Image Use</summary>
-                    <p>
-                        Except where otherwise stated, Laughlin Jet Ski Rentals claims rights in the
-                        human-authored website design, written content, logo presentation, selection
-                        and arrangement, composite artwork, color treatment, masking, animation, and
-                        other original elements of this website.
-                    </p>
-                    <p>
-                        Website content may not be copied, reproduced, modified, republished,
-                        distributed, displayed, sold, licensed, used in advertising, or used to create
-                        derivative works without prior written permission, except where permitted by law.
-                    </p>
-                    <p>
-                        The Laughlin Jet Ski Rentals name and logo may not be used in a way that suggests
-                        sponsorship, endorsement, affiliation, or source without written authorization.
-                    </p>
-                </details>
-
-                <div className="site-footer-line"><VisitorCount /></div>
-
                 <div className="site-footer-line">
-                    <a href={gh3dInquiryMailto} className="gh3d-maker-btn">Built with GH3D Site Maker</a>
+                    <a
+                        href={gh3dInquiryMailto}
+                        className="gh3d-maker-btn"
+                    >
+                        Built with GH3D Site Maker
+                    </a>
                 </div>
             </footer>
         </div>
